@@ -5,10 +5,10 @@
 // ============================================================== 
 
 var chart = new Chartist.Line('.sales-trand', {
-      labels: [1, 2, 3, 4, 5, 6, 7, 8],
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       series: [
-        [0, 5, 6, 8, 25, 9, 8, 24]
-        , [0, 3, 1, 2, 8, 1, 5, 1]
+        [0, 5, 6, 20, 9, 8, 24]
+        , [0, 3, 1, 2, 6, 1, 1]
       ]}, {
       low: 0,
       high: 28,
@@ -22,7 +22,7 @@ var chart = new Chartist.Line('.sales-trand', {
         , scaleMinSpace: 40    
         , offset: 20
         , labelInterpolationFnc: function (value) {
-            return (value / 1) + 'k';
+            return (value / 1) + 'sh';
         }
     },
     });

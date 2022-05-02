@@ -14,13 +14,13 @@
     <title> PMS - Dashboard </title>
     
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/er_logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
     
     <!-- Bootstrap Core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- For icons Core CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-   
+    <link rel="stylesheet" href="./plugins/MaterialDesign-Webfont-master/css/materialdesignicons.css">
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
@@ -65,9 +65,8 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="#">
-                        <img src="../assets/pms-logo.jpg" alt="logo" width="70px" />
-                    </a>
+                    <a href="#"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -79,8 +78,10 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav me-auto">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="ti-menu"></i></a> 
+                        </li>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -89,20 +90,35 @@
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item hidden-xs-down search-box"> <a
-                                class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
-                                    class="ti-search"></i></a>
+                        <li class="nav-item hidden-xs-down search-box"> 
+                            <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)">
+                                <i class="ti-search"></i>
+                            </a>
                             <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a
-                                    class="srh-btn"><i class="ti-close"></i></a>
+                                <input type="text" class="form-control" id="x" placeholder="Search & enter"> 
+                                <a class="srh-btn"> <i class="ti-close"></i> </a>
                             </form>
                         </li>
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark" href="./page_profile.html"><img src="../assets/users/ema.jpg"
-                                    alt="user" class="profile-pic" /></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-arrow-down-right-bold"></i>
+                                <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
+                                <span class="p-2">my name</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
+                                <div class="text-center">
+                                    <img src="../assets/users/ericko.jpg" style='width: 200px;height: 200px; margin:auto;' class='img-circle img-thumbnail'><br>
+                                    <span> ERICKO </span><br>
+                                    <span>Member Since: 2016</span>
+                                </div>
+                                <div class="py-3"> 
+                                    <a class="" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded pull-right"> <i class="fa fa-power-off me-1 ms-1"></i> Sign Out </a>
+                                </div>
+                            </ul>  
                         </li>
                     </ul>
                 </div>
@@ -128,18 +144,18 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-medical-bag"></i><span class="hide-menu"> Medicine </span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
-                                        <i class="mdi mdi-group"></i><span class="hide-menu"> Categories </span>
+                                    <a href="#" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-group mdi-18px"></i><span class="hide-menu"> Categories </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">
-                                    <i class="mdi mdi-store"></i><span class="hide-menu"> Stock </span>
+                                <a href="#" class="sidebar-link waves-effect waves-light">
+                                    <i class="mdi mdi-store mdi-24px"></i><span class="hide-menu"> Stock </span>
                                   </a>
                               </li>
                             </ul>
@@ -151,23 +167,23 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-settings"></i><span class="hide-menu"> Setting </span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
-                                        <i class="mdi mdi-face-profile"></i><span class="hide-menu"> My profile </span>
+                                    <a href="#" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-account mdi-24px"></i><span class="hide-menu"> My profile </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
-                                        <i class="mdi mdi-note-plus"></i><span class="hide-menu"> Manage Users </span>
+                                    <a href="#" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-note-plus mdi-24px"></i><span class="hide-menu"> Manage Users </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
-                                        <i class="mdi mdi-hospital-building"></i><span class="hide-menu"> Company </span>
+                                    <a href="#" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hospital-building mdi-24px"></i><span class="hide-menu"> Company </span>
                                     </a>
                                 </li>
                             </ul>
@@ -199,6 +215,123 @@
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 
+
+                <!-- ============================================================== -->
+                <!-- Contents -->
+                <!-- ============================================================== -->
+                  <div class="row">
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-primary text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-hand-coin"></i>
+                                </h1>
+                                <h6 class="text-white"> Sell </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <a href="#sales-trand" class="smoothScroll">
+                                <div class="box bg-success text-center">
+                                    <h1 class="text-white">
+                                        <i class="mdi mdi-chart-areaspline"></i>
+                                    </h1>
+                                    <h6 class="text-white"> Reports </h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-delete-empty"></i>
+                                </h1>
+                                <h6 class="text-white"> Out of stock </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-alert"></i>
+                                </h1>
+                                <h6 class="text-white"> ### Expiry </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-medical-bag"></i>
+                                </h1>
+                                <h6 class="text-white"> ### Total medicine </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-clipboard-list"></i>
+                                </h1>
+                                <h6 class="text-white"> ### Medicine categories </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-account-group"></i>
+                                </h1>
+                                <h6 class="text-white"> ### Users </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-hospital-marker"></i>
+                                </h1>
+                                <h6 class="text-white"> The pharmacy </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <label for="x">
+                                <div class="box bg-success text-center">
+                                    <h1 class="text-white">
+                                        <i class="mdi mdi-help-circle"></i>
+                                    </h1>
+                                    <h6 class="text-white"> <label for="search-box">Help.?</label> </h6>
+                                </div>
+                            </label> 
+                        </div>
+                    </div>
+                    <!-- Column -->
+                  </div>
+                <!-- ============================================================== -->
+                <!-- End Contents -->
+                <!-- ============================================================== -->
+                
+                <div id="sales-trand"></div> <!-- escaping nav-bar hiding the graph title -->
+                <div class="dropdown-divider mb-5"></div>
+
                 <!-- ============================================================== -->
                 <!-- Charts -->
                 <!-- ============================================================== -->
@@ -206,7 +339,7 @@
                     <!-- ============================================================== -->
                     <!-- Sales Trand Graph -->
                     <!-- ============================================================== -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-7">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -224,6 +357,60 @@
                             </div>
                         </div>
                     </div>
+                    <!-- ============================================================== -->
+                    <!-- Top sales -->
+                    <!-- ============================================================== -->
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><span class="lstick"></span> Top 5 sales</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Item Name</th>
+                                            <th>Quantity</th>
+                                            <th>Price (TZS)</th>
+                                            <th>Total (TZS)</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Biogesic</td>
+                                                <td>30</td>
+                                                <td>7.00</td>
+                                                <td>210.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alaxan</td>
+                                                <td>20</td>
+                                                <td>10.00</td>
+                                                <td>200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tuseran</td>
+                                                <td>50</td>
+                                                <td>8.00</td>
+                                                <td>400.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BioFlu</td>
+                                                <td>45</td>
+                                                <td>12.00</td>
+                                                <td>540.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Enervon</td>
+                                                <td>100</td>
+                                                <td>6.00</td>
+                                                <td>600.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Charts -->
@@ -234,34 +421,30 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer"> 
-                <a href="#" class="fa fa-instagram"> Katunz_official_JR </a> ::
-                <a href="#" class="fa fa-whatsapp"> +255 656 631 106 </a>
+                <!-- <a href="#" class="fa fa-instagram"> Katunz_official_JR </a> :: -->
+                <!-- <a href="#" class="fa fa-whatsapp"> +255 656 631 106 </a> -->
+                <a href="#" class="fa fa-instagram"> ericko_TZ </a> ::
+                <a href="#" class="fa fa-whatsapp"> +255 752 085 279 </a>
                 
+
                 <!-- Back to top-->
                 <style>
-                    #btn-back-to-top {
-                        position: fixed;
-                        bottom: 20px;
-                        right: 20px;
-                        display: none;
-                    }
+                    #btn-back-to-top { position: fixed; bottom: 20px; right: 20px; display: none; }
                 </style> 
-                <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
-                    <i class="mdi mdi-arrow-up-bold"></i>
+                <button type="button" class="btn btn-info text-white waves-effect waves-light" id="btn-back-to-top">
+                    <i class="mdi mdi-arrow-up-bold mdi-36px"></i>
                 </button>
                 <script>
                     //Get the button
-                    let mybutton = document.getElementById("btn-back-to-top");
-
+                    var mybutton = document.getElementById("btn-back-to-top");
                     // When the user scrolls down 20px from the top of the document, show the button
                     window.onscroll = function scrollFunction(){
-                        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 10) {
+                        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                         mybutton.style.display = "block";
                         } else {
                             mybutton.style.display = "none";
                         }
                     };
-
                     // When the user clicks on the button, scroll to the top of the document
                     mybutton.addEventListener("click", function backToTop() {
                         document.body.scrollTop = 0;
@@ -303,6 +486,7 @@
     <script src="plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <!-- Chart JS -->
     <script src="js/dashboard.js"></script>
+    
 
 </body>
 

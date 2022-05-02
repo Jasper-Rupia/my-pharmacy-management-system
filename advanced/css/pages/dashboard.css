@@ -76,6 +76,15 @@ File: scss
 *******************/
 @media (max-width: 1023px) {
   .r-aside {
-    padding-right: 30px; }
-  .right-side-panel {
-    display: none; } }
+    padding-right: 30px; 
+  }
+  .right-side-panel{
+    display: none; 
+  } 
+}
+
+@media (max-width: 1170px) {
+  .navbar-header span{
+    display: none;
+  }
+}
