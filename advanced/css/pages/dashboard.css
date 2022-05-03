@@ -1,21 +1,3 @@
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-
 
 /*******************
  Sales overview Chart
@@ -56,35 +38,3 @@ File: scss
 
 .sales-trand .ct-series-a .ct-point, .sales-trand .ct-series-b .ct-point {
   stroke-width: 6px; }
-
-.c3-chart-arcs-title {
-  font-size: 26px;
-  font-weight: 600;
-  color: #67757c;
-  font-family: "Montserrat", sans-serif; }
-
-  
-/*******************
- Project of the month
-*******************/
-.pro-of-month h6 {
-  font-weight: 500;
-  margin-bottom: 0px; }
-
-/*******************
- This is for responsive dashboard1 element
-*******************/
-@media (max-width: 1023px) {
-  .r-aside {
-    padding-right: 30px; 
-  }
-  .right-side-panel{
-    display: none; 
-  } 
-}
-
-@media (max-width: 1170px) {
-  .navbar-header span{
-    display: none;
-  }
-}
