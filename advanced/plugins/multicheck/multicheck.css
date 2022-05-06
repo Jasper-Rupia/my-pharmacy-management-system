@@ -23,8 +23,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   background-color: #CDCDCD;
   border-radius: 6px; }
 
@@ -61,3 +61,4 @@
 .check-1 {
   margin-top: 12px;
   margin-left: 14px; }
+

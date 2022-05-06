@@ -11,7 +11,7 @@
     <meta name="description"
         content="">
     <meta name="robots" content="noindex,nofollow">
-    <title> PMS - Dashboard </title>
+    <title> PMS </title>
     
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
@@ -65,7 +65,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="#"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
                     <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
@@ -95,7 +95,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <form class="app-search">
-                                <input type="text" class="form-control" id="x" placeholder="Search & enter"> 
+                                <input type="text" class="form-control" placeholder="Search & enter"> 
                                 <a class="srh-btn"> <i class="ti-close"></i> </a>
                             </form>
                         </li>
@@ -103,7 +103,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
                                 <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
                                 <span class="p-2"> Ericko CR</span>
@@ -160,11 +160,22 @@
                               </li>
                             </ul>
                         </li>
-                        <li> 
-                            <a class="waves-effect waves-light" href="./page_sales.html" aria-expanded="false">
-                                <i class="mdi mdi-table"></i>
-                                <span class="hide-menu"> Sales </span>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-sale"></i><span class="hide-menu"> Sales </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_sell.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hand-coin mdi-24px"> </i><span class="hide-menu"> sell </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_sales_records.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-table mdi-24px"></i> <span class="hide-menu"> Records </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
@@ -208,7 +219,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Dashboard</h3>
+                        <h3 class="text-themecolor"> <i class="mdi mdi-gauge"></i> Dashboard </h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -224,109 +235,95 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box btn bg-success text-center waves-effect waves-dark" data-bs-toggle="modal" data-bs-target="#exampleModal-1">
+                            <a href="./page_sell.html" class="box bg-success text-center waves-effect waves-dark">
                                 <h1 class="text-white">
                                     <i class="mdi mdi-hand-coin"></i>
                                 </h1>
                                 <h6 class="text-white"> Sell </h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card card-hover">
-                            <a href="#sales-trand" class="smoothScroll">
-                                <div class="box bg-success text-center">
-                                    <h1 class="text-white">
-                                        <i class="mdi mdi-chart-areaspline"></i>
-                                    </h1>
-                                    <h6 class="text-white"> Reports </h6>
-                                </div>
                             </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box bg-warning text-center waves-effect waves-dark">
-                                <a href="./page_stock.html">
-                                    <h1 class="text-white">
-                                        0 <i class="mdi mdi-delete-empty"></i>
-                                    </h1>
-                                    <h6 class="text-white"> Out of stock </h6>
-                                </a>
-                            </div>
+                            <a href="#sales-trand" class="smoothScroll box bg-success text-center">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-chart-areaspline"></i>
+                                </h1>
+                                <h6 class="text-white"> Reports </h6>
+                            </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box bg-danger text-center waves-effect waves-dark">
-                                <a href="./page_stock.html">
-                                    <h1 class="text-white">
-                                        0 <i class="mdi mdi-alert"></i>
-                                    </h1>
-                                    <h6 class="text-white"> Expiry </h6>
-                                </a>
-                            </div>
+                            <a href="./page_stock.html" class="box bg-warning text-center waves-effect waves-dark">
+                                <h1 class="text-white">
+                                    0 <i class="mdi mdi-delete-empty"></i>
+                                </h1>
+                                <h6 class="text-white"> Out of stock </h6>
+                            </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box bg-info text-center waves-effect waves-dark">
-                                <a href="./page_stock.html">
-                                    <h1 class="text-white">
-                                        12 <i class="mdi mdi-medical-bag"></i>
-                                    </h1>
-                                    <h6 class="text-white"> Total medicine </h6>
-                                </a>
-                            </div>
+                            <a href="./page_stock.html" class="box bg-danger text-center waves-effect waves-dark">
+                                <h1 class="text-white">
+                                    0 <i class="mdi mdi-alert"></i>
+                                </h1>
+                                <h6 class="text-white"> Expiry </h6>
+                            </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box bg-info text-center waves-effect waves-dark">
-                                <a href="./page_category.html">
-                                    <h1 class="text-white">
-                                        6 <i class="mdi mdi-clipboard-list"></i>
-                                    </h1>
-                                    <h6 class="text-white"> Medicine categories </h6>
-                                </a>
-                            </div>
+                            <a href="./page_stock.html" class="box bg-info text-center waves-effect waves-dark">
+                                <h1 class="text-white">
+                                    12 <i class="mdi mdi-medical-bag"></i>
+                                </h1>
+                                <h6 class="text-white"> Total medicine </h6>
+                            </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box bg-info text-center waves-effect waves-dark">
-                                <a href="./page_users.html">
-                                    <h1 class="text-white">
-                                        6 <i class="mdi mdi-account-group"></i>
-                                    </h1>
-                                    <h6 class="text-white"> Users </h6>
-                                </a>
-                            </div>
+                            <a href="./page_category.html" class="box bg-info text-center waves-effect waves-dark">
+                                <h1 class="text-white">
+                                    6 <i class="mdi mdi-clipboard-list"></i>
+                                </h1>
+                                <h6 class="text-white"> Medicine categories </h6>
+                            </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box bg-info text-center waves-effect waves-dark">
-                                <a href="./page_pharmacy.html">
-                                    <h1 class="text-white">
-                                        <i class="mdi mdi-hospital-marker"></i>
-                                    </h1>
-                                    <h6 class="text-white"> The pharmacy </h6>
-                                </a>
-                            </div>
+                            <a href="./page_users.html" class="box bg-info text-center waves-effect waves-dark">
+                                <h1 class="text-white">
+                                    6 <i class="mdi mdi-account-group"></i>
+                                </h1>
+                                <h6 class="text-white"> Users </h6>
+                            </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card card-hover">
-                            <div class="box btn bg-success text-center waves-effect waves-dark" data-bs-toggle="modal" data-bs-target="#exampleModal-2">
+                            <a href="./page_pharmacy.html" class="box bg-info text-center waves-effect waves-dark">
+                                <h1 class="text-white">
+                                    <i class="mdi mdi-hospital-marker"></i>
+                                </h1>
+                                <h6 class="text-white"> The pharmacy </h6>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box btn bg-success text-center waves-effect waves-dark" data-bs-toggle="modal" data-bs-target="#help">
                                 <h1 class="text-white">
                                     <i class="mdi mdi-help-circle"></i>
                                 </h1>
@@ -335,25 +332,8 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <!-- Vertically centered modal 1 -->
-                    <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel"> Record sales </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light"> Save </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Vertically centered modal 2 -->
-                    <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="help" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -365,7 +345,9 @@
                                     meeting with your siniar for your needs.
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary  waves-effect waves-light"> Download now </button>
+                                    <a href="../assets/GUIDE_DOCUMENTATION.pdf" download target="_blank" class="btn btn-primary waves-effect waves-light"> 
+                                        <i class="mdi mdi-download"></i> Download now 
+                                    </a>
                                 </div>
                             </div>
                         </div>

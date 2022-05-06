@@ -11,7 +11,7 @@
     <meta name="description"
         content="">
     <meta name="robots" content="noindex,nofollow">
-    <title> PMS - Dashboard </title>
+    <title> PMS </title>
     
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
@@ -66,7 +66,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="#"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
                     <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
@@ -96,7 +96,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <form class="app-search">
-                                <input type="text" class="form-control" id="x" placeholder="Search & enter"> 
+                                <input type="text" class="form-control" placeholder="Search & enter"> 
                                 <a class="srh-btn"> <i class="ti-close"></i> </a>
                             </form>
                         </li>
@@ -104,7 +104,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
                                 <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
                                 <span class="p-2"> Ericko CR</span>
@@ -161,11 +161,22 @@
                               </li>
                             </ul>
                         </li>
-                        <li> 
-                            <a class="waves-effect waves-light" href="./page_sales.html" aria-expanded="false">
-                                <i class="mdi mdi-table"></i>
-                                <span class="hide-menu"> Sales </span>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-sale"></i><span class="hide-menu"> Sales </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_sell.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hand-coin mdi-24px"> </i><span class="hide-menu"> sell </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_sales_records.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-table mdi-24px"></i> <span class="hide-menu"> Records </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
@@ -209,7 +220,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> Setting / <span style="color: #687384;"> Manage users </span></h3>
+                        <h3 class="text-themecolor"> <i class="mdi mdi-settings"></i> Setting / <span style="color: #687384;"> Manage users </span></h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -237,6 +248,7 @@
                                             <th> Username </th>
                                             <th> Phone# </th>
                                             <th> Role </th>
+                                            <th> Registerd </th>
                                             <th> Operate </th>
                                         </tr>
                                     </thead>
@@ -248,6 +260,7 @@
                                             <td> jasper@pms.com </td>
                                             <td> 0656631106 </td>
                                             <td> Pharmacist </td>
+                                            <td> May 2019 </td>
                                             <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
                                         </tr>
                                         <tr>
@@ -257,6 +270,7 @@
                                             <td> ericko@pms.com </td>
                                             <td> 0752085279 </td>
                                             <td> Admin </td>
+                                            <td> May 2019 </td>
                                             <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked disabled> </div> </td>
                                         </tr>
                                         <tr>
@@ -266,6 +280,7 @@
                                             <td> rukia@pms.com </td>
                                             <td> 0676085279 </td>
                                             <td> Pharmacist </td>
+                                            <td> May 2019 </td>
                                             <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox"> </div> </td>
                                         </tr>
                                         <tr>
@@ -275,6 +290,7 @@
                                             <td> atha@pms.com </td>
                                             <td> 0652085279 </td>
                                             <td> Admin </td>
+                                            <td> May 2020 </td>
                                             <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
                                         </tr>
                                         <tr>
@@ -284,6 +300,7 @@
                                             <td> emma@pms.com </td>
                                             <td> 0872085279 </td>
                                             <td> Pharmacist </td>
+                                            <td> May 2019 </td>
                                             <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
                                         </tr>
                                         <tr>
@@ -293,6 +310,7 @@
                                             <td> linus@pms.com </td>
                                             <td> 0872085270 </td>
                                             <td> Pharmacist </td>
+                                            <td> May 2019 </td>
                                             <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
                                         </tr>
                                     </tbody>
@@ -304,6 +322,7 @@
                                             <th> Username </th>
                                             <th> Phone# </th>
                                             <th> Role </th>
+                                            <th> Registerd </th>
                                             <th> Operation </th>
                                         </tr>
                                     </tfoot>

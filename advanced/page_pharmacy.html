@@ -11,7 +11,7 @@
     <meta name="description"
         content="">
     <meta name="robots" content="noindex,nofollow">
-    <title> PMS - Dashboard </title>
+    <title> PMS </title>
     
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
@@ -65,7 +65,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="#"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
                     <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
@@ -95,7 +95,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <form class="app-search">
-                                <input type="text" class="form-control" id="x" placeholder="Search & enter"> 
+                                <input type="text" class="form-control" placeholder="Search & enter"> 
                                 <a class="srh-btn"> <i class="ti-close"></i> </a>
                             </form>
                         </li>
@@ -103,7 +103,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
                                 <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
                                 <span class="p-2"> Ericko CR</span>
@@ -160,11 +160,22 @@
                               </li>
                             </ul>
                         </li>
-                        <li> 
-                            <a class="waves-effect waves-light" href="./page_sales.html" aria-expanded="false">
-                                <i class="mdi mdi-table"></i>
-                                <span class="hide-menu"> Sales </span>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-sale"></i><span class="hide-menu"> Sales </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_sell.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hand-coin mdi-24px"> </i><span class="hide-menu"> sell </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_sales_records.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-table mdi-24px"></i> <span class="hide-menu"> Records </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
@@ -208,20 +219,39 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> Setting / <span style="color: #687384;"> Phamarcy details </span></h3>
+                        <h3 class="text-themecolor"> <i class="mdi mdi-settings"></i> Setting / <span style="color: #687384;"> Phamarcy details </span></h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 
-
                 <!-- ============================================================== -->
                 <!-- Contents -->
                 <!-- ============================================================== -->
-
-                ...
-        
+				<div class="row">
+					<div class="card shadow-sm col-sm-8 col-md-8 col-lg-8">
+						<div class="card-body">
+							<form class="form-horizontal form-material">
+								<div class="form-group">
+									<label class="col-form-label"> Company Name <span>*</span></label>
+									<input type="text" class="form-control" value="PMS" required>
+								</div>
+								<div class="form-group">
+									<label class="col-form-label"> Address <span>*</span></label>
+									<textarea class="form-control" placeholder="MU Mzumbe, Moro City" required></textarea>
+								</div>
+								<div class="form-group">
+									<label class="col-form-label"> Image logo </label>
+									<input class="form-control" type="file">
+								</div>
+								<div class="">
+									<button type="submit" class="btn btn-success pull-right"> Save </button>
+								</div>
+							</form>
+						</div>
+					</div>
+                </div>
                 <!-- ============================================================== -->
                 <!-- End Contents -->
                 <!-- ============================================================== -->

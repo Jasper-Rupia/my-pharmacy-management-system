@@ -11,7 +11,7 @@
     <meta name="description"
         content="">
     <meta name="robots" content="noindex,nofollow">
-    <title> PMS - Dashboard </title>
+    <title> PMS </title>
     
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
@@ -24,8 +24,9 @@
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="./plugins/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="./plugins/MaterialDesign-Webfont-master/css/materialdesignicons.css">
+    
     <!-- This page CSS -->
-
+    <link rel="stylesheet" href="./plugins/multicheck/multicheck.css">
     
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -65,7 +66,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="#"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
                     <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
@@ -95,7 +96,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <form class="app-search">
-                                <input type="text" class="form-control" id="x" placeholder="Search & enter"> 
+                                <input type="text" class="form-control" placeholder="Search & enter"> 
                                 <a class="srh-btn"> <i class="ti-close"></i> </a>
                             </form>
                         </li>
@@ -103,7 +104,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle  waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
                                 <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
                                 <span class="p-2"> Ericko CR</span>
@@ -160,11 +161,22 @@
                               </li>
                             </ul>
                         </li>
-                        <li> 
-                            <a class="waves-effect waves-light" href="./page_sales.html" aria-expanded="false">
-                                <i class="mdi mdi-table"></i>
-                                <span class="hide-menu"> Sales </span>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-sale"></i><span class="hide-menu"> Sales </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_sell.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hand-coin mdi-24px"> </i><span class="hide-menu"> sell </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_sales_records.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-table mdi-24px"></i> <span class="hide-menu"> Records </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
@@ -208,7 +220,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> Medicine / <span style="color: #687384;"> Categories </span></h3>
+                        <h3 class="text-themecolor"> <i class="mdi mdi-medical-bag"></i> Medicine / <span style="color: #687384;"> Categories </span></h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -221,23 +233,36 @@
                 <div class="row">
                     <div class="card-body">
                         <span class="pull-right">
-                            <a href="javascript:void(0)" class="btn-sm btn-primary pull-right mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal-1"> <i class="mdi mdi-plus"></i> Add new </a>
                             <a href="javascript:void(0)" class="btn-sm btn-danger pull-right"> <i class="mdi mdi-delete"></i> Delete </a>
+                            <a href="javascript:void(0)" class="btn-sm btn-primary pull-right mx-2" data-bs-toggle="modal" data-bs-target="#add-category"> <i class="mdi mdi-plus"></i> Add new / replace </a>
                         </span>
                     </div>
                     <!-- Vertically centered modal 1 -->
-                    <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="add-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel"> Record new Medicine category </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    ...
+                                <div class="modal-body text-center">
+                                    <!-- form table -->
+                                    <form>
+                                        <table>
+                                            <tr>
+                                                <th> Medicine Name: </th>
+                                                <td><input type="text" class="form-control my-2" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th> Image </th>
+                                                <td><input type="file" class="form-control my-2"></td>
+                                            </tr>
+                                        </table> 
+                                    </form>
+                                    <!-- end form table -->
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light"> Save </button>
+                                    <button type="button" class="btn btn-success waves-effect waves-light"> <i class="mdi mdi-check-bold"></i> Save </button>
                                 </div>
                             </div>
                         </div>
@@ -248,6 +273,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/cap.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> cap </span></span>
@@ -258,6 +286,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/cream.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> cream </span></span>
@@ -268,6 +299,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/syrunj.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> syrunj </span></span>
@@ -278,6 +312,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/fk.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> fk </span></span>
@@ -288,6 +325,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/injection.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> injection </span></span>
@@ -298,6 +338,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/lotion.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> lotion </span></span>
@@ -308,6 +351,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/syrup.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> syrup </span></span>
@@ -318,6 +364,9 @@
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
                             <div class="text-center"> <img src="../assets/categories/tablet.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                             <div class="dropdown-divider"></div>
                             <span>Name <span class="pull-right text-info"> tablet </span></span>
@@ -394,6 +443,9 @@
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
+    <!-- mult check box -->
+    <script src="./plugins/multicheck/datatable-checkbox-init.js"></script>
+    <script src="./plugins/multicheck/jquery.multicheck.js"></script>
     
 
 </body>

@@ -11,7 +11,7 @@
     <meta name="description"
         content="">
     <meta name="robots" content="noindex,nofollow">
-    <title> PMS - Dashboard </title>
+    <title> PMS </title>
     
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
@@ -66,7 +66,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="#"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
                     <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
@@ -96,7 +96,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <form class="app-search">
-                                <input type="text" class="form-control" id="x" placeholder="Search & enter"> 
+                                <input type="text" class="form-control" placeholder="Search & enter"> 
                                 <a class="srh-btn"> <i class="ti-close"></i> </a>
                             </form>
                         </li>
@@ -104,7 +104,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
                                 <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
                                 <span class="p-2"> Ericko CR</span>
@@ -161,11 +161,22 @@
                               </li>
                             </ul>
                         </li>
-                        <li> 
-                            <a class="waves-effect waves-light" href="./page_sales.html" aria-expanded="false">
-                                <i class="mdi mdi-table"></i>
-                                <span class="hide-menu"> Sales </span>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-sale"></i><span class="hide-menu"> Sales </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_sell.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hand-coin mdi-24px"> </i><span class="hide-menu"> sell </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_sales_records.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-table mdi-24px"></i> <span class="hide-menu"> Records </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
@@ -209,7 +220,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> Medicine / <span style="color: #687384;"> Stock </span></h3>
+                        <h3 class="text-themecolor"> <i class="mdi mdi-medical-bag"></i> Medicine / <span style="color: #687384;"> Stock </span></h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -224,7 +235,7 @@
                         <div class="card-body">
                             <h5 class="card-title"> All Medicines 
                                 <span class="pull-right">
-                                    <a href="javascript:void(0)" class="btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal-1"> <i class="mdi mdi-plus"></i> Add </a>
+                                    <a href="javascript:void(0)" class="btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#add-stock"> <i class="mdi mdi-plus"></i> Add </a>
                                     <a href="javascript:void(0)" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </a>
                                 </span>
                             </h5>
@@ -241,6 +252,7 @@
                                             <th> Price </th>
                                             <th> BB </th>
                                             <th> Status </th>
+                                            <th> Edit </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -255,6 +267,7 @@
                                             <td> 1500 </td>
                                             <td> 2023/04/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -267,6 +280,7 @@
                                             <td> 1500 </td>
                                             <td> 2022/07/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -279,6 +293,7 @@
                                             <td> 1600 </td>
                                             <td> 2023/01/12 </td>
                                             <td> <span class="badge bg-warning"> N/A </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -291,6 +306,7 @@
                                             <td> 1500 </td>
                                             <td> 2023/04/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -303,6 +319,7 @@
                                             <td> 1500 </td>
                                             <td> 2022/07/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -315,6 +332,7 @@
                                             <td> 1600 </td>
                                             <td> 2023/01/12 </td>
                                             <td> <span class="badge bg-warning"> N/A </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -327,6 +345,7 @@
                                             <td> 1500 </td>
                                             <td> 2023/04/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -339,6 +358,7 @@
                                             <td> 1500 </td>
                                             <td> 2022/07/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -351,6 +371,7 @@
                                             <td> 1600 </td>
                                             <td> 2023/01/12 </td>
                                             <td> <span class="badge bg-warning"> N/A </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -363,6 +384,7 @@
                                             <td> 1500 </td>
                                             <td> 2023/04/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -375,6 +397,7 @@
                                             <td> 1500 </td>
                                             <td> 2022/07/25 </td>
                                             <td> <span class="badge bg-success"> Available </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         <tr>
                                             <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
@@ -387,6 +410,7 @@
                                             <td> 1600 </td>
                                             <td> 2023/01/12 </td>
                                             <td> <span class="badge bg-warning"> N/A </span> </td>
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
@@ -401,6 +425,7 @@
                                             <th> Price </th>
                                             <th> BB </th>
                                             <th> Status </th>
+                                            <th> Edit </th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -409,7 +434,7 @@
                     </div>
 
                      <!-- Vertically centered modal 1 -->
-                     <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" id="add-stock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -417,10 +442,63 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <!-- form table -->
+                                    <form>
+                                        <table>
+                                            <tr>
+                                                <th> Medicine Name: </th>
+                                                <td><input type="text" class="form-control my-2" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th> Generic Name: </th>
+                                                <td><input type="text" class="form-control my-2" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th> Category: </th>
+                                                <td>
+                                                    <select class="form-control my-2"> 
+                                                        <option value="Stp"> Cap </option>
+                                                        <option value="Tab"> Tab </option>
+                                                        <option value="Sachet"> Cream </option>	
+                                                        <option value="Tube"> syrunj </option>
+                                                        <option value="Tube"> syrup </option>
+                                                        <option value="Tube"> injection </option>
+                                                        <option value="Tube"> fk </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th> Quantity: </th>
+                                                <td>
+                                                    <input type="number" class="form-control w-50 my-2">
+                                                    <select class="form-control w-25 my-2"> 
+                                                        <option value="Bot"> Units </option>
+                                                        <option value="Stp"> Stp </option>
+                                                        <option value="Tab"> Boxes </option>
+                                                        <option value="Sachet"> Sachet </option>	
+                                                        <option value="Unit"> Bots </option>
+                                                        <option value="Tube"> Tubes </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th> Cost: </th>
+                                                <td><input type="number" class="form-control my-2"></td>
+                                            </tr>
+                                            <tr>
+                                                <th> Price: </th>
+                                                <td><input type="number" class="form-control my-2"></td>
+                                            </tr> 
+                                            <tr>
+                                                <th>Expiry:</th>
+                                                <td><input type="date" class="form-control my-2" required></td>
+                                            </tr>
+                                        </table> 
+                                    </form>
+                                    <!-- end form table -->
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light"> Save </button>
+                                    <button type="button" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-check-bold"></i> Save </button>
                                 </div>
                             </div>
                         </div>
