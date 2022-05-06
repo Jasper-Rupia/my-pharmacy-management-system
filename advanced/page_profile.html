@@ -232,23 +232,29 @@
                     <!-- Column -->
                     <div class="col-lg-4 col-xlg-3">
                         <div class="card shadow-sm">
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 
-                                <center class="mt-4"> 
+                                <div class="mt-4 rounded-circle" style="width:200px; margin:auto; position:relative; overflow:hidden;"> 
+                                    <img src="../assets/users/ericko.jpg" width="200px">
                                     <!-- Button trigger modal -->
                                     <a href="javascript:void(0)" class="waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <img src="../assets/users/ericko.jpg" class="img-circle" width="200"/>
+                                        <i class="mdi mdi-camera mdi-36px"></i>
                                     </a>
-
+                                    <style>
+                                        .row .card .card-body div a{ 
+                                            height: 50px; width: 200px; position: absolute; bottom: 0; left: 50%;
+                                            transform: translateX(-50%); text-align: center; background-color: rgba(0, 0, 0, 0.45);
+                                            color: white;}
+                                    </style>
+                                </div>
+                                <div class="justify-content-md-center">
                                     <h4 class="card-title mt-2">Ericko CR</h4>
                                     <h6 class="card-subtitle"> Admin </h6>
-                                    <div class="justify-content-md-center">
-                                        <div>
-                                            <i class="mdi mdi-sale"></i> 
-                                            <font class="font-medium">Total Sales 54k</font>
-                                        </div>
+                                    <div>
+                                        <i class="mdi mdi-sale"></i> 
+                                        <span class="font-medium">Total Sales 54k</span>
                                     </div>
-                                </center>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -295,7 +301,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane pt-4 px-3" id="pass" role="tabpanel">
-                                        <form class="form-horizontal form-material">
+                                        <form class="form-material">
                                             <div class="form-group">
                                                 <label class="col-md-12"> Old password </label>
                                                 <input type="password" class="form-control form-control-line">
