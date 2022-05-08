@@ -335,14 +335,29 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel"> New Member </h5>
+                                    <h5 class="modal-title font-bold" id="exampleModalLabel"> New Member </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary waves-effect waves-light"> Save </button>
+                                    <form class="form-material">
+                                        <div class="form-group">
+                                            <label for="name"> Name </label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-md-12"> Email </label>
+                                            <input type="email" placeholder="example@xyz.com" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone"> Phone No </label>
+                                            <input type="text" class="form-control phone-inputmask"  id="phone" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="pull-right">
+                                                <button class="btn btn-success waves-effect waves-light"> <i class="mdi mdi-check-bold mdi-18px"></i> Save </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -421,6 +436,9 @@
     <!-- Data table -->
     <script src="./plugins/DataTables/datatables.js"></script>
     <script>    $("#zero_config").DataTable();    </script>
+    <!-- input mask control -->
+    <script src="./plugins/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="./js/inputmask.js"></script>
     
 
 </body>
