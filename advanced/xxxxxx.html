@@ -1,1 +1,144 @@
-<link rel="stylesheet" href="./plugins/bootstrap-5.0.2-dist/css/bootstrap.css">
+<h1> On click </h1>
+<div onclick="this.innerHTML = 'Oooops!'"> text 1 </div>
+
+
+<div onclick="changeText(this)"> text 2</div>
+<script>
+    function changeText(id) {
+        id.innerHTML = "Ooops!";
+    }
+</script>
+
+
+<a type="button" onclick="document.getElementById('demo').innerHTML = 'Oooops!'">
+    text 3
+</a>
+<div id="demo"> </div>
+
+
+<button id="myBtn"> text 4</button>
+<p id="demo"></p>
+<script>
+    document.getElementById("myBtn").addEventListener("click", displayDate);
+    function displayDate() {
+    document.getElementById("demo").innerHTML = Date();
+    }
+</script>
+
+
+
+
+
+
+
+<h1> Auto chang attr </h1>
+<img id="myImage" src="../assets/users/ema.jpg">
+<script>
+    document.getElementById("myImage").src = "../assets/users/no-profile.jpg";
+</script> 
+
+
+
+
+
+
+
+<h1> form </h1> 
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+<form name="myForm" action="" onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname" placeholder="not empty">
+  <input type="submit" value="Submit">
+</form>
+
+
+Name <input type="text" id="fname" placeholder="upper to lower" onchange="upperCase()">
+<script>
+function upperCase() {
+  const x = document.getElementById("fname");
+  x.value = x.value.toLowerCase();
+}
+</script>
+
+
+
+
+
+
+<h1 id="id01"> Read same <span> demo </span> </h1>
+<p id="id02">Hello!</p>
+<p id="id03">Hello!</p>
+<script>
+    document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+    document.getElementById("id03").innerHTML = document.getElementById("id01").childNodes[0].nodeValue;
+</script>
+
+
+
+
+
+
+<h1> append after </h1>
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+<script>
+    const para = document.createElement("p");
+    const node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    const element = document.getElementById("div1");
+    element.appendChild(para);
+</script>
+
+
+<h1> append befire </h1>
+<div id="div11">
+    <p id="p11">This is a paragraph.</p>
+    <p id="p22">This is another paragraph.</p>
+</div>
+<script>
+    const para1 = document.createElement("p");
+    const node1 = document.createTextNode("This is new 2.");
+    para1.appendChild(node1);
+    const element1 = document.getElementById("div11");
+    const child = document.getElementById("p11");
+    element1.insertBefore(para1,child);
+</script>
+
+
+<h1> remove </h1>
+<div id="divx">
+    <p id="p111">This is a paragraph.</p>
+    <p id="p222">This is another paragraph.</p>
+</div>
+<script>
+    const elmnt = document.getElementById("p111"); 
+    elmnt.remove();
+    const parent = document.getElementById("divx");
+    const childx = document.getElementById("p222");
+    parent.removeChild(childx);
+</script>
+
+
+
+
+
+<h1>collection</h1>
+<p class="p1">Hello World!</p>
+<p class="p1">Hello Norway!</p>
+<p id="demo1"></p>
+<script>
+    const myCollection = document.getElementsByClassName("p1");
+    document.getElementById("demo1").innerHTML = "The innerHTML of the second paragraph is: " + myCollection[1].innerHTML;
+    for (let i = 0; i < myCollection.length; i++) {
+        myCollection[i].style.color = "red";
+    }
+</script>
