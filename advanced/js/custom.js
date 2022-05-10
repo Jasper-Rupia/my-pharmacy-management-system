@@ -1,9 +1,17 @@
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: js
-*/
+function upperCaseProfile() {
+    var xName = document.getElementById("name");
+    xName.value = xName.value.toUpperCase();
+}
+function upperCaseCompany() {
+    var xCname = document.getElementById("Cname");
+    xCname.value = xCname.value.toUpperCase();
+}
+function lowerCaseProfile() {
+    var xEmail = document.getElementById("email");
+    xEmail.value = xEmail.value.toLowerCase();
+}
+
+
 $(function() {
     "use strict";
     $(function() {

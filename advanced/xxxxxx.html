@@ -31,11 +31,16 @@
 
 
 
-<h1> Auto chang attr </h1>
-<img id="myImage" src="../assets/users/ema.jpg">
+<h1> default dp </h1>
+<img id="myImage" src="">
 <script>
-    document.getElementById("myImage").src = "../assets/users/no-profile.jpg";
+    var myPic = document.getElementById("myImage");
+    var myPicValue = myPic.getAttribute("src");
+    if(myPicValue == "" || myPicValue == null){
+        myPic.src = "../assets/users/no-profile.jpg";        
+    }
 </script> 
+<img src="" onerror='this.src="../assets/users/no-profile.jpg"'>
 
 
 
@@ -63,7 +68,7 @@ Name <input type="text" id="fname" placeholder="upper to lower" onchange="upperC
 <script>
 function upperCase() {
   const x = document.getElementById("fname");
-  x.value = x.value.toLowerCase();
+  x.value = x.value.toUpperCase();
 }
 </script>
 

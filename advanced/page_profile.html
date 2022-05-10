@@ -102,12 +102,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
-                                <img src="../assets/users/ericko.jpg" alt="user" class="rounded-circle" width="31"/>
-                                <span class="p-2"> Ericko CR</span>
+                                <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' alt="user" class="rounded-circle no-pic" width="31"/>
+                                <span class="p-2"> ERICKO CR </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
                                 <div class="text-center">
-                                    <img src="../assets/users/ericko.jpg" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                                    <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
                                     <span> ERICKO </span><br>
                                     <span>Member Since: 2019</span>
                                 </div>
@@ -235,20 +235,21 @@
                             <div class="card-body text-center">
                                 
                                 <div class="mt-4 rounded-circle" style="width:200px; margin:auto; position:relative; overflow:hidden;"> 
-                                    <img src="../assets/users/ericko.jpg" width="200px">
+                                    <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' width="200px">
                                     <!-- Button trigger modal -->
                                     <a href="javascript:void(0)" class="waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="mdi mdi-camera mdi-36px"></i>
                                     </a>
                                     <style>
                                         .row .card .card-body div a{ 
-                                            height: 50px; width: 200px; position: absolute; bottom: 0; left: 50%;
-                                            transform: translateX(-50%); text-align: center; background-color: rgba(0, 0, 0, 0.45);
-                                            color: white;}
+                                            height:50px; width:200px; padding-top: 7px; position:absolute; bottom:0; left:50%;
+                                            transform:translateX(-50%); text-align:center; background-color:rgba(0, 0, 0, 0.45);
+                                            color:white; border-top-left-radius:50%; border-top-right-radius: 50%;}
+                                            .row .card .card-body div a:hover{ height:70px; padding-top: 13px; border-top-left-radius:0; border-top-right-radius: 0;}
                                     </style>
                                 </div>
                                 <div class="justify-content-md-center">
-                                    <h4 class="card-title mt-2">Ericko CR</h4>
+                                    <h4 class="card-title mt-2">ERICKO CR</h4>
                                     <h6 class="card-subtitle"> Admin </h6>
                                     <div>
                                         <i class="mdi mdi-sale"></i> 
@@ -283,11 +284,11 @@
                                         <form class="form-material">
                                             <div class="form-group">
                                                 <label for="name"> Name </label>
-                                                <input type="text" value="Ericko CR" class="form-control" id="name" required>
+                                                <input type="text" value="ERICKO CR" class="form-control" id="name" onchange="upperCaseProfile()" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email" class="col-md-12"> Email </label>
-                                                <input type="email" value="ericko@admin.com" class="form-control" id="email" required>
+                                                <input type="email" value="ericko@admin.com" class="form-control" id="email" onchange="lowerCaseProfile()" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="phone"> Phone No </label>
