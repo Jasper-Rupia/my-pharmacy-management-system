@@ -1,79 +1,81 @@
-<!doctype html>
-<html>
-<head>
-    <title>Create dynamic table in JavaScript</title>
-    <style>
-       
-      .input{
-          border:none;
-          font-size:10px;
-      }
-      .input:focus{
-          outline:none;
-      }
-    </style>
-    <button onclick="CreateTable()">Create</button>
- 
-</head>
-<body>
-  <table id="fetch" border="1/2" cellspacing="1" cellpadding="4">
+
+<style>
+  .input{
+      border:none;
+      font-size:10px;
+  }
+  .input:focus{
+      outline:none;
+  }
+</style>
+    
+<button onclick="CreateTable()">Create</button>
+
+<table id="fetch" border="1" cellspacing="1" cellpadding="10">
+	<tr>
+		<td>Anna</td>
+		<td>Anna</td>
+		<td>Anna</td>
+		<td>Anna</td>
+	</tr>
+</table>
 <script>
-var table = document.getElementById('fetch');
-var editTB;
-function CreateTable(){
+	var table = document.getElementById('fetch');
+	var editTB;
+	function CreateTable(){
         var table = document.getElementById("fetch");
         var row = table.insertRow(0);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
-        cell1.innerHTML = "Enter your data";
-        cell2.innerHTML = "Enter your data";
-        cell3.innerHTML = "Enter your data";
+        cell1.innerHTML = "Enter";
+        cell2.innerHTML = " your";
+        cell3.innerHTML = " data";
         cell4.innerHTML = "Enter your data";
     }
-table.onclick = function(event) {
-  let target = event.target.closest('.cancel,.ok,td');
-  if (!table.contains(target)) return;
-  if (target.className == 'cancel') {
-    editdone(editTB.elem, false);
-  } else if (target.className == 'ok') {
-    editdone(editTB.elem, true);
-  } else if (target.nodeName == 'TD') {
-    if (editTB) return;
-    editmode(target);
-  }
-};
-function editmode(td) {
-  editTB = {
-    elem: td,
-    data: td.innerHTML
-  };
-  td.classList.add('edit-td');
-  let textArea = document.createElement('textarea');
-  textArea.style.width = td.clientWidth + 'px';
-  textArea.style.height = td.clientHeight + 'px';
-  textArea.className = 'edit-area';
-  textArea.value = td.innerHTML;
-  td.innerHTML = '';
-  td.appendChild(textArea);
-  textArea.focus();
-  td.insertAdjacentHTML("beforeEnd",
-    '<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
-  );
-}
-function editdone(td, isOk) {
-  if (isOk) {
-    td.innerHTML = td.firstChild.value;
-  } else {
-    td.innerHTML = editTB.data;
-  }
-  td.classList.remove('edit-td');
-  editTB = null;
-}
-  </script>
-</body>
-</html>
+	table.onclick = function(event) {
+		let target = event.target.closest('.cancel,.ok,td');
+		if (!table.contains(target)) return;
+		if (target.className == 'cancel') {
+			editdone(editTB.elem, false);
+		} else if (target.className == 'ok') {
+			editdone(editTB.elem, true);
+		} else if (target.nodeName == 'TD') {
+			if (editTB) return;
+			editmode(target);
+		}
+	};
+
+	function editmode(td) {
+		editTB = {
+			elem: td,
+			data: td.innerHTML
+		};
+		td.classList.add('edit-td');
+		let textArea = document.createElement('textarea');
+		textArea.style.width = td.clientWidth + 'px';
+		textArea.style.height = td.clientHeight + 'px';
+		textArea.className = 'edit-area';
+		textArea.value = td.innerHTML;
+		td.innerHTML = '';
+		td.appendChild(textArea);
+		textArea.focus();
+		td.insertAdjacentHTML("beforeEnd",
+			'<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
+		);
+	}
+	function editdone(td, isOk) {
+		if (isOk) {
+			td.innerHTML = td.firstChild.value;
+		} else {
+			td.innerHTML = editTB.data;
+		}
+		td.classList.remove('edit-td');
+		editTB = null;
+	}
+</script>
+
 
 
 
