@@ -8,8 +8,6 @@
       outline:none;
   }
 </style>
-    
-<button onclick="CreateTable()">Create</button>
 
 <table id="fetch" border="1" cellspacing="1" cellpadding="10">
 	<tr>
@@ -18,7 +16,74 @@
 		<td>Anna</td>
 		<td>Anna</td>
 	</tr>
+	<tr>
+		<td>Anna</td>
+		<td>Anna</td>
+		<td>Anna</td>
+		<td>Anna</td>
+	</tr>
 </table>
+<script>
+	var table = document.getElementById('fetch');
+	var editTB;
+	table.onclick = function(event) {
+		let target = event.target.closest('.cancel,.ok,td');
+		if (!table.contains(target)) return;
+		if (target.className == 'cancel') {
+			editdone(editTB.elem, false);
+		} else if (target.className == 'ok') {
+			editdone(editTB.elem, true);
+		} else if (target.nodeName == 'TD') {
+			if (editTB) return;
+			editmode(target);
+		}
+	};
+
+	function editmode(td) {
+		editTB = {
+			elem: td,
+			data: td.innerHTML
+		};
+		td.classList.add('edit-td');
+		let textArea = document.createElement('textarea');
+		textArea.style.width = td.clientWidth + 'px';
+		textArea.style.height = td.clientHeight + 'px';
+		textArea.className = 'edit-area';
+		textArea.value = td.innerHTML;
+		td.innerHTML = '';
+		td.appendChild(textArea);
+		textArea.focus();
+		td.insertAdjacentHTML("beforeEnd",
+			'<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
+		);
+	}
+	function editdone(td, isOk) {
+		if (isOk) {
+			td.innerHTML = td.firstChild.value;
+		} else {
+			td.innerHTML = editTB.data;
+		}
+		td.classList.remove('edit-td');
+		editTB = null;
+	}
+</script> 
+
+
+<!-- 
+	
+<style>
+  .input{
+      border:none;
+      font-size:10px;
+  }
+  .input:focus{
+      outline:none;
+  }
+</style>
+    
+<button onclick="CreateTable()">Create</button>
+
+<table id="fetch" border="1" cellspacing="1" cellpadding="10"></table>
 <script>
 	var table = document.getElementById('fetch');
 	var editTB;
@@ -74,102 +139,5 @@
 		td.classList.remove('edit-td');
 		editTB = null;
 	}
-</script>
-
-
-
-
-
-
-
-
-<!-- <script>
-    function loadDATAtoCHANGE(selector) {
-    var htmls = "";
-    //loop through spans...
-    selector.closest("tr").querySelectorAll("span[id*=rubricaCONTACT]").forEach(function(el) {
-      //append new inputs ...
-      htmls += `<div class="form-group"><label>${el.getAttribute("data-name").toUpperCase()}</label><input type="text" name="${el.getAttribute("data-name")}" class="form-control" value="${el.textContent}"> </div>`
-    })
-    htmls += `<button type="submit" class="btn btn-primary">Submit</button>`
-    document.getElementById("forms").innerHTML = htmls //add them inside form..
-  }
-</script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <table class="table">
-    <tr>
-      <td><span id='rubricaCONTACTid_contact1' data-name="id">1</span></td>
-      <td><span id='rubricaCONTACTname1' data-name="name">abc</span></td>
-      <td><span id='rubricaCONTACTsurname1' data-name="surname">xyz</span></td>
-      <td><span id='rubricaCONTACTtel11' data-name="tel1">kokok</span></td>
-      <td><span id='rubricaCONTACTtel21' data-name="tel2">1345</span></td>
-      <td><span id='rubricaCONTACTmail1' data-name="email">abc@gmail.com</span></td>
-      <td><span id='rubricaCONTACTorganization1' data-name="org">somthinsghjk</span></td>
-      <td> <button onclick='loadDATAtoCHANGE(this);'>edit</button></td>
-      <td> <a href="DELETEcontact/removeCONTACT.php?id=1">&#9746;</a></td>
-    </tr>
-    <tr>
-      <td><span id='rubricaCONTACTid_contact2' data-name="id">2</span></td>
-      <td><span id='rubricaCONTACTname2' data-name="name">abc2</span></td>
-      <td><span id='rubricaCONTACTsurname2' data-name="surname">xyz2</span></td>
-      <td><span id='rubricaCONTACTtel12' data-name="tel1">kokok</span></td>
-      <td><span id='rubricaCONTACTtel22' data-name="tel2">1345</span></td>
-      <td><span id='rubricaCONTACTmail2' data-name="email">abc@gmail2.com</span></td>
-      <td><span id='rubricaCONTACTorganization2' data-name="org">somthinsghjk</span></td>
-      <td> <button onclick='loadDATAtoCHANGE(this);'>edit</button></td>
-      <td> <a href="DELETEcontact/removeCONTACT.php?id=1">&#9746;</a></td>
-    </tr>
-  
-  </table>
-  
-  <form id="forms">
-    <!--data will come here-->
-  </form> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-<div id="row_form" style="display: none;"> 
-    <tr>
-        <td><input type="text" value="e12"></td>
-        <td><input type="text" value="panadol"></td>
-        <td><input type="text" value="tab"></td>
-        <td><input type="text" value="pcm"></td>
-        <td> <button onclick="updateMedicine(id)"> update </button> </td> 
-    </tr>
-</div>    
-
-
-<div id="row_10">
-    <tr>
-        <td>e12</td>
-        <td>Panadol</td>
-        <td>tab</td>
-        <td>pcm</td>
-        <td> <button onclick="editMedicine()"> edit </button> </td>
-    </tr>
-</div>
-
-
-<script>
-    function editMedicine(id){
-        var medicene_edit = document.getElementById("row_form").innerHTML;
-        document.getElementById("row_10").innerHTML = medicene_edit;
-    }
-    function updateMedicine(id){
-        var medicene_update = document.getElementById("row_10").innerHTML;
-        document.getElementById("row_form").innerHTML = medicene_update;
-    }
-</script> -->
+</script> 
+ -->
