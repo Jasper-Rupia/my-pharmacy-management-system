@@ -23,21 +23,12 @@
     <!-- For icons Core CSS -->
     <link rel="stylesheet" href="../plugins/MaterialDesign-Webfont-master/css/materialdesignicons.css">
     
-    <!-- This page CSS -->
-    <link rel="stylesheet" href="../plugins/multicheck/multicheck.css">
-    
     <!-- Custom CSS -->
     <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/pages/extra.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/extra.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- This page CSS -->
+    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -57,7 +48,7 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
+        <header class="topbar d-print-none">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- ============================================================== -->
                 <!-- Logo -->
@@ -101,14 +92,14 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle  waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
                                 <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' class="rounded-circle" width="31"/>
                                 <span class="p-2"> ERICKO CR</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
                                 <div class="text-center">
-                                    <img src="../assets/users/ericko.jpg" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                                    <img src="../assets/users/ericko.jpg" style='width: 1500px; margin:auto;' class='img-circle img-thumbnail'><br>
                                     <span> ERICKO </span><br>
                                     <span>Member Since: 2019</span>
                                 </div>
@@ -129,7 +120,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar">
+        <aside class="left-sidebar d-print-none">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -215,9 +206,9 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                <div class="row page-titles">
+                <div class="row page-titles d-print-none">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> <i class="mdi mdi-medical-bag"></i> Medicine / <span style="color: #687384;"> Categories </span></h3>
+                        <h3 class="text-themecolor"> <span style="color: #687384;"> Form Wizard </span></h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -228,149 +219,7 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="card-body">
-                        <span class="pull-right">
-                            <a href="javascript:void(0)" class="btn-sm btn-danger pull-right"> <i class="mdi mdi-delete"></i> Delete </a>
-                            <a href="javascript:void(0)" class="btn-sm btn-primary pull-right mx-2" data-bs-toggle="modal" data-bs-target="#add-category"> <i class="mdi mdi-plus"></i> Add new / replace </a>
-                        </span>
-                    </div>
-                    <!-- Vertically centered modal 1 -->
-                    <div class="modal fade" id="add-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title font-bold" id="exampleModalLabel"> Record new Medicine category </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <!-- form table -->
-                                    <form>
-                                        <table>
-                                            <tr>
-                                                <th> Medicine Name: </th>
-                                                <td><input type="text" class="form-control my-2" required></td>
-                                            </tr>
-                                            <tr>
-                                                <th> Image </th>
-                                                <td><input type="file" class="form-control my-2"></td>
-                                            </tr>
-                                        </table> 
-                                    </form>
-                                    <!-- end form table -->
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success waves-effect waves-light"> <i class="mdi mdi-check-bold"></i> Save </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/cap.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> cap </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/cream.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> cream </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/syrunj.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> syrunj </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/fk.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> fk </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/injection.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> injection </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/lotion.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> lotion </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/syrup.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> syrup </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="../assets/categories/tablet.png" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="pull-right text-info"> tablet </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="pull-right text-info"> ###</span></span>
-                        </div>
-                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Contents -->
@@ -381,11 +230,9 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> 
-                <!-- <a href="#" class="mdi mdi-instagram"> Katunz_official_JR </a> :: -->
-                <!-- <a href="#" class="mdi mdi-whatsapp"> +255 656 631 106 </a> -->
-                <a href="javascript:void(0)" class="mdi mdi-instagram"> ericko_TZ </a> ::
-                <a href="javascript:void(0)" class="mdi mdi-whatsapp"> +255 752 085 279 </a>
+            <footer class="footer d-print-none"> 
+                <a href="#" class="mdi mdi-instagram"> ericko_TZ </a> ::
+                <a href="#" class="mdi mdi-whatsapp"> +255 752 085 279 </a>
                 
 
                 <!-- Back to top-->
@@ -440,10 +287,6 @@
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.js"></script>
-    <!-- mult check box -->
-    <script src="../plugins/multicheck/datatable-checkbox-init.js"></script>
-    <script src="../plugins/multicheck/jquery.multicheck.js"></script>
-    
 
 </body>
 
