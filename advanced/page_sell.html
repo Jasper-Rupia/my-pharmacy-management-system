@@ -27,19 +27,10 @@
     <!-- Custom CSS -->
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/pages/extra.css">
+    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
     <!-- This page CSS -->
     <link rel="stylesheet" href="../plugins/multicheck/multicheck.css">
-    <!-- Data table Page CSS -->
     <link href="../plugins/DataTables/datatables.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -116,7 +107,7 @@
                                 </div>
                                 <div class="py-3"> 
                                     <a class="" href="./page_profile.html"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded pull-right"> <i class="mdi mdi-power"></i> Sign Out </a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded float-end"> <i class="mdi mdi-power"></i> Sign Out </a>
                                 </div>
                             </ul>  
                         </li>
@@ -179,7 +170,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-settings"></i><span class="hide-menu"> Setting </span>
+                                <i class="mdi mdi-hammer-screwdriver"></i><span class="hide-menu"> Setting </span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
@@ -285,7 +276,7 @@
                         </div>
                         <div class="card col-lg-8 shadow-sm">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light pull-right" onclick="return confirm('DATA WILL BE DAVED TO SALES RECORDS.')"> <a href="./page_receipt.html" class="text-white"> <i class="mdi mdi-bookmark-check mdi-18px"></i> Generate Bill </a> </button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light float-end" onclick="return confirm('DATA WILL BE DAVED TO SALES RECORDS.')"> <a href="./page_receipt.html" class="text-white"> <i class="mdi mdi-bookmark-check mdi-18px"></i> Generate Bill </a> </button>
                             </div>
                         </div>
                     </form>
@@ -311,23 +302,6 @@
                 <button type="button" class="btn btn-sm btn-info text-white waves-effect waves-light" id="btn-back-to-top">
                     <i class="mdi mdi-arrow-up-bold mdi-24px"></i>
                 </button>
-                <script>
-                    //Get the button
-                    var mybutton = document.getElementById("btn-back-to-top");
-                    // When the user scrolls down 20px from the top of the document, show the button
-                    window.onscroll = function scrollFunction(){
-                        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                        mybutton.style.display = "block";
-                        } else {
-                            mybutton.style.display = "none";
-                        }
-                    };
-                    // When the user clicks on the button, scroll to the top of the document
-                    mybutton.addEventListener("click", function backToTop() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    });
-                </script>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

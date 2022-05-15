@@ -1,3 +1,6 @@
+
+
+
 <h1> On click </h1>
 <div onclick="this.innerHTML = 'Oooops!'"> text 1 </div>
 
@@ -37,10 +40,10 @@
     var myPic = document.getElementById("myImage");
     var myPicValue = myPic.getAttribute("src");
     if(myPicValue == "" || myPicValue == null){
-        myPic.src = "../assets/users/no-profile.jpg";        
+        myPic.src = "../../assets/users/no-profile.jpg";        
     }
 </script> 
-<img src="" onerror='this.src="../assets/users/no-profile.jpg"'>
+<img src="" onerror='this.src="../../assets/users/no-profile.jpg"'>
 
 
 
@@ -50,13 +53,13 @@
 
 <h1> form </h1> 
 <script>
-function validateForm() {
-  let x = document.forms["myForm"]["fname"].value;
-  if (x == "") {
-    alert("Name must be filled out");
-    return false;
-  }
-}
+    function validateForm() {
+    let x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+    }
 </script>
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
   Name: <input type="text" name="fname" placeholder="not empty">
@@ -66,10 +69,10 @@ function validateForm() {
 
 Name <input type="text" id="fname" placeholder="upper to lower" onchange="upperCase()">
 <script>
-function upperCase() {
-  const x = document.getElementById("fname");
-  x.value = x.value.toUpperCase();
-}
+    function upperCase() {
+        const x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+    }
 </script>
 
 

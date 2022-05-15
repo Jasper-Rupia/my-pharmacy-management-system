@@ -99,13 +99,13 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
                                 <div class="text-center">
-                                    <img src="../assets/users/ericko.jpg" style='width: 1500px; margin:auto;' class='img-circle img-thumbnail'><br>
+                                    <img src="../assets/users/ericko.jpg" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
                                     <span> ERICKO </span><br>
                                     <span>Member Since: 2019</span>
                                 </div>
                                 <div class="py-3"> 
                                     <a class="" href="./page_profile.html"><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded pull-right"> <i class="mdi mdi-power"></i> Sign Out </a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded float-end"> <i class="mdi mdi-power"></i> Sign Out </a>
                                 </div>
                             </ul>  
                         </li>
@@ -168,7 +168,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-settings"></i><span class="hide-menu"> Setting </span>
+                                <i class="mdi mdi-hammer-screwdriver"></i><span class="hide-menu"> Setting </span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
@@ -223,14 +223,14 @@
                         <div class="card-body wizard-content">
                             <h4 class="card-title">  </h4>
                             <h6 class="card-subtitle"></h6>
-                            <form id="register-form" action="javascript:void(0)" class="mt-5">
+                            <form id="register-form" action="javascript:void(0)" class="mt-4">
                                 <div>
                                     <h3> Register account </h3>
                                     <section>
                                         <label for="userName"> Name *</label>
-                                        <input id="userName" name="userName" type="text" class="required form-control"/>
+                                        <input id="userName" name="userName" type="text" class="required form-control" onchange="summaryPaste()"/>
                                         <label for="email">Email *</label>
-                                        <input id="email" name="email" type="text" class="required email form-control"/>
+                                        <input id="email" name="email" type="text" class="required email form-control" onchange="summaryPaste()"/>
                                         <label for="password"> Password *</label>
                                         <input id="password" name="password" type="password" class="required form-control"/>
                                         <label for="confirm"> Confirm Password *</label>
@@ -240,18 +240,12 @@
                                     <h3> Register pharmacy</h3>
                                     <section>
                                         <label for="phamarcyName"> Pharmacy name * </label>
-                                        <input id="phamarcyName" name="phamarcyName" type="text" class="required form-control"/>
+                                        <input id="phamarcyName" name="phamarcyName" type="text" class="required form-control" onchange="summaryPaste()"/>
                                         <label for="locationAddress"> Location address * </label>
-                                        <input id="locationAddress" name="locationAddress" type="text" class="required form-control"/>
+                                        <input id="locationAddress" name="locationAddress" type="text" class="required form-control" onchange="summaryPaste()"/>
                                         <p>(*) Means mandatory</p>
                                     </section>
                                     <h3> Sumary </h3>
-                                    <script>
-                                        document.getElementById("userName").innerHTML = document.getElementById("userNamePaste").innerHTML;
-                                        document.getElementById("email").innerHTML = document.getElementById("emailPaste").innerHTML;
-                                        document.getElementById("phamarcyName").innerHTML = document.getElementById("phamarcyNamePaste").innerHTML;
-                                        document.getElementById("locationAddress").innerHTML = document.getElementById("locationAddressPaste").innerHTML;
-                                    </script>
                                     <section>
                                         <ul>
                                             <li id="userNamePaste"> </li>
@@ -291,23 +285,6 @@
                 <button type="button" class="btn btn-sm btn-info text-white waves-effect waves-light" id="btn-back-to-top">
                     <i class="mdi mdi-arrow-up-bold mdi-24px"></i>
                 </button>
-                <script>
-                    //Get the button
-                    var mybutton = document.getElementById("btn-back-to-top");
-                    // When the user scrolls down 20px from the top of the document, show the button
-                    window.onscroll = function scrollFunction(){
-                        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                        mybutton.style.display = "block";
-                        } else {
-                            mybutton.style.display = "none";
-                        }
-                    };
-                    // When the user clicks on the button, scroll to the top of the document
-                    mybutton.addEventListener("click", function backToTop() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    });
-                </script>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -330,43 +307,14 @@
     <script src="../plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-    <!--Wave Effects -->
     <script src="../js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="../js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
     <script src="../js/custom.js"></script>
+    <!-- this page JavaScript -->
     <script src="../plugins/Steps/jquery.steps.min.js"></script>
     <script src="../plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script>
-        var form = $("#register-form");
-        form.validate({
-          errorPlacement: function errorPlacement(error, element) {
-            element.before(error);
-          },
-          rules: {
-            confirm: {
-              equalTo: "#password",
-            },
-          },
-        });
-        form.children("div").steps({
-          headerTag: "h3",
-          bodyTag: "section",
-          transitionEffect: "slideLeft",
-          onStepChanging: function (event, currentIndex, newIndex) {
-            form.validate().settings.ignore = ":disabled,:hidden";
-            return form.valid();
-          },
-          onFinishing: function (event, currentIndex) {
-            form.validate().settings.ignore = ":disabled";
-            return form.valid();
-          },
-          onFinished: function (event, currentIndex) {
-            alert("Submitted!");
-          },
-        });
-      </script>
+    <script src="../js/register-form.js"></script>
 </body>
 
 </html>

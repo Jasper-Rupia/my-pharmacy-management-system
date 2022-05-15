@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="py-3"> 
                                     <a class="" href="./page_profile.html"><i class="mdi mdi-account mdi-18px me-1 ms-1"></i> My Profile</a>
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded pull-right"> <i class="mdi mdi-power mdi-18px"></i> Sign Out </a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded float-end"> <i class="mdi mdi-power mdi-18px"></i> Sign Out </a>
                                 </div>
                             </ul>  
                         </li>
@@ -162,7 +162,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-settings"></i><span class="hide-menu"> Setting </span>
+                                <i class="mdi mdi-hammer-screwdriver"></i><span class="hide-menu"> Setting </span>
                             </a>
                             <ul aria-expanded="false" class="collapse first-level">
                                 <li class="sidebar-item">
@@ -440,23 +440,6 @@
                 <button type="button" class="btn btn-sm btn-info text-white waves-effect waves-light" id="btn-back-to-top">
                     <i class="mdi mdi-arrow-up-bold mdi-24px"></i>
                 </button>
-                <script>
-                    //Get the button
-                    var mybutton = document.getElementById("btn-back-to-top");
-                    // When the user scrolls down 20px from the top of the document, show the button
-                    window.onscroll = function scrollFunction(){
-                        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                        mybutton.style.display = "block";
-                        } else {
-                            mybutton.style.display = "none";
-                        }
-                    };
-                    // When the user clicks on the button, scroll to the top of the document
-                    mybutton.addEventListener("click", function backToTop() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    });
-                </script>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
