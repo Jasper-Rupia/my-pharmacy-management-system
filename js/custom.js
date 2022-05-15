@@ -1,7 +1,4 @@
-function upperCaseProfile() {
-    var xName = document.getElementById("name");
-    xName.value = xName.value.toUpperCase();
-}
+// ---------------------------------- profile page, users page
 function upperCaseCompany() {
     var xCname = document.getElementById("Cname");
     xCname.value = xCname.value.toUpperCase();
@@ -12,6 +9,8 @@ function lowerCaseProfile() {
 }
 
 
+
+// ---------------------------------- all pages
 $(function() {
     "use strict";
     $(function() {

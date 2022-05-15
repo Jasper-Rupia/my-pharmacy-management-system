@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="">
-    <meta name="description"
-        content="">
+    <meta name="keywords" content="">
+    <meta name="description"content="">
     <meta name="robots" content="noindex,nofollow">
     <title> PMS </title>
     
@@ -26,9 +24,11 @@
     <!-- Custom CSS -->
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/pages/extra.css">
+    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
 
     <!-- This page CSS -->
-    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <link rel="stylesheet" href="../plugins/Steps/jquery.steps.css">
+    <link rel="stylesheet" href="../plugins/Steps/steps.css">
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -208,7 +208,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles d-print-none">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> <span style="color: #687384;"> Form Wizard </span></h3>
+                        <h3 class="text-themecolor"> Form Wizard </span></h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -219,7 +219,56 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
-
+                    <div class="card">
+                        <div class="card-body wizard-content">
+                            <h4 class="card-title">  </h4>
+                            <h6 class="card-subtitle"></h6>
+                            <form id="register-form" action="javascript:void(0)" class="mt-5">
+                                <div>
+                                    <h3> Register account </h3>
+                                    <section>
+                                        <label for="userName"> Name *</label>
+                                        <input id="userName" name="userName" type="text" class="required form-control"/>
+                                        <label for="email">Email *</label>
+                                        <input id="email" name="email" type="text" class="required email form-control"/>
+                                        <label for="password"> Password *</label>
+                                        <input id="password" name="password" type="password" class="required form-control"/>
+                                        <label for="confirm"> Confirm Password *</label>
+                                        <input id="confirm" name="confirm" type="password" class="required form-control"/>
+                                        <p>(*) Means mandatory</p>
+                                    </section>
+                                    <h3> Register pharmacy</h3>
+                                    <section>
+                                        <label for="phamarcyName"> Pharmacy name * </label>
+                                        <input id="phamarcyName" name="phamarcyName" type="text" class="required form-control"/>
+                                        <label for="locationAddress"> Location address * </label>
+                                        <input id="locationAddress" name="locationAddress" type="text" class="required form-control"/>
+                                        <p>(*) Means mandatory</p>
+                                    </section>
+                                    <h3> Sumary </h3>
+                                    <script>
+                                        document.getElementById("userName").innerHTML = document.getElementById("userNamePaste").innerHTML;
+                                        document.getElementById("email").innerHTML = document.getElementById("emailPaste").innerHTML;
+                                        document.getElementById("phamarcyName").innerHTML = document.getElementById("phamarcyNamePaste").innerHTML;
+                                        document.getElementById("locationAddress").innerHTML = document.getElementById("locationAddressPaste").innerHTML;
+                                    </script>
+                                    <section>
+                                        <ul>
+                                            <li id="userNamePaste"> </li>
+                                            <li id="emailPaste"> </li>
+                                            <li id="phamarcyNamePaste"> </li>
+                                            <li id="locationAddressPaste"> </li>
+                                        </ul>
+                                    </section>
+                                    <h3> Finish </h3>
+                                    <section>
+                                        <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"/>
+                                        <label for="acceptTerms"> I agree with the Terms and Conditions. </label>
+                                    </section>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Contents -->
@@ -240,7 +289,7 @@
                     #btn-back-to-top { position: fixed; bottom: 20px; right: 20px; display: none; }
                 </style> 
                 <button type="button" class="btn btn-sm btn-info text-white waves-effect waves-light" id="btn-back-to-top">
-                    <i class="mdi mdi-arrow-up-bold mdi-36px"></i>
+                    <i class="mdi mdi-arrow-up-bold mdi-24px"></i>
                 </button>
                 <script>
                     //Get the button
@@ -287,7 +336,37 @@
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.js"></script>
-
+    <script src="../plugins/Steps/jquery.steps.min.js"></script>
+    <script src="../plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script>
+        var form = $("#register-form");
+        form.validate({
+          errorPlacement: function errorPlacement(error, element) {
+            element.before(error);
+          },
+          rules: {
+            confirm: {
+              equalTo: "#password",
+            },
+          },
+        });
+        form.children("div").steps({
+          headerTag: "h3",
+          bodyTag: "section",
+          transitionEffect: "slideLeft",
+          onStepChanging: function (event, currentIndex, newIndex) {
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+          },
+          onFinishing: function (event, currentIndex) {
+            form.validate().settings.ignore = ":disabled";
+            return form.valid();
+          },
+          onFinished: function (event, currentIndex) {
+            alert("Submitted!");
+          },
+        });
+      </script>
 </body>
 
 </html>
