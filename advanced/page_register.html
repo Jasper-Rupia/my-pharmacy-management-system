@@ -43,64 +43,79 @@
                 <!-- ============================================================== -->
                 <!-- Contents -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <div class="text-center">
-                        <h2 class="text-themecolor"> Form Wizard </h2>
-                    </div>
-                    <div class="card">
-                        <div class="card-body wizard-content">
-                            <h4 class="card-title">  </h4>
-                            <h6 class="card-subtitle"></h6>
-                            <form id="register-form" action="javascript:void(0)" class="mt-4">
-                                <div>
-                                    <h3> Register account </h3>
-                                    <section>
-                                        <div class="col-sm-9 col-md-7 col-lg-5">
-                                            <label for="userName"> Name *</label>
-                                            <input id="userName" name="userName" type="text" class="required form-control mb-4" onchange="summaryPaste()"/>
-                                            <label for="email">Email *</label>
-                                            <input id="email" name="email" type="text" class="required email form-control mb-4" onchange="summaryPaste()"/>
-                                            <label for="password"> Password *</label>
-                                            <input id="password" name="password" type="password" class="required form-control mb-4"/>
-                                            <label for="confirm"> Confirm Password *</label>
-                                            <input id="confirm" name="confirm" type="password" class="col-md-5 required form-control mb-4"/>
-                                            <p> (*) Means mandatory </p>
-                                        </div>
-                                    </section>
-                                    <h3> Register pharmacy</h3>
-                                    <section>
-                                        <div class="col-sm-9 col-md-7 col-lg-5">
-                                            <label for="phamarcyName"> Pharmacy name * </label>
-                                            <input id="phamarcyName" name="phamarcyName" type="text" class="required form-control mb-4" onchange="summaryPaste()"/>
-                                            <label for="locationAddress"> Location address * </label>
-                                            <input id="locationAddress" name="locationAddress" type="textarea" class="required form-control mb-4" onchange="summaryPaste()"/>
-                                            <p> (*) Means mandatory </p>
-                                        </div>
-                                    </section>
-                                    <h3> Sumary </h3>
-                                    <section>
-                                        <p class="text-center"> Hi <span id="userNamePaste" class="font-bold"></span> we are greatful to see you here. </p>
-                                        <br>
-                                        <p class="text-center"> We are sending an email varification to <span id="emailPaste" class="font-bold"></span> for ensuring that its you. </p>
-                                        <br>
-                                        <p class="text-center">
-                                            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required" style="visibility: hidden;"/>
-                                            <label for="acceptTerms"> I agree with the <a href="javascript:void(0)"> Terms and Conditions. </a> </label>
-                                        </p>
-                                    </section>
-                                    <h3> Finish </h3>
-                                    <section>
-                                        <div class="form-group">
-                                            <div class="text-center">
-                                                <label for="confirmation-inputmask"> <h4> Type the confirmation code to continue. </h4> </label>
-                                                <input type="text" class="form-control confirmation-inputmask text-center required" id="confirmation-inputmask" placeholder="_ _ _ - _ _ _" style="width: 170px; margin: auto;"/>
-                                                <br><br>
-                                                <h4> Didn't get the code? <a href="javascript:void(0)"> Resend </a></h4>
+                <div class="container">
+                    <div class="container">
+                        <div class="container">
+                            <div class="container">
+                                <div class="container">
+                                    <div class="container">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="text-center">
+                                                    <h2 class="text-themecolor"> Form Wizard </h2>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-body wizard-content">
+                                                        <h4 class="card-title">  </h4>
+                                                        <h6 class="card-subtitle"></h6>
+                                                        <form id="register-form" action="javascript:void(0)" class="mt-4">
+                                                            <div>
+                                                                <h3> Register account </h3>
+                                                                <section>
+                                                                    <div class="col-sm-9 col-md-7 col-lg-5">
+                                                                        <label for="userName"> Name *</label>
+                                                                        <input id="userName" name="userName" type="text" class="required form-control mb-4" onchange="summaryPaste()"/>
+                                                                        <label for="email">Email *</label>
+                                                                        <input id="email" name="email" type="text" class="required email form-control mb-4" onchange="summaryPaste()"/>
+                                                                        <label for="password"> Password *</label>
+                                                                        <input id="password" name="password" type="password" class="required form-control mb-4"/>
+                                                                        <label for="confirm"> Confirm Password *</label>
+                                                                        <input id="confirm" name="confirm" type="password" class="col-md-5 required form-control mb-4"/>
+                                                                        <p> (*) Means mandatory </p>
+                                                                    </div>
+                                                                </section>
+                                                                <h3> Register pharmacy</h3>
+                                                                <section>
+                                                                    <div class="col-sm-9 col-md-7 col-lg-5">
+                                                                        <label for="phamarcyName"> Pharmacy name * </label>
+                                                                        <input id="phamarcyName" name="phamarcyName" type="text" class="required form-control mb-4" onchange="summaryPaste()"/>
+                                                                        <label for="locationAddress"> Location address * </label>
+                                                                        <input id="locationAddress" name="locationAddress" type="textarea" class="required form-control mb-4" onchange="summaryPaste()"/>
+                                                                        <p> (*) Means mandatory </p>
+                                                                    </div>
+                                                                </section>
+                                                                <h3> Sumary </h3>
+                                                                <section>
+                                                                    <p class="text-center"> Hi <span id="userNamePaste" class="font-bold"></span> we are greatful to see you here. </p>
+                                                                    <br>
+                                                                    <p class="text-center"> We are sending an email varification to <span id="emailPaste" class="font-bold"></span> for ensuring that its you. </p>
+                                                                    <br>
+                                                                    <p class="text-center">
+                                                                        <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required" style="visibility: hidden;"/>
+                                                                        <label for="acceptTerms"> I agree with the <a href="javascript:void(0)"> Terms and Conditions. </a> </label>
+                                                                    </p>
+                                                                </section>
+                                                                <h3> Finish </h3>
+                                                                <section>
+                                                                    <div class="form-group">
+                                                                        <div class="text-center">
+                                                                            <label for="confirmation-inputmask"> <h4> Type the confirmation code to continue. </h4> </label>
+                                                                            <input type="text" class="form-control confirmation-inputmask text-center required" id="confirmation-inputmask" placeholder="_ _ _ - _ _ _" style="width: 170px; margin: auto;"/>
+                                                                            <br><br>
+                                                                            <h4> Didn't get the code? <a href="javascript:void(0)"> Resend </a></h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            
                                         </div>
-                                    </section>
+                                    </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
