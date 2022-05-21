@@ -7,7 +7,7 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta name="robots" content="" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>PMS </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg"/>
     <!-- CSS -->
@@ -24,7 +24,7 @@
 			to{top:-1px;left:-1px;width:58px;height:58px;opacity:0}
 		}
 	</style>
-  </head>
+</head>
 
 <body>
 	<div class="main-wrapper">
@@ -51,51 +51,22 @@
 					<span class="db"><img src="../assets/pms-logo.jpg" width="200"/></span>
 				</div>
 				
-				<form class="mt-3" id="loginform" action="javascript:void(0)">
+				<form action="./page_new-password.html">
 					<div class="row">
 						<div class="col-12">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text bg-success text-white h-100"><i class="mdi mdi-account mdi-24px"></i></span>
-								</div>
-								<input type="text" class="form-control form-control-lg" placeholder="email" required=""/>
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text bg-warning text-white h-100"><i class="mdi mdi-lock mdi-24px"></i></span>
-								</div>
-								<input type="password" class="form-control form-control-lg" placeholder="Password" required=""/>
-							</div>
-						</div>
-					</div>
-					<div class="row border-top border-secondary">
-						<div class="col-12">
-							<div class="form-group">
-								<div class="pt-3">
-									<button class="btn btn-info text-white" id="to-recover" type="button"> <i class="mdi mdi-lock-reset mdi-24px"></i> Lost password? </button>
-									<button class="btn btn-success float-end text-white" type="submit"> Login </button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-
-				<form id="recoverform" class="hide mt-3" action="javascript:void(0)">
-					<div class="row">
-						<div class="col-12">
-							<span> Enter your e-mail to recover a password. </span>
 							<br><br>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text bg-danger text-white h-100"><i class="mdi mdi-email mdi-24px"></i></span>
+							<label for="confirmation-inputmask"> <h4> Enter the code sent to your e-mail. </h4> </label>
+							<div class="row form-group mb-3">
+								<div class="text-center">
+									<input type="text" class="form-control confirmation-inputmask text-center" required id="confirmation-inputmask" placeholder="_ _ _ - _ _ _" style="width: 170px; margin: auto;"/>
+									<br><br>
+									<div class="col-12">
+										<button class="btn btn-sm btn-success text-white" type="submit"> Confirm </button>
+									</div>
 								</div>
-								<input type="text" class="form-control form-control-lg" placeholder="Email Address" required=""/>
 							</div>
 							<div class="row mt-3 pt-3 border-top border-secondary">
-								<div class="col-12">
-									<a class="btn btn-info text-white" href="javascript:void(0)" id="to-login"> Back To Login </a>
-									<button class="btn btn-success float-end text-white" type="button"> Recover </button>
-								</div>
+								<h4> Didn't get the code? <a href="javascript:void(0)"> Resend </a></h4>
 							</div>
 						</div>
 					</div>
@@ -111,17 +82,12 @@
     <!-- All Required js -->
     <!-- ============================================================== -->
 	<script src="../plugins/jquery/jquery.min.js"></script>
-	<script src="../plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+	<script src="../plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>    
+	<!-- this page JavaScript -->
+    <script src="../plugins/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="../js/inputmask.js"></script>
     <script>
-	  $(".preloader").fadeOut();
-      $("#to-recover").on("click", function () {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-      });
-      $("#to-login").click(function () {
-        $("#recoverform").hide();
-        $("#loginform").fadeIn();
-      });
+	  	$(".preloader").fadeOut();
     </script>
 </body>
 </html>

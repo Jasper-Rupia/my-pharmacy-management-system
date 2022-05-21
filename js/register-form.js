@@ -1,5 +1,4 @@
 
-
 // ---------------------------------- form wizard (register)
 function summaryPaste() {
     document.getElementById("userNamePaste").innerHTML = document.getElementById("userName").value + ",";
@@ -31,6 +30,7 @@ form.children("div").steps({
     return form.valid();
   },
   onFinished: function (event, currentIndex) {
-    alert("Submitted!");
+    alert("Account created!");
+    document.getElementById("myForm").submit();
   },
 });

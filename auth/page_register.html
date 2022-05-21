@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description"content="">
+    <meta name="robots" content="noindex,nofollow">
+    <title> PMS </title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
+    
+    <link rel="stylesheet" href="../plugins/bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <link rel="stylesheet" href="../plugins/Steps/jquery.steps.css">
+    <link rel="stylesheet" href="../plugins/Steps/steps.css">
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label"> PMS </p>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Contents -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="text-center">
+                        <h2 class="text-themecolor"> Register account </h2>
+                    </div>
+                    <div class="card">
+                        <div class="card-body wizard-content">
+                            <h4 class="card-title">  </h4>
+                            <h6 class="card-subtitle"></h6>
+                            <form id="register-form" action="../advanced/index.html" class="mt-4">
+                                <div>
+
+                                    <h3> Account </h3>
+                                    <section>
+                                        <div class="col-sm-9 col-md-7 col-lg-5" style="margin: auto;">
+                                            <label for="userName"> Name * </label>
+                                            <input id="userName" name="userName" type="text" class="required form-control mb-4" onchange="summaryPaste()"/>
+                                            <label for="email">Email *</label>
+                                            <input id="email" name="email" type="text" class="required email form-control mb-4" onchange="summaryPaste()"/>
+                                            <p> (*) Means mandatory </p>
+                                        </div>
+                                    </section>
+
+                                    <h3> Password </h3>
+                                    <section>
+                                        <div class="col-sm-9 col-md-7 col-lg-5" style="margin: auto;">
+                                            <label for="password"> Password *</label>
+                                            <input id="password" name="password" type="password" class="required form-control mb-4"/>
+                                            <label for="confirm"> Confirm Password *</label>
+                                            <input id="confirm" name="confirm" type="password" class="required form-control mb-4"/>
+                                            <p> (*) Means mandatory </p>
+                                        </div>
+                                    </section>
+
+                                    <h3> Pharmacy</h3>
+                                    <section>
+                                        <div class="col-sm-9 col-md-7 col-lg-5" style="margin: auto;">
+                                            <label for="phamarcyName"> Pharmacy name * </label>
+                                            <input id="phamarcyName" name="phamarcyName" type="text" class="required form-control mb-4" onchange="summaryPaste()"/>
+                                            <label for="locationAddress"> Location address * </label>
+                                            <input id="locationAddress" name="locationAddress" type="textarea" class="required form-control mb-4" onchange="summaryPaste()"/>
+                                            <p> (*) Means mandatory </p>
+                                        </div>
+                                    </section>
+
+                                    <h3> Sumary </h3>
+                                    <section>
+                                        <p class="text-center"> Hi <span id="userNamePaste" class="font-bold"></span> we are greatful to see you here. </p>
+                                        <br>
+                                        <p class="text-center"> We are sending an email varification to <span id="emailPaste" class="font-bold"></span> for ensuring that its you. </p>
+                                        <br>
+                                        <p class="text-center">
+                                            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required" style="visibility: hidden;"/>
+                                            <label for="acceptTerms"> I agree with the <a href="javascript:void(0)"> Terms and Conditions. </a> </label>
+                                        </p>
+                                    </section>
+
+                                    <h3> Finish </h3>
+                                    <section>
+                                        <div class="form-group">
+                                            <div class="text-center">
+                                                <label for="confirmation-inputmask"> <h4> Type the confirmation code to continue. </h4> </label>
+                                                <input type="text" class="form-control confirmation-inputmask text-center required" id="confirmation-inputmask" placeholder="_ _ _ - _ _ _" style="width: 170px; margin: auto;"/>
+                                                <br><br>
+                                                <h4> Didn't get the code? <a href="javascript:void(0)"> Resend </a></h4>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Contents -->
+                <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- this page JavaScript -->
+    <script src="../plugins/Steps/jquery.steps.min.js"></script>
+    <script src="../plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../js/register-form.js"></script>
+    <script src="../plugins/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="../js/inputmask.js"></script>
+    <script> $(function() {$(".preloader").fadeOut();}); </script>
+</body>
+
+</html>
