@@ -2,12 +2,10 @@
 
 // ---------------------------------- form wizard (register)
 function summaryPaste() {
-    document.getElementById("userNamePaste").innerHTML = document.getElementById("userName").value;
+    document.getElementById("userNamePaste").innerHTML = document.getElementById("userName").value + ",";
     var emailToLowerString = document.getElementById("email").value.toLowerCase();
     document.getElementById("email").value = emailToLowerString;
     document.getElementById("emailPaste").innerHTML = emailToLowerString;
-    document.getElementById("phamarcyNamePaste").innerHTML = document.getElementById("phamarcyName").value;
-    document.getElementById("locationAddressPaste").innerHTML = document.getElementById("locationAddress").value;
 }
 var form = $("#register-form");
 form.validate({

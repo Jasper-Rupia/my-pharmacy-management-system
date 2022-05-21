@@ -32,11 +32,7 @@ File: css
     position: absolute;
     left: -99999px
 }
-.wizard-content  .wizard > .steps .current a, .wizard-content .wizard > .actions a,.wizard-content .wizard > .actions a:hover, 
-.wizard-content .wizard > .steps .disabled a, .wizard-content .wizard > .steps .disabled a:hover, .wizard-content .wizard > .steps .disabled a:active,
-.wizard-content .wizard > .content,.wizard-content .wizard > .steps .done a, .wizard-content .wizard > .steps .done a:hover, .wizard-content .wizard > .steps .done a:active{
-    /*background: transparent;*/
-}
+
 .wizard-content .wizard > .steps > ul > li,.wizard-content .wizard > .actions > ul > li{
     float:none;
 }
@@ -76,11 +72,6 @@ File: css
 .wizard-content .wizard>.steps>ul>li:first-child:before,
 .wizard-content .wizard>.steps>ul>li:last-child:after {
     content: none
-}
-
-.wizard-content .wizard>.steps>ul>li.current>a {
-    /*color: #2f3d4a;
-    cursor: default*/
 }
 
 .wizard-content .wizard>.steps>ul>li.current .step {
@@ -135,10 +126,6 @@ File: css
 .wizard-content .wizard>.content>.title {
     position: absolute;
     left: -99999px
-}
-
-.wizard-content .wizard>.content>.body {
-   /* padding: 0 20px*/
 }
 
 .wizard-content .wizard>.content>iframe {

@@ -4,6 +4,7 @@ $(function (e) {
       $(".phone-inputmask").inputmask("(+255) 999 999 999"),
       $(".international-inputmask").inputmask("+9(999)999-9999"),
       $(".xphone-inputmask").inputmask("(999) 999-9999 / x999999"),
+      $(".confirmation-inputmask").inputmask("* * * - * * *"),
       $(".purchase-inputmask").inputmask("aaaa 9999-****"),
       $(".cc-inputmask").inputmask("9999 9999 9999 9999"),
       $(".ssn-inputmask").inputmask("999-99-9999"),
