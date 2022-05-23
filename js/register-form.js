@@ -31,6 +31,6 @@ form.children("div").steps({
   },
   onFinished: function (event, currentIndex) {
     alert("Account created!");
-    document.getElementById("myForm").submit();
+    document.getElementById("register-form").submit();
   },
 });
