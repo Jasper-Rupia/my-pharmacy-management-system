@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BotConfig(AppConfig):
+class AdminpanelConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'bot'
+    name = 'adminPanel'
