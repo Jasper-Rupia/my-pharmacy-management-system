@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="">
+    <meta name="description"
+        content="">
+    <meta name="robots" content="noindex,nofollow">
+    <title> PMS </title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
+    
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../plugins/bootstrap-5.0.2-dist/css/bootstrap.css">
+    
+    <!-- For icons Core CSS -->
+    <link rel="stylesheet" href="../plugins/MaterialDesign-Webfont-master/css/materialdesignicons.css">
+    
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/extra.css">
+    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
+
+    <!-- This page CSS -->
+    <link rel="stylesheet" href="../plugins/multicheck/multicheck.css">
+    <link href="../plugins/DataTables/datatables.css" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label"> PMS </p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <span class="dark-logo h3"> PMS </span>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> 
+                            <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="mdi mdi-menu mdi-24px"></i></a> 
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-xs-down search-box"> 
+                            <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)">
+                                <i class="mdi mdi-search-web mdi-24px"></i>
+                            </a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> 
+                                <a class="srh-btn"> <i class="mdi mdi-close mdi-24px"></i> </a>
+                            </form>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-arrow-down-right-bold"></i>
+                                <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' alt="user" class="rounded-circle" width="31"/>
+                                <span class="p-2"> ERICKO CR</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
+                                <div class="text-center">
+                                    <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                                    <span> ERICKO </span><br>
+                                    <span>Member Since: 2019</span>
+                                </div>
+                                <div class="py-3"> 
+                                    <a class="" href="./page_profile.html"><i class="mdi mdi-account"></i> My Profile</a>
+                                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded float-end"> <i class="mdi mdi-power"></i> Sign Out </a>
+                                </div>
+                            </ul>  
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> 
+                            <a class="waves-effect waves-light" href="index.html" aria-expanded="false">
+                                <i class="mdi mdi-gauge"></i>
+                                <span class="hide-menu"> Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-medical-bag"></i><span class="hide-menu"> Medicine </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_category.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-group mdi-18px"></i><span class="hide-menu"> Categories </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                <a href="./page_stock.html" class="sidebar-link waves-effect waves-light">
+                                    <i class="mdi mdi-store mdi-24px"></i><span class="hide-menu"> Stock </span>
+                                  </a>
+                              </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-sale"></i><span class="hide-menu"> Sales </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_sell.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hand-coin mdi-24px"> </i><span class="hide-menu"> sell </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_sales_records.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-table mdi-24px"></i> <span class="hide-menu"> Records </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-light" href="javascript:void(0)" aria-expanded="false">
+                                <i class="mdi mdi-hammer-screwdriver"></i><span class="hide-menu"> Setting </span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level">
+                                <li class="sidebar-item">
+                                    <a href="./page_profile.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-account mdi-24px"></i><span class="hide-menu"> My profile </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_users.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-note-plus mdi-24px"></i><span class="hide-menu"> Manage Users </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="./page_pharmacy.html" class="sidebar-link waves-effect waves-light">
+                                        <i class="mdi mdi-hospital-marker mdi-24px"></i><span class="hide-menu"> Pharmacy </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor"> <i class="mdi mdi-hammer-screwdriver"></i> Setting / <span style="color: #687384;"> Manage users </span></h3>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- Contents -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"> All Medicines 
+                                <span class="float-end">
+                                    <a href="javascript:void(0)" class="btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal-1"> <i class="mdi mdi-plus"></i> Add </a>
+                                    <a href="javascript:void(0)" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </a>
+                                </span>
+                            </h5>
+                            <div class="table-responsive">
+                                <table id="zero_config" class="table table-striped table-bordered text-center">
+                                    <thead>
+                                        <tr><th> <label class="customcheckbox mb-3"> <input type="checkbox" id="mainCheckbox" /> <span class="checkmark"></span></label> </th>
+                                            <th> Avata </th>
+                                            <th> Name </th>
+                                            <th> Username </th>
+                                            <th> Phone# </th>
+                                            <th> Role </th>
+                                            <th> Registerd </th>
+                                            <th> Operate </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
+                                            <td> <img src="../assets/users/me.jpg" onerror='this.src="../assets/users/no-profile.jpg"' class="rounded-circle" width="40"/> </td>
+                                            <td> Jasper </td>
+                                            <td> jasper@pms.com </td>
+                                            <td> 0656631106 </td>
+                                            <td> Pharmacist </td>
+                                            <td> May 2019 </td>
+                                            <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
+                                            <td> <img src="" onerror='this.src="../assets/users/no-profile.jpg"' class="rounded-circle" width="40"></i> </td>
+                                            <td> Rukia </td>
+                                            <td> rukia@pms.com </td>
+                                            <td> 0676085279 </td>
+                                            <td> Pharmacist </td>
+                                            <td> May 2019 </td>
+                                            <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox"> </div> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
+                                            <td> <img src="../assets/users/atha.jpg" onerror='this.src="../assets/users/no-profile.jpg"' class="rounded-circle" width="40"/> </td>
+                                            <td> Atha </td>
+                                            <td> atha@pms.com </td>
+                                            <td> 0652085279 </td>
+                                            <td> Admin </td>
+                                            <td> May 2020 </td>
+                                            <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
+                                            <td> <img src="../assets/users/ema.jpg" onerror='this.src="../assets/users/no-profile.jpg"' class="rounded-circle" width="40"/> </td>
+                                            <td> Emma </td>
+                                            <td> emma@pms.com </td>
+                                            <td> 0872085279 </td>
+                                            <td> Pharmacist </td>
+                                            <td> May 2019 </td>
+                                            <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
+                                            <td> <img src="../assets/users/linu.jpg" onerror='this.src="../assets/users/no-profile.jpg"' class="rounded-circle" width="40"/> </td>
+                                            <td> Linus </td>
+                                            <td> linus@pms.com </td>
+                                            <td> 0872085270 </td>
+                                            <td> Pharmacist </td>
+                                            <td> May 2019 </td>
+                                            <td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" checked> </div> </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th> </th>
+                                            <th> Avata </th>
+                                            <th> Name </th>
+                                            <th> Username </th>
+                                            <th> Phone# </th>
+                                            <th> Role </th>
+                                            <th> Registerd </th>
+                                            <th> Operation </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Vertically centered modal 1 -->
+                     <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title font-bold" id="exampleModalLabel"> New Member </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-material">
+                                        <div class="form-group">
+                                            <label for="name"> Name </label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-md-12"> Email </label>
+                                            <input type="email" placeholder="example@xyz.com" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone"> Phone No </label>
+                                            <input type="text" class="form-control phone-inputmask"  id="phone" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="float-end">
+                                                <button class="btn btn-success waves-effect waves-light"> <i class="mdi mdi-check-bold mdi-18px"></i> Save </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Contents -->
+                <!-- ============================================================== -->
+                
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> 
+                <a href="javascript:void(0)" class="mdi mdi-instagram"> ericko_TZ </a> ::
+                <a href="javascript:void(0)" class="mdi mdi-whatsapp"> +255 752 085 279 </a>
+                
+                <!-- Back to top-->
+                <style>
+                    #btn-back-to-top { position: fixed; bottom: 20px; right: 20px; display: none; }
+                </style> 
+                <button type="button" class="btn btn-sm btn-info text-white waves-effect waves-light" id="btn-back-to-top">
+                    <i class="mdi mdi-arrow-up-bold mdi-24px"></i>
+                </button>
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <script src="../plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <!--Wave Effects -->
+    <script src="../js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../js/custom.js"></script>
+    <!-- mult check box -->
+    <script src="../plugins/multicheck/datatable-checkbox-init.js"></script>
+    <script src="../plugins/multicheck/jquery.multicheck.js"></script>
+    <!-- Data table -->
+    <script src="../plugins/DataTables/datatables.js"></script>
+    <script>    $("#zero_config").DataTable();    </script>
+    <!-- input mask control -->
+    <script src="../plugins/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="../js/inputmask.js"></script>
+    
+
+</body>
+
+</html>
