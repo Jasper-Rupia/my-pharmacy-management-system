@@ -6,5 +6,5 @@ from django.template import loader
 
 # Create your views here.
 def index1(request):
-    authTemp = loader.get_template('login.html')
+    authTemp = loader.get_template('index1.html')
     return HttpResponse(authTemp.render())
