@@ -5,6 +5,6 @@ from django.http import HttpResponse
 from django.template import loader
 
 # Create your views here.
-def index(request):
-    authTemp = loader.get_template('index.html')
+def index1(request):
+    authTemp = loader.get_template('login.html')
     return HttpResponse(authTemp.render())
