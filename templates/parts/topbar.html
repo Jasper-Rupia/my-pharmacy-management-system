@@ -1,0 +1,66 @@
+{% load static %}
+<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- ============================================================== -->
+        <!-- Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a href=""> <img src="{% static 'assets/pms-logo.jpg' %}" alt="logo" width="70px" /> </a>
+            <span class="dark-logo h3"> PMS </span>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+
+        <div class="navbar-collapse">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav me-auto">
+                <!-- This is  -->
+                <li class="nav-item"> 
+                    <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                        href="javascript:void(0)"><i class="mdi mdi-menu mdi-24px"></i></a> 
+                </li>
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+                <!-- ============================================================== -->
+                <!-- Search -->
+                <!-- ============================================================== -->
+                <li class="nav-item hidden-xs-down search-box"> 
+                    <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)">
+                        <i class="mdi mdi-search-web mdi-24px"></i>
+                    </a>
+                    <form class="app-search">
+                        <input type="text" class="form-control" placeholder="Search & enter"> 
+                        <a class="srh-btn"> <i class="mdi mdi-close mdi-24px"></i> </a>
+                    </form>
+                </li>
+                <!-- ============================================================== -->
+                <!-- Profile -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-arrow-down-right-bold"></i>
+                        <img src="{% static 'assets/users/ericko.jpg' %}" onerror='this.src="../assets/users/no-profile.jpg"' alt="user" class="rounded-circle" width="31"/>
+                        <span class="p-2"> ERICKO CR</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
+                        <div class="text-center">
+                            <img src="{% static 'assets/users/ericko.jpg' %}" onerror='this.src="../assets/users/no-profile.jpg"' style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                            <span> ERICKO </span><br>
+                            <span>Member Since: 2019</span>
+                        </div>
+                        <div class="py-3"> 
+                            <a href="profile"><i class="mdi mdi-account mdi-18px me-1 ms-1"></i> My Profile</a>
+                            <a href="javascript:void(0)" class="btn btn-sm btn-secondary btn-rounded float-end"> <i class="mdi mdi-power mdi-18px"></i> Sign Out </a>
+                        </div>
+                    </ul>  
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
