@@ -9,15 +9,16 @@
     <meta name="description" content="">
     <meta name="robots" content="noindex,nofollow">
     <title> PMS </title>
+    {% load static %}
     
     <!--  PLUGINS CSS -->
-    <link rel="stylesheet" href="../plugins/bootstrap-5.0.2-dist/css/bootstrap.css">
-    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.0.2-dist/css/bootstrap.css' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- You can change the theme colors from here -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
-    <link href="../css/pages/extra.css" rel="stylesheet">
-    <link href="../css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/pms-logo.jpg' %}">
+    <link href="{% static 'css/pages/extra.css' %}" rel="stylesheet">
+    <link href="{% static 'css/colors/default-dark.css' %}" id="theme" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -48,7 +49,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a href="./index.html"> <img src="../assets/pms-logo.jpg" alt="logo" width="70px" /> </a>
+                    <a href="./index.html"> <img src="{% static 'assets/pms-logo.jpg' %}" alt="logo" width="70px" /> </a>
                     <span class="dark-logo h3"> PMS </span>
                 </div>
                 <!-- ============================================================== -->
@@ -88,12 +89,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-arrow-down-right-bold"></i>
-                                <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' alt="user" class="rounded-circle" width="31"/>
+                                <img src="{% static 'assets/users/ericko.jpg' %}" onerror='this.src="../assets/users/no-profile.jpg"' alt="user" class="rounded-circle" width="31"/>
                                 <span class="p-2"> ERICKO CR</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
                                 <div class="text-center">
-                                    <img src="../assets/users/ericko.jpg" onerror='this.src="../assets/users/no-profile.jpg"' style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                                    <img src="{% static 'assets/users/ericko.jpg' %}" onerror='this.src="../assets/users/no-profile.jpg"' style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
                                     <span> ERICKO </span><br>
                                     <span>Member Since: 2019</span>
                                 </div>
@@ -456,15 +457,15 @@
     
     <!-- PLUGINS JS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
-    <script src="../plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
-    <script src="../plugins/jquery/jquery.min.js"></script>
-    <script src="../plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-    <script src="../js/waves.js"></script>
+    <script src="{% static 'plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.js' %}"></script>
+    <script src="{% static 'js/waves.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/sidebarmenu.js"></script>
+    <script src="{% static 'js/sidebarmenu.js' %}"></script>
     <!--Custom JavaScript -->
-    <script src="../js/custom.js"></script>
-    <script src="../js/graph.js"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/graph.js' %}"></script>
 
 </body>
 

@@ -11,14 +11,15 @@
     <meta name="robots" content="noindex,nofollow">
     <title> PMS </title>
     
+    {% load static %}
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/pms-logo.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/pms-logo.jpg' %}">
     
-    <link rel="stylesheet" href="../plugins/bootstrap-5.0.2-dist/css/bootstrap.css">
-    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.0.2-dist/css/bootstrap.css' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <!-- This page CSS -->
-    <link rel="stylesheet" href="../plugins/Steps/jquery.steps.css">
-    <link rel="stylesheet" href="../plugins/Steps/steps.css">
+    <link rel="stylesheet" href="{% static 'plugins/Steps/jquery.steps.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/Steps/steps.css' %}">
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -51,7 +52,7 @@
                         <div class="card-body wizard-content">
                             <h4 class="card-title">  </h4>
                             <h6 class="card-subtitle"></h6>
-                            <form id="register-form" action="../advanced/index.html" class="mt-4">
+                            <form id="register-form" action="adminPanel" class="mt-4">
                                 <div>
 
                                     <h3> Account </h3>
@@ -131,13 +132,13 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
     <!-- this page JavaScript -->
-    <script src="../plugins/Steps/jquery.steps.min.js"></script>
-    <script src="../plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="../js/register-form.js"></script>
-    <script src="../plugins/inputmask/jquery.inputmask.bundle.js"></script>
-    <script src="../js/inputmask.js"></script>
+    <script src="{% static 'plugins/Steps/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/register-form.js' %}"></script>
+    <script src="{% static 'plugins/inputmask/jquery.inputmask.bundle.js' %}"></script>
+    <script src="{% static 'js/inputmask.js' %}"></script>
     <script> $(function() {$(".preloader").fadeOut();}); </script>
 </body>
 
