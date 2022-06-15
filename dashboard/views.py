@@ -3,5 +3,5 @@ from django.template import loader
 
 
 def index(request):
-    authTemp = loader.get_template('advanced/index.html')
-    return HttpResponse(authTemp.render())
+    pmsTemplate = loader.get_template('advanced/index.html')
+    return HttpResponse(pmsTemplate.render())
