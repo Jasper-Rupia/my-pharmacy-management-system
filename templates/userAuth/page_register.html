@@ -3,20 +3,7 @@
 {% load static %}
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="">
-    <meta name="description"content="">
-    <meta name="robots" content="noindex,nofollow">
-    <title> PMS </title>
-
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/pms-logo.jpg' %}">
-    
-    <link rel="stylesheet" href="{% static 'plugins/bootstrap-5.0.2-dist/css/bootstrap.css' %}">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% include 'parts/head.html' %}
     <!-- This page CSS -->
     <link rel="stylesheet" href="{% static 'plugins/Steps/jquery.steps.css' %}">
     <link rel="stylesheet" href="{% static 'plugins/Steps/steps.css' %}">
@@ -52,7 +39,7 @@
                         <div class="card-body wizard-content">
                             <h4 class="card-title">  </h4>
                             <h6 class="card-subtitle"></h6>
-                            <form id="register-form" action="" class="mt-4">
+                            <form id="register-form" action="register" class="mt-4">
                                 <div>
 
                                     <h3> Account </h3>
@@ -132,7 +119,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    {% include 'parts/scripts.html' %}
     <!-- this page JavaScript -->
     <script src="{% static 'plugins/Steps/jquery.steps.min.js' %}"></script>
     <script src="{% static 'plugins/jquery-validation/jquery.validate.min.js' %}"></script>

@@ -1,16 +1,17 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
+from django.http import HttpResponse
 
 
 def receipt(request):
-    pmsTemplate = loader.get_template('advanced/page_receipt.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/page_receipt.html')
+    
 
 def records(request):
-    pmsTemplate = loader.get_template('advanced/page_sales_records.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/page_sales_records.html')
+    
 
 def sell(request):
-    pmsTemplate = loader.get_template('advanced/page_sell.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/page_sell.html')
+    
 

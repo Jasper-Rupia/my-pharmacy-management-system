@@ -1,30 +1,9 @@
 <!DOCTYPE html>
 <html dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <meta name="robots" content="" />
-    <title> PMS </title>
 	{% load static %}
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/pms-logo.jpg' %}"/>
-    <!-- CSS -->
-	<link rel="stylesheet" href="{% static 'plugins/bootstrap-5.0.2-dist/css/bootstrap.css' %}">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
-	<style>
-		.preloader{width:100%;height:100%;top:0px;position:fixed;z-index:99999;background:#fff}
-		.lds-ripple{display:inline-block;position:relative;width:64px;height:64px;position:absolute;top:calc(50% - 3.5px);left:calc(50% - 3.5px)}
-		.lds-ripple .lds-pos{position:absolute;border:2px solid #2962ff;opacity:1;border-radius:50%;animation:lds-ripple 1s cubic-bezier(0,0.1,0.5,1) infinite}
-		.lds-ripple .lds-pos:nth-child(2){animation-delay:-0.5s}
-		@keyframes lds-ripple{
-			0%{top:28px;left:28px;width:0;height:0;opacity:0}
-			5%{top:28px;left:28px;width:0;height:0;opacity:1}
-			to{top:-1px;left:-1px;width:58px;height:58px;opacity:0}
-		}
-	</style>
+
+<head>
+    {% include 'parts/head.html' %}
 </head>
 
 <body>
@@ -33,14 +12,12 @@
 		<!-- Preloader - style you can find in spinners.css -->
 		<!-- ============================================================== -->
 		<div class="preloader">
-			<div class="lds-ripple">
-			<div class="lds-pos"></div>
-			<div class="lds-pos"></div>
+			<div class="loader">
+				<div class="loader__figure"></div>
+				<p class="loader__label"> PMS </p>
 			</div>
 		</div>
-		<!-- ============================================================== -->
-		<!-- Preloader - style you can find in spinners.css -->
-		<!-- ============================================================== -->
+
 
 		<!-- ============================================================== -->
 		<!-- Login box -->
@@ -52,7 +29,7 @@
 					<span class="db"><img src="{% static 'assets/pms-logo.jpg' %}" width="170"/></span>
 				</div>
 				
-				<form class="mt-3" id="loginform" action="../advanced/index.html">
+				<form class="mt-3" id="loginform" action="login">
 					<div class="row">
 						<div class="col-12">
 							<div class="input-group mb-3">
@@ -81,13 +58,13 @@
 								<br>
 								Lost <a href="javascript:void(0)" id="to-recover" class="font-bold"> password? </a>
 								<br> OR <br>
-								Don't have an account?<a href="userAuth/register" class="font-bold"> Create one.</a> 
+								Don't have an account?<a href="register" class="font-bold"> Create one.</a> 
 							</div>
 						</div>
 					</div>
 				</form>
 
-				<form id="recoverform" action="userAuth/recover" class="hide mt-3">
+				<form id="recoverform" action="recover" class="hide mt-3">
 					<div class="row">
 						<div class="col-12">
 							<span> Enter your e-mail to recover a password. </span>
@@ -117,18 +94,7 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-	<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
-	<script src="{% static 'plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js' %}"></script>
-    <script>
-	  $(".preloader").fadeOut();
-      $("#to-recover").on("click", function () {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-      });
-      $("#to-login").click(function () {
-        $("#recoverform").hide();
-        $("#loginform").fadeIn();
-      });
-    </script>
+	{% include 'parts/scripts.html' %}
+
 </body>
 </html>

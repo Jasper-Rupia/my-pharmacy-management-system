@@ -1,15 +1,16 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
+from django.http import HttpResponse
 
 
 def pharmacy(request):
-    pmsTemplate = loader.get_template('advanced/page_pharmacy.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/page_pharmacy.html')
+    
 
 def profile(request):
-    pmsTemplate = loader.get_template('advanced/page_profile.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/page_profile.html')
+    
 
 def users(request):
-    pmsTemplate = loader.get_template('advanced/page_users.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/page_users.html')
+    

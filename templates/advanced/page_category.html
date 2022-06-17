@@ -103,6 +103,21 @@
 
                 <div class="row">
                     <!-- Column -->
+                    {% for instance in category_values %}
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="card box card-hover shadow">
+                            <span class="myCheckbox">
+                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
+                            </span>
+                            <div class="text-center"> <img src="{% static 'assets/categories/cap.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
+                            <div class="dropdown-divider"></div>
+                            <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
+                            <div class="dropdown-divider"></div>
+                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
                             <span class="myCheckbox">

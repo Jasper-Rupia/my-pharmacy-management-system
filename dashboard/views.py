@@ -1,7 +1,5 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 
 def index(request):
-    pmsTemplate = loader.get_template('advanced/index.html')
-    return HttpResponse(pmsTemplate.render())
+    return render(request, 'advanced/index.html')
