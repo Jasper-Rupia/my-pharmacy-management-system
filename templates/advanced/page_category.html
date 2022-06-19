@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="card-body">
                         <span class="float-end">
-                            <a href="javascript:void(0)" class="btn-sm btn-danger float-end"> <i class="mdi mdi-delete"></i> Delete </a>
+                            <button type="submit" form="del-form" class="btn-sm btn-danger float-end"> <i class="mdi mdi-delete"></i> Delete </button>
                             <a href="javascript:void(0)" class="btn-sm btn-primary float-end mx-2" data-bs-toggle="modal" data-bs-target="#add-category"> <i class="mdi mdi-plus"></i> Add new / replace </a>
                         </span>
                     </div>
@@ -77,46 +77,48 @@
                                     <h5 class="modal-title font-bold" id="exampleModalLabel"> Record new Medicine category </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                
                                 <div class="modal-body text-center">
-                                    <!-- form table -->
-                                    <form>
+                                    <form id="add-form" method="GET" action="addCategory">
                                         <table>
                                             <tr>
                                                 <th> Medicine Name: </th>
-                                                <td><input type="text" class="form-control my-2" required></td>
+                                                <td><input type="text" class="form-control my-2" name="category_name" required></td>
                                             </tr>
                                             <tr>
                                                 <th> Image </th>
-                                                <td><input type="file" class="form-control my-2"></td>
                                             </tr>
-                                        </table> 
+                                        </table>     
                                     </form>
                                     <!-- end form table -->
                                 </div>
+
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success waves-effect waves-light"> <i class="mdi mdi-check-bold"></i> Save </button>
+                                    <button type="submit" form="add-form" class="btn btn-success waves-effect waves-light"> <i class="mdi mdi-check-bold"></i> Save </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <form action="delCategory" id="del-form" method="GET">
                 <div class="row">
-                    <!-- Column -->
-                    {% for instance in category_values %}
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/cap.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
+                        <!-- Column -->
+                        {% static "assets/categories/" as baseUrl %}
+                        {% for instance in category_values %}
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="card box card-hover shadow">
+                                <span class="myCheckbox">
+                                    <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" value="{{ instance.name }}" name="category_name"/> <span class="checkmark"></span></label>
+                                </span>
+                                <div class="text-center"> <img src="{{ baseUrl }}{{ instance.image }}.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
+                                <div class="dropdown-divider"></div>
+                                <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
+                                <div class="dropdown-divider"></div>
+                                <span>Available Qty <span class="float-end text-info"> {{ stock_values | length }} </span></span>
+                            </div>
                         </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
                     <!-- Column -->
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <div class="card box card-hover shadow">
@@ -222,6 +224,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
                 <!-- ============================================================== -->
                 <!-- End Contents -->
                 <!-- ============================================================== -->

@@ -7,7 +7,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(primary_key=True, max_length=20)
-    image = models.ImageField(upload_to='uploads/', default='no_medicine_image')
+    image = models.ImageField(upload_to='uploads/', default='default')
 
 
 class Stock(models.Model):
