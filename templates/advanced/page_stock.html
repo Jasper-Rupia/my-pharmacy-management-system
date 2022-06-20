@@ -69,7 +69,7 @@
                             <h5 class="card-title"> All Medicines 
                                 <span class="float-end">
                                     <a href="javascript:void(0)" class="btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#add-stock"> <i class="mdi mdi-plus"></i> Add </a>
-                                    <a href="javascript:void(0)" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </a>
+                                    <button type="submit" form="del-form" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </button>
                                 </span>
                             </h5>
                             <div class="table-responsive">
@@ -79,7 +79,6 @@
                                             <th> Name</th>
                                             <th> Generic name </th>
                                             <th> Category </th>
-                                            <th> Packaging </th>
                                             <th> Quantity </th>
                                             <th> Cost </th>
                                             <th> Price </th>
@@ -89,162 +88,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <form action="delStock" method="GET" id="del-form"> 
+                                        {% for instance in stock_values %}
                                         <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Panadol </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 1000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2023/04/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
+                                            <td>
+                                                <label class="customcheckbox"> 
+                                                    <input type="checkbox" value="{{ instance.name }}" name="medicine_name" class="listCheckbox" />
+                                                    <span class="checkmark"></span>
+                                                </label> 
+                                            </td>
+                                            <td> {{ instance.name }} </td>
+                                            <td> {{ instance.generic_name }} </td>
+                                            <td> {{ instance.category_name_id }} </td>
+                                            <td> {{ instance.quantity }} {{ instance.packaging }}  </td>
+                                            <td> {{ instance.cost }} </td>
+                                            <td> {{ instance.price }} </td>
+                                            <td> {{ instance.best_before }} </td>
+                                            <td> <span class="badge rounded-pill bg-success"> {{ instance.status }} </span> </td>
+                                            <!-- <td> <i class="mdi mdi-file-edit-outline"></i> </td> -->
                                         </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Nicip Plus </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 2000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2022/07/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Gelusil </td>
-                                            <td> mint fla </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 0 </td>
-                                            <td> 1200 </td>
-                                            <td> 1600 </td>
-                                            <td> 2023/01/12 </td>
-                                            <td> <span class="badge rounded-pill bg-warning"> N/A </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Panadol </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 1000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2023/04/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Nicip Plus </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 2000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2022/07/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Gelusil </td>
-                                            <td> mint fla </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 0 </td>
-                                            <td> 1200 </td>
-                                            <td> 1600 </td>
-                                            <td> 2023/01/12 </td>
-                                            <td> <span class="badge rounded-pill bg-warning"> N/A </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Panadol </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 1000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2023/04/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Nicip Plus </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 2000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2022/07/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Gelusil </td>
-                                            <td> mint fla </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 0 </td>
-                                            <td> 1200 </td>
-                                            <td> 1600 </td>
-                                            <td> 2023/01/12 </td>
-                                            <td> <span class="badge rounded-pill bg-warning"> N/A </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Panadol </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 1000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2023/04/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Nicip Plus </td>
-                                            <td> Paracetamole </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 2000 </td>
-                                            <td> 1000 </td>
-                                            <td> 1500 </td>
-                                            <td> 2022/07/25 </td>
-                                            <td> <span class="badge rounded-pill bg-success"> Available </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Gelusil </td>
-                                            <td> mint fla </td>
-                                            <td> Tab </td>
-                                            <td> 10 </td>
-                                            <td> 0 </td>
-                                            <td> 1200 </td>
-                                            <td> 1600 </td>
-                                            <td> 2023/01/12 </td>
-                                            <td> <span class="badge rounded-pill bg-warning"> N/A </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
+                                        {% endfor %}
+                                        </form>
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -252,7 +116,6 @@
                                             <th> Name </th>
                                             <th> Generic name </th>
                                             <th> Category </th>
-                                            <th> Packaging </th>
                                             <th> Quantity </th>
                                             <th> Cost </th>
                                             <th> Price </th>
@@ -275,63 +138,58 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- form table -->
-                                    <form>
+                                    <form action="addStock" method="GET" id="add-form">
                                         <table>
                                             <tr>
                                                 <th> Medicine Name: </th>
-                                                <td><input type="text" class="form-control my-2" required></td>
+                                                <td><input type="text" name="medicine_name" class="form-control my-2" required></td>
                                             </tr>
                                             <tr>
                                                 <th> Generic Name: </th>
-                                                <td><input type="text" class="form-control my-2" required></td>
+                                                <td><input type="text" name="generic_name" class="form-control my-2"></td>
                                             </tr>
                                             <tr>
                                                 <th> Category: </th>
                                                 <td>
-                                                    <select class="form-control my-2"> 
-                                                        <option value="Stp"> Cap </option>
-                                                        <option value="Tab"> Tab </option>
-                                                        <option value="Sachet"> Cream </option>	
-                                                        <option value="Tube"> syrunj </option>
-                                                        <option value="Tube"> syrup </option>
-                                                        <option value="Tube"> injection </option>
-                                                        <option value="Tube"> fk </option>
-                                                    </select>
+                                                    <select class="form-control my-2" name="category_name" required> 
+                                                        {% for instance in category_values %}
+                                                        <option value="{{ instance.name }}"> {{ instance.name }} </option>
+                                                        {% endfor %}
+                                                    </select> 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th> Quantity: </th>
                                                 <td>
-                                                    <input type="number" class="form-control w-50 my-2">
-                                                    <select class="form-control w-25 my-2"> 
-                                                        <option value="Bot"> Units </option>
+                                                    <input type="number" min='1' class="form-control w-50 my-2" name="quantity" required>
+                                                    <select class="form-control w-25 my-2" name="packaging" required> 
+                                                        <option value="Units"> Units </option>
                                                         <option value="Stp"> Stp </option>
-                                                        <option value="Tab"> Boxes </option>
+                                                        <option value="Boxes"> Boxes </option>
                                                         <option value="Sachet"> Sachet </option>	
-                                                        <option value="Unit"> Bots </option>
-                                                        <option value="Tube"> Tubes </option>
+                                                        <option value="Bots"> Bots </option>
+                                                        <option value="Tubes"> Tubes </option>
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th> Cost: </th>
-                                                <td><input type="number" class="form-control my-2"></td>
+                                                <td><input type="number" min='200' name="cost" class="form-control my-2" required></td>
                                             </tr>
                                             <tr>
                                                 <th> Price: </th>
-                                                <td><input type="number" class="form-control my-2"></td>
+                                                <td><input type="number" value="200" min='200' name="price" class="form-control my-2" required></td>
                                             </tr> 
                                             <tr>
-                                                <th>Expiry:</th>
-                                                <td><input type="date" class="form-control my-2" required></td>
+                                                <th> Expiry: </th>
+                                                <td><input type="date" name="best_before" class="form-control my-2" required></td>
                                             </tr>
                                         </table> 
                                     </form>
                                     <!-- end form table -->
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-check-bold"></i> Save </button>
+                                    <button type="submit" form="add-form" class="btn btn-success waves-effect waves-light"><i class="mdi mdi-check-bold"></i> Save </button>
                                 </div>
                             </div>
                         </div>

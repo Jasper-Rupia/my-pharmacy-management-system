@@ -87,6 +87,7 @@
                                             </tr>
                                             <tr>
                                                 <th> Image </th>
+                                                <td><input type="file" class="form-control my-2"></td>
                                             </tr>
                                         </table>     
                                     </form>
@@ -102,7 +103,7 @@
                 </div>
 
                 <form action="delCategory" id="del-form" method="GET">
-                <div class="row">
+                    <div class="row">
                         <!-- Column -->
                         {% static "assets/categories/" as baseUrl %}
                         {% for instance in category_values %}
@@ -119,111 +120,7 @@
                             </div>
                         </div>
                         {% endfor %}
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/cap.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> cap </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
                     </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/cream.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> cream </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/syrunj.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> syrunj </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/fk.jpg' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> fk </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/injection.jpg' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> injection </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/lotion.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> lotion </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/syrup.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> syrup </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <div class="card box card-hover shadow">
-                            <span class="myCheckbox">
-                                <label class="customcheckbox"> <input type="checkbox" class="listCheckbox"/> <span class="checkmark"></span></label>
-                            </span>
-                            <div class="text-center"> <img src="{% static 'assets/categories/tablet.png' %}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                            <div class="dropdown-divider"></div>
-                            <span>Name <span class="float-end text-info"> tablet </span></span>
-                            <div class="dropdown-divider"></div>
-                            <span>Available Qty <span class="float-end text-info"> ###</span></span>
-                        </div>
-                    </div>
-                </div>
                 </form>
                 <!-- ============================================================== -->
                 <!-- End Contents -->

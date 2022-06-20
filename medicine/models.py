@@ -6,18 +6,20 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(primary_key=True, max_length=20)
+    name = models.CharField(primary_key=True, max_length=30)
     image = models.ImageField(upload_to='uploads/', default='default')
+    date_created = models.DateTimeField(auto_now=True)
 
 
 class Stock(models.Model):
-    name = models.CharField(primary_key=True, max_length=20)
-    generic_name = models.CharField(max_length=20)
-    category_name = models.ForeignKey('Category', on_delete=models.CASCADE)
-    packaging = models.IntegerField()
+    name = models.CharField(primary_key=True, max_length=30)
+    generic_name = models.CharField(max_length=30, blank=True)
+    category_name = models.ForeignKey('Category', db_column='category', on_delete=models.CASCADE)
     quantity = models.IntegerField()
+    packaging = models.CharField(max_length=20)
     cost = models.IntegerField()
     price = models.IntegerField()
     best_before = models.DateField()
-    status = models.CharField(max_length=12, default='Available')
+    date_created = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=30, default='Available')
     

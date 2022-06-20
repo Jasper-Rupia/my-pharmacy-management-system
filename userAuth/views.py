@@ -3,7 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 
 
-def index(request):
+def login(request):
     return render(request, 'userAuth/index.html')
 
 
