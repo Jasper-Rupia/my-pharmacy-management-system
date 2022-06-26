@@ -28,21 +28,28 @@
 				<div class="text-center pt-4 pb-4">
 					<span class="db"><img src="{% static 'assets/pms-logo.jpg' %}" width="170"/></span>
 				</div>
-				
-				<form class="mt-3" id="loginform" action="login">
+
+				<form class="mt-3" method="POST" id="loginform" action="login">
+					{% for message in messages %}
+						<div class="alert alert-danger text-center" role="alert">
+							{{ message }}
+						</div>
+					{% endfor %}
+					{% csrf_token %}
 					<div class="row">
 						<div class="col-12">
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text bg-success text-white h-100"><i class="mdi mdi-account mdi-24px"></i></span>
 								</div>
-								<input type="text" class="form-control form-control-lg" placeholder="email" required=""/>
+								<!-- <input type="text" name="email" class="form-control form-control-lg" placeholder="email" required=""/> -->
+								<input type="text" name="username" class="form-control form-control-lg" placeholder="username" required=""/>
 							</div>
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text bg-warning text-white h-100"><i class="mdi mdi-lock mdi-24px"></i></span>
 								</div>
-								<input type="password" class="form-control form-control-lg" placeholder="Password" required=""/>
+								<input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required=""/>
 							</div>
 						</div>
 					</div>
@@ -84,7 +91,6 @@
 						</div>
 					</div>
 				</form>
-				
 			</div>
 		</div>
 		<!-- ============================================================== -->
@@ -95,6 +101,17 @@
     <!-- All Required js -->
     <!-- ============================================================== -->
 	{% include 'parts/scripts.html' %}
+	<script>
+		$(".preloader").fadeOut();
+		$("#to-recover").on("click", function () {
+		  $("#loginform").slideUp();
+		  $("#recoverform").fadeIn();
+		});
+		$("#to-login").click(function () {
+		  $("#recoverform").hide();
+		  $("#loginform").fadeIn();
+		});
+	</script>
 
 </body>
 </html>

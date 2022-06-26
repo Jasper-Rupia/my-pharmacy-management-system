@@ -291,6 +291,8 @@
     
     {% include 'parts/scripts.html' %}
     <!--Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/graph.js' %}"></script>
     <script>
         $("#to-recover").on("click", function () {
           $("#loginform").slideUp();

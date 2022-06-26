@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from medicine.models import Stock, Category
 from settings.models import User
-from django.utils.timezone import datetime
 from datetime import date
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/login')
 def index(request):
     category_count = Category.objects.all().count()
     stock_count = Stock.objects.all().count()
