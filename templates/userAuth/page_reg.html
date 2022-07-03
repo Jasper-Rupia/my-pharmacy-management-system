@@ -29,20 +29,27 @@
 					<span class="db"><img src="{% static 'assets/pms-logo.jpg' %}" width="170"/></span>
 				</div>
 
-				<form class="mt-3" method="POST" id="loginform" action="">
+				<form class="mt-3" method="POST" id="loginform" action="registerUser">
 					{% for message in messages|slice:":1" %}
 						<div class="alert alert-danger text-center" role="alert">
 							{{ message }}
 						</div>
 					{% endfor %}
+					
 					{% csrf_token %}
 					<div class="row">
 						<div class="col-12">
+							
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text bg-success text-white h-100"><i class="mdi mdi-account mdi-24px"></i></span>
 								</div>
-								<!-- <input type="email" name="email" class="form-control form-control-lg" placeholder="email" required=""/> -->
+								<input type="email" name="email" class="form-control form-control-lg" placeholder="email" required=""/>
+							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text bg-success text-white h-100"><i class="mdi mdi-account mdi-24px"></i></span>
+								</div>
 								<input type="text" name="username" class="form-control form-control-lg" placeholder="username" required=""/>
 							</div>
 							<div class="input-group mb-3">
@@ -57,40 +64,16 @@
 						<div class="col-12">
 							<div class="form-group">
 								<div>
-									<button class="btn btn-success float-end text-white" type="submit"> Login </button>
+									<button class="btn btn-success float-end text-white" type="submit"> Sign up </button>
 								</div>
 							</div>
 							<br>
-							<div class="text-center border-top border-secondary">
-								<br>
-								Lost <a href="javascript:void(0)" id="to-recover" class="font-bold"> password? </a>
-								<br> OR <br>
-								Don't have an account?<a href="register" class="font-bold"> Create one.</a> 
-							</div>
+							
 						</div>
 					</div>
 				</form>
 
-				<form id="recoverform" action="recover" class="hide mt-3">
-					<div class="row">
-						<div class="col-12">
-							<span> Enter your e-mail to recover a password. </span>
-							<br><br>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text bg-danger text-white h-100"><i class="mdi mdi-email mdi-24px"></i></span>
-								</div>
-								<input type="email" class="form-control form-control-lg" placeholder="Email Address" required=""/>
-							</div>
-							<div class="row mt-3 pt-3 border-top border-secondary">
-								<div class="col-12">
-									<a class="btn btn-info text-white" href="javascript:void(0)" id="to-login"> Back To Login </a>
-									<button class="btn btn-success float-end text-white" type="submit"> <i class="mdi mdi-lock-reset mdi-24px"></i> Recover </button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
+				
 			</div>
 		</div>
 		<!-- ============================================================== -->
@@ -101,17 +84,7 @@
     <!-- All Required js -->
     <!-- ============================================================== -->
 	{% include 'parts/scripts.html' %}
-	<script>
-		$(".preloader").fadeOut();
-		$("#to-recover").on("click", function () {
-		  $("#loginform").slideUp();
-		  $("#recoverform").fadeIn();
-		});
-		$("#to-login").click(function () {
-		  $("#recoverform").hide();
-		  $("#loginform").fadeIn();
-		});
-	</script>
+
 
 </body>
 </html>

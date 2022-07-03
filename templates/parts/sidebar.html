@@ -54,6 +54,7 @@
                                 <i class="mdi mdi-account mdi-24px"></i><span class="hide-menu"> My profile </span>
                             </a>
                         </li>
+                        {% if user.is_superuser %}
                         <li class="sidebar-item">
                             <a href="users" class="sidebar-link waves-effect waves-light">
                                 <i class="mdi mdi-note-plus mdi-24px"></i><span class="hide-menu"> Manage Users </span>
@@ -64,6 +65,7 @@
                                 <i class="mdi mdi-hospital-marker mdi-24px"></i><span class="hide-menu"> Pharmacy </span>
                             </a>
                         </li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>

@@ -1,24 +1,26 @@
 from django.shortcuts import render
 from medicine.models import Stock, Category
-from settings.models import User
+from userAuth.models import ExtendUser
 from datetime import date
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def index(request):
-    category_count = Category.objects.all().count()
-    stock_count = Stock.objects.all().count()
-    user_count = User.objects.all().count()
+    extend_user_value = ExtendUser.objects.get(id=request.user.id)
+    category_values = Category.objects.all()
+    stock_values = Stock.objects.all()
+    user_values = ExtendUser.objects.filter(work_for=extend_user_value.work_for.id) 
     today = date.today().isoformat()
-    exipire_count = Stock.objects.exclude(best_before__gt=today).count()
-    out_of_stock_count = Stock.objects.filter(quantity=0).count()
+    exipire_values = Stock.objects.exclude(best_before__gt=today)
+    out_of_stock_values = Stock.objects.filter(quantity=0)
     varToPass = {
-        'category_count': category_count,
-        'stock_count': stock_count,
-        'user_count': user_count,
-        'exipire_count': exipire_count,
-        'out_of_stock_count': out_of_stock_count
+        'extend_user_value': extend_user_value,
+        'category_values': category_values,
+        'stock_values': stock_values,
+        'user_values': user_values,
+        'exipire_values': exipire_values,
+        'out_of_stock_values': out_of_stock_values
     }
     return render(request, 'advanced/index.html', varToPass)
     

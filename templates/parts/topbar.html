@@ -47,21 +47,21 @@
                     
                     <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-arrow-down-right-bold"></i>
-                        <img src="{% static 'assets/users/ericko.jpg' %}" onerror='this.src="../assets/users/no-profile.jpg"' alt="user" class="rounded-circle" width="31"/>
+                        <img src="{% static 'assets/users/default_dp.jpg' %}" alt="user" class="rounded-circle" width="31"/>
                         <span class="p-2"> {{ user.username }} </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
                         <div class="text-center">
-                            <img src="{% static 'assets/users/ericko.jpg' %}" onerror='this.src="../assets/users/no-profile.jpg"' style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                            <img src="{% static 'assets/users/default_dp.jpg' %}" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
                             <span> {{ user.username }} </span><br>
-                            <span>Member Since: 2019</span>
+                            <span> * {{ extend_user_value.title }} * </span>
                         </div>
                         <form action="logout" method="POST">
                             {% csrf_token %}
                             <div class="py-3"> 
                                 <a href="profile"><i class="mdi mdi-account mdi-18px me-1 ms-1"></i> My Profile</a>
                                 <button type="submit" class="btn btn-sm btn-secondary btn-rounded float-end"> <i class="mdi mdi-power mdi-18px"></i> Sign Out </button>
-                            </div> 
+                            </div>
                         </form>
                     </ul>  
 

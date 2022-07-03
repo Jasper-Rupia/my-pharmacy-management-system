@@ -64,9 +64,15 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
+                    {% for message in messages|slice:":1" %}
+						<div class="alert alert-danger text-center" role="alert">
+							{{ message }}
+						</div>
+					{% endfor %}
+
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title"> All Medicines 
+                            <h5 class="card-title"> Users 
                                 <span class="float-end">
                                     <a href="javascript:void(0)" class="btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal-1"> <i class="mdi mdi-plus"></i> Add </a>
                                     <button type="submit" form="del-form" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </button>
@@ -78,7 +84,7 @@
                                     <thead>
                                         <tr><th> <label class="customcheckbox mb-3"> <input type="checkbox" id="mainCheckbox" /> <span class="checkmark"></span></label> </th>
                                             <th> Avata </th>
-                                            <th> Name </th>
+                                            <th> Username </th>
                                             <th> Email </th>
                                             <th> Phone# </th>
                                             <th> Title </th>
@@ -88,21 +94,35 @@
                                     <tbody>
                                         {% static "assets/users/" as baseUrl %}
                                         {% for instance in user_values %}
+                                        {% if instance.id.username != user.username %}
                                         <tr>
-                                            <td>
-                                                <label class="customcheckbox"> 
-                                                    <input type="checkbox" value="{{ instance.id }}" name="id" class="listCheckbox" /> 
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </td>
+                                            {% if extend_user_value.title == 'owner' %}
+                                                <td>
+                                                    <label class="customcheckbox"> 
+                                                        <input type="checkbox" value="{{ instance.id.id }}" name="id" class="listCheckbox" /> 
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                            {% elif extend_user_value.title == 'partner' and instance.title == 'pharmacist' %}
+                                                <td>
+                                                    <label class="customcheckbox"> 
+                                                        <input type="checkbox" value="{{ instance.id.id }}" name="id" class="listCheckbox" /> 
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                            {% else %}
+                                                <td> </td>
+                                            {% endif %}
+
                                             <td> <img src="{{ baseUrl }}{{ instance.avata }}.jpg" class="rounded-circle" width="40"></i> </td>
-                                            <td> {{ instance.name }} </td>
-                                            <td> {{ instance.email }} </td>
+                                            <td> {{ instance.id.username }} </td>
+                                            <td> {{ instance.id.email }} </td>
                                             <td> {{ instance.tel }} </td>
                                             <td> {{ instance.title }} </td>
-                                            <td> {{ instance.registerd_date }} </td>
+                                            <td> {{ instance.id.date_joined }} </td>
                                             <!--<td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" value="" checked> </div> </td> -->
                                         </tr>
+                                        {% endif %}
                                         {% endfor %} 
                                     </tbody>
                                     <tfoot>
@@ -131,10 +151,11 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="addUsers" method="GET" class="form-material">
+                                    <form action="addUsers" method="POST" class="form-material">
+                                        {% csrf_token %}
                                         <div class="form-group">
-                                            <label for="name"> Name </label>
-                                            <input type="text" name="name" class="form-control" id="name" required>
+                                            <label for="name"> Username </label>
+                                            <input type="text" name="username" class="form-control" id="name" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="email" class="col-md-12"> Email </label>

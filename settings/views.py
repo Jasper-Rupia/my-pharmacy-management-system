@@ -1,68 +1,98 @@
-from django.shortcuts import render
-from .models import User, Pharmacy
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from turtle import title
+from django.shortcuts import render, redirect
+from .models import Pharmacy
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from userAuth.models import ExtendUser
+from django.contrib.auth.hashers import make_password
+from django.contrib import messages
 
 
-@login_required(login_url='/login')
 def pharmacy(request):
-    user_values = User.objects.all()
+    print(request.user.username)
+    print(request.user.id)
     pharmacy_values = Pharmacy.objects.all().order_by('-registerd_date')
     varToPass = {
-        'user_values': user_values,
         'pharmacy_values': pharmacy_values
     }
     return render(request, 'advanced/page_pharmacy.html', varToPass)
     
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def addPharmacy(request):
-    #user = User.objects.first()
-    #id = user['id']
-    query = Pharmacy(   name = request.GET['name'], 
+    query = Pharmacy(   name = request.GET['name'],
                         location = request.GET['address'],
-                        #owner = id,
+                        owner = request.user,
                     )
     query.save()
-    return HttpResponseRedirect(reverse('pharmacy'))
+    return redirect('settings:pharmacy')
 
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def delPharmacy(request, id):  
     query = Pharmacy.objects.get(id = id)  
     query.delete()  
-    return HttpResponseRedirect(reverse('pharmacy'))
+    return redirect('settings:pharmacy')
 
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def profile(request):
-    return render(request, 'advanced/page_profile.html')
+    extend_user_value = ExtendUser.objects.get(id=request.user.id)
+    varToPass = { 
+        'extend_user_value': extend_user_value
+    }
+    return render(request, 'advanced/page_profile.html', varToPass)
     
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def users(request):
-    user_values = User.objects.all().order_by('-registerd_date')
-    varToPass = {
+    extend_user_value = ExtendUser.objects.get(id=request.user.id)
+    user_values = ExtendUser.objects.filter(work_for=extend_user_value.work_for.id).order_by('-id')
+    varToPass = { 
         'user_values': user_values,
+        'extend_user_value': extend_user_value
     }
     return render(request, 'advanced/page_users.html', varToPass)
 
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def addUsers(request):
-    query = User(   email = request.GET['email'], 
-                    name = request.GET['name'],
-                    title = request.GET['title'], 
+    if request.method == 'POST':
+        email = request.POST['email']
+        username = request.POST['username']
+        password = make_password(username)
+        title = request.POST['title']
+        if title == 'partner':
+            is_superuser = True
+        else:
+            is_superuser = False
+        query = User(
+                    username = username,
+                    password = password,
+                    email = email,
+                    is_superuser = is_superuser,
+                    is_staff = True
                 )
-    query.save()
-    return HttpResponseRedirect(reverse('users'))
+        try:
+            query.save()
+        except:
+            messages.success(request, ('Username already taken!. Change it.')) 
+            return redirect('settings:users')
+        
+        user = User.objects.get(username=username)
+        query = ExtendUser(
+                id = user,
+                work_for = request.user,
+                title = title,
+            )
+        query.save()
+    return redirect('settings:users') 
     
 
-@login_required(login_url='/login')
+@login_required(login_url='')
 def delUsers(request):  
     ids  = request.GET.getlist('id')
     for id in ids:
         query = User.objects.get(id = id)  
         query.delete()  
-    return HttpResponseRedirect(reverse('users'))
+    return redirect('settings:users')
