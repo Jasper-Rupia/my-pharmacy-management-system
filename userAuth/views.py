@@ -3,8 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import User
-from userAuth.models import ExtendUser
+from userAuth.models import pmsUser
 
 
 # def login(request):
@@ -79,25 +78,17 @@ def registerUser(request):
         username = request.POST['username']
         password = request.POST['password']
         password = make_password(password)
-        query = User(
+        query = pmsUser(
                     username = username,
                     password = password,
                     email = email,
+                    title = 'owner',
                     is_superuser = True,
                     is_staff = True
                 )
-        try:
-            query.save()
-        except:
-            messages.success(request, ('Username already taken!. Change it.')) 
-            return redirect('register')
-        
-        user = User.objects.get(username=username)
-        query = ExtendUser(
-                id = user, 
-                work_for = user,
-                title = 'owner',
-            ) 
         query.save()
+        pmsuser = pmsUser.objects.get(username=username)
+        pmsuser.work_for = pmsuser
+        pmsuser.save()
 
     return redirect('signin')

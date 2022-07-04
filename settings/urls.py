@@ -7,6 +7,7 @@ urlpatterns = [
     path('pharmacy', views.pharmacy, name='pharmacy'),
     path('addPharmacy', views.addPharmacy),
     path('delPharmacy/<int:id>', views.delPharmacy),
+    path('updPharmacy', views.updPharmacy),
     
     path('profile', views.profile, name='profile'),
 

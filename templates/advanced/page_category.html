@@ -63,6 +63,13 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
+                    
+                    {% if pharmacy_value < 1 %}
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p> THE OWNER SHOULD INITIATE PHARMACY FIRST </p>
+                    </div>
+                    {% else %}
+
                     <div class="card-body">
                         <span class="float-end">
                             <button type="submit" form="del-form" class="btn-sm btn-danger float-end"> <i class="mdi mdi-delete"></i> Delete </button>
@@ -82,7 +89,7 @@
                                     <form id="add-form" method="GET" action="addCategory">
                                         <table>
                                             <tr>
-                                                <th> Medicine Name: </th>
+                                                <th> category Name: </th>
                                                 <td><input type="text" class="form-control my-2" name="category_name" required></td>
                                             </tr>
                                             <tr>
@@ -100,28 +107,32 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <form action="delCategory" id="del-form" method="GET">
-                    <div class="row">
-                        <!-- Column -->
-                        {% static "assets/categories/" as baseUrl %}
-                        {% for instance in category_values %}
-                        <div class="col-sm-6 col-lg-4 col-xl-3">
-                            <div class="card box card-hover shadow">
-                                <span class="myCheckbox">
-                                    <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" value="{{ instance.name }}" name="category_name"/> <span class="checkmark"></span></label>
-                                </span>
-                                <div class="text-center"> <img src="{{ baseUrl }}{{ instance.image }}.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
-                                <div class="dropdown-divider"></div>
-                                <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
-                                <div class="dropdown-divider"></div>
-                                <span>Available Qty <span class="float-end text-info"> {{ stock_values|length }} </span></span>
+                    <form action="delCategory" id="del-form" method="GET">
+                        <div class="row">
+                            
+                            <!-- Column -->
+                            {% static "assets/categories/" as baseUrl %}
+                            
+                            {% for instance in category_values %}
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card box card-hover shadow">
+                                    <span class="myCheckbox">
+                                        <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" value="{{ instance.id }}" name="category_id"/> <span class="checkmark"></span></label>
+                                    </span>
+                                    <div class="text-center"> <img src="{{ baseUrl }}{{ instance.image }}.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
+                                    <div class="dropdown-divider"></div>
+                                    <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
+                                    <div class="dropdown-divider"></div>
+                                    <span>Available Qty <span class="float-end text-info"> {{ stock_values|length }} </span></span>
+                                </div>
                             </div>
+                            {% endfor %}
+                            
                         </div>
-                        {% endfor %}
-                    </div>
-                </form>
+                    </form>
+                    {% endif %}
+                </div>
                 <!-- ============================================================== -->
                 <!-- End Contents -->
                 <!-- ============================================================== -->

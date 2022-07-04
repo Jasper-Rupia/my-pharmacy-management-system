@@ -54,7 +54,7 @@
                         <div class="text-center">
                             <img src="{% static 'assets/users/default_dp.jpg' %}" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
                             <span> {{ user.username }} </span><br>
-                            <span> * {{ extend_user_value.title }} * </span>
+                            <span> * {{ user.title }} * </span>
                         </div>
                         <form action="logout" method="POST">
                             {% csrf_token %}

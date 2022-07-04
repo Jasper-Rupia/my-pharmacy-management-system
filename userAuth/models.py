@@ -1,15 +1,19 @@
+
 from django.db import models
-from django.contrib.auth.models import User
-#from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractUser
 
 
-class ExtendUser(models.Model):
-    id = models.OneToOneField(User, db_column='id', on_delete=models.CASCADE, primary_key=True)
+class pmsUser(AbstractUser):
     avata = models.ImageField(upload_to='uploads/', default='default_dp')
     tel = models.CharField(max_length=30, blank=True)
     title = models.CharField(max_length=30, blank=True)
-    work_for = models.ForeignKey(User, db_column='work_for', related_name='work_for', on_delete=models.CASCADE)
+    work_for = models.ForeignKey('self', db_column='work_for', on_delete=models.CASCADE, null=True, blank=True) 
+
  
+
+
+ 
+#from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # class UserManager(BaseUserManager):
 #     def create_user(self, email, name, password):

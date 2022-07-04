@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from userAuth.models import ExtendUser
+from userAuth.models import pmsUser
 
 
 @login_required(login_url='')
@@ -10,7 +10,7 @@ def receipt(request):
 
 @login_required(login_url='')
 def records(request):
-    extend_user_value = ExtendUser.objects.get(id=request.user.id)
+    extend_user_value = pmsUser.objects.get(id=request.user.id)
     varToPass = { 
         'extend_user_value': extend_user_value
     }
@@ -19,7 +19,7 @@ def records(request):
 
 @login_required(login_url='')
 def sell(request):
-    extend_user_value = ExtendUser.objects.get(id=request.user.id)
+    extend_user_value = pmsUser.objects.get(id=request.user.id)
     varToPass = { 
         'extend_user_value': extend_user_value
     }

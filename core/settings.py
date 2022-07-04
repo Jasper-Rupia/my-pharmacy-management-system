@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-#AUTH_USER_MODEL = 'settings.User'
+AUTH_USER_MODEL = 'userAuth.pmsUser'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pmsdb',
+        'NAME': 'pmsdb3',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

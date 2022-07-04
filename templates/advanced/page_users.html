@@ -64,6 +64,12 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
+                
+                {% if user.title == 'pharmacist' %}
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p> PHARMACIST ARE NOT ALLOWED TO MANAGE USERS </p>
+                    </div>
+                {% else %}
                     {% for message in messages|slice:":1" %}
 						<div class="alert alert-danger text-center" role="alert">
 							{{ message }}
@@ -94,19 +100,19 @@
                                     <tbody>
                                         {% static "assets/users/" as baseUrl %}
                                         {% for instance in user_values %}
-                                        {% if instance.id.username != user.username %}
+                                        {% if instance.username != user.username %}
                                         <tr>
-                                            {% if extend_user_value.title == 'owner' %}
+                                            {% if user.title == 'owner' %}
                                                 <td>
                                                     <label class="customcheckbox"> 
-                                                        <input type="checkbox" value="{{ instance.id.id }}" name="id" class="listCheckbox" /> 
+                                                        <input type="checkbox" value="{{ instance.id }}" name="id" class="listCheckbox" /> 
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </td>
-                                            {% elif extend_user_value.title == 'partner' and instance.title == 'pharmacist' %}
+                                            {% elif user.title == 'partner' and instance.title == 'pharmacist' %}
                                                 <td>
                                                     <label class="customcheckbox"> 
-                                                        <input type="checkbox" value="{{ instance.id.id }}" name="id" class="listCheckbox" /> 
+                                                        <input type="checkbox" value="{{ instance.id }}" name="id" class="listCheckbox" /> 
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </td>
@@ -115,11 +121,11 @@
                                             {% endif %}
 
                                             <td> <img src="{{ baseUrl }}{{ instance.avata }}.jpg" class="rounded-circle" width="40"></i> </td>
-                                            <td> {{ instance.id.username }} </td>
-                                            <td> {{ instance.id.email }} </td>
+                                            <td> {{ instance.username }} </td>
+                                            <td> {{ instance.email }} </td>
                                             <td> {{ instance.tel }} </td>
                                             <td> {{ instance.title }} </td>
-                                            <td> {{ instance.id.date_joined }} </td>
+                                            <td> {{ instance.date_joined }} </td>
                                             <!--<td> <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" value="" checked> </div> </td> -->
                                         </tr>
                                         {% endif %}
@@ -164,8 +170,10 @@
                                         <div class="form-group">
                                             <label for="title"> Title </label>
                                             <select class="form-control my-2" name="title" required> 
-                                                <option value="partner"> Partner </option>
                                                 <option value="pharmacist"> Pharmacist </option>
+                                                {% if user.title == 'owner' %}
+                                                <option value="partner"> Partner </option>
+                                                {% endif %}
                                             </select> 
                                         </div>
                                         <div class="form-group">
@@ -178,7 +186,8 @@
                             </div>
                         </div>
                     </div>
-
+                    
+                {% endif %}
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Contents -->

@@ -1,12 +1,15 @@
 from settings.models import Pharmacy
+from userAuth.models import pmsUser
 from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(unique=True, max_length=30)
+    name = models.CharField(max_length=30)
     image = models.ImageField(upload_to='uploads/', default='default')
-    date_created = models.DateTimeField(auto_now=True)
-    in_pharmacy = models.ForeignKey(Pharmacy,db_column='in_pharmacy', on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+    in_pharmacy = models.ForeignKey(Pharmacy, db_column='in_pharmacy', on_delete=models.CASCADE)
+    owner = models.ForeignKey(pmsUser, db_column='owner', on_delete=models.CASCADE)
 
 
 class Stock(models.Model):
@@ -18,6 +21,9 @@ class Stock(models.Model):
     cost = models.IntegerField()
     price = models.IntegerField()
     best_before = models.DateField()
-    date_created = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=30, default='Available')
+    in_pharmacy = models.ForeignKey(Pharmacy, db_column='in_pharmacy', on_delete=models.CASCADE)
+    owner = models.ForeignKey(pmsUser, db_column='owner', on_delete=models.CASCADE)
     

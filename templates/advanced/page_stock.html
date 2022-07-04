@@ -64,6 +64,13 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
+                    
+                    {% if pharmacy_value < 1 %}
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p> THE OWNER SHOULD INITIATE PHARMACY FIRST </p>
+                    </div>
+                    {% else %}
+
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title"> All Medicines 
@@ -93,19 +100,23 @@
                                         <tr>
                                             <td>
                                                 <label class="customcheckbox"> 
-                                                    <input type="checkbox" value="{{ instance.name }}" name="medicine_name" class="listCheckbox" />
+                                                    <input type="checkbox" value="{{ instance.id }}" name="medicine_name" class="listCheckbox" />
                                                     <span class="checkmark"></span>
                                                 </label> 
                                             </td>
                                             <td> {{ instance.name }} </td>
                                             <td> {{ instance.generic_name }} </td>
-                                            <td> {{ instance.category_name_id }} </td>
+                                            <td> {{ instance.category_name.name }} </td>
                                             <td> {{ instance.quantity }} {{ instance.packaging }}  </td>
                                             <td> {{ instance.cost }} </td>
                                             <td> {{ instance.price }} </td>
-                                            <td> {{ instance.best_before }} </td>
+                                            {% if instance.best_before < now 'DATE_FORMAT' %}
+                                                <td style="color: red;"> {{ instance.best_before }} </td>
+                                            {% else %}
+                                                <td> {{ instance.best_before }} </td>
+                                            {% endif %}
                                             <td> <span class="badge rounded-pill bg-success"> {{ instance.status }} </span> </td>
-                                            <!-- <td> <i class="mdi mdi-file-edit-outline"></i> </td> -->
+                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
                                         </tr>
                                         {% endfor %}
                                         </form>
@@ -151,9 +162,9 @@
                                             <tr>
                                                 <th> Category: </th>
                                                 <td>
-                                                    <select class="form-control my-2" name="category_name" required> 
+                                                    <select class="form-control my-2" name="category_id" required> 
                                                         {% for instance in category_values %}
-                                                        <option value="{{ instance.name }}"> {{ instance.name }} </option>
+                                                        <option value="{{ instance.id }}"> {{ instance.name }} </option>
                                                         {% endfor %}
                                                     </select> 
                                                 </td>
@@ -173,12 +184,12 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th> Cost: </th>
-                                                <td><input type="number" min='200' name="cost" class="form-control my-2" required></td>
+                                                <th> Unit cost: </th>
+                                                <td><input type="number" min='300' name="cost" class="form-control my-2" required></td>
                                             </tr>
                                             <tr>
-                                                <th> Price: </th>
-                                                <td><input type="number" value="200" min='200' name="price" class="form-control my-2" required></td>
+                                                <th> Unit price: </th>
+                                                <td><input type="number" min='200' name="price" class="form-control my-2" required></td>
                                             </tr> 
                                             <tr>
                                                 <th> Expiry: </th>
@@ -194,6 +205,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
 
                 </div>
                 <!-- ============================================================== -->

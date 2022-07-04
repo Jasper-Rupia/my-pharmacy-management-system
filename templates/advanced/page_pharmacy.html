@@ -61,6 +61,8 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 
+                {% if user.title == 'owner' %}
+                {% if pharmacy_values|length < 1 %}
 				<div class="row">
 					<div class="card shadow-sm col-sm-8 col-md-8 col-lg-8">
 						<div class="card-body">
@@ -80,23 +82,28 @@
 						</div>
 					</div>
                 </div>
+                {% endif %}
+                {% endif %}
 
                 {% for instance in pharmacy_values %}
                 <div class="row">
 					<div class="card shadow-sm col-sm-8 col-md-8 col-lg-8">
 						<div class="card-body">
-							<form class="form-horizontal form-material">
+							<form class="form-horizontal form-material" action="updPharmacy" method="GET">
+								<input type="hidden" value="{{ instance.id }}" name="id" class="form-control">
 								<div class="form-group">
 									<label class="col-form-label"> Phamarcy name </label>
-									<input type="text" value="{{ instance.name }}" class="form-control"  onchange="upperCaseCompany()" required>
+									<input type="text" name="name" value="{{ instance.name }}" class="form-control"  onchange="upperCaseCompany()" required>
 								</div>
 								<div class="form-group">
 									<label class="col-form-label"> Address </label>
-									<textarea class="form-control" placeholder="{{ instance.location }}" required></textarea>
+									<textarea class="form-control" name="address" placeholder="{{ instance.location }}" required></textarea>
 								</div>
 								<div>
 									<button type="submit" class="btn btn-success mx-2 float-end"> <i class="mdi mdi-check-bold"></i> Update </button>
+                                    {% if user.title == 'owner' %}
 									<a href="delPharmacy/{{instance.id}}" class="btn btn-danger float-end"> <i class="mdi mdi-bin"></i> Delete </a>
+                                    {% endif %}
 								</div>
 							</form>
 						</div>
