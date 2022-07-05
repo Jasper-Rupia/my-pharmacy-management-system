@@ -65,7 +65,7 @@
                 <div class="row">
                     
                     {% if pharmacy_value < 1 %}
-                    <div class="alert alert-danger text-center" role="alert">
+                    <div class="alert alert-warning text-center" role="alert">
                         <p> THE OWNER SHOULD INITIATE PHARMACY FIRST </p>
                     </div>
                     {% else %}
@@ -114,7 +114,7 @@
                             <!-- Column -->
                             {% static "assets/categories/" as baseUrl %}
                             
-                            {% for instance in category_values %}
+                            {% for instance in medicines_in_each_category %}
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="card box card-hover shadow">
                                     <span class="myCheckbox">
@@ -124,7 +124,7 @@
                                     <div class="dropdown-divider"></div>
                                     <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
                                     <div class="dropdown-divider"></div>
-                                    <span>Available Qty <span class="float-end text-info"> {{ stock_values|length }} </span></span>
+                                    <span> Available Qty <span class="float-end text-info"> {{ instance.medicines_in_category }} </span> </span>
                                 </div>
                             </div>
                             {% endfor %}

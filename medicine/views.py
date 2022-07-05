@@ -1,8 +1,9 @@
+from typing import Counter
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from medicine.models import Category, Stock
 from settings.models import Pharmacy
-from datetime import date
+from django.db.models import Count
 #from django.db import connection
 
 
@@ -15,13 +16,11 @@ def category(request):
             'pharmacy_value': 0
         }
         return render(request, 'advanced/page_category.html', varToPass)
-    category_values = Category.objects.filter(in_pharmacy=pharmacy_value)
-    stock_values = Stock.objects.filter(in_pharmacy=pharmacy_value)
-    today = date.today().isoformat()
+    categories_in_pharmacy = Category.objects.filter(in_pharmacy=pharmacy_value)
+    medicines_in_each_category = categories_in_pharmacy.annotate(medicines_in_category=Count('stock'))
+    
     varToPass = {
-        'category_values': category_values,
-        'stock_values': stock_values,
-        'today': today
+        'medicines_in_each_category': medicines_in_each_category,
     }
     return render(request, 'advanced/page_category.html', varToPass)
 
@@ -88,11 +87,20 @@ def addStock(request):
 
 
 @login_required(login_url='')
-def delStock(request):  
-    medicine_names  = request.GET.getlist('medicine_name')
-    for medicine_name in medicine_names:
-        query = Stock.objects.get(name = medicine_name)  
-        query.delete()  
+def delSellStock(request):  
+    if 'del' in request.POST:
+        medicine_ids  = request.POST.getlist('medicine_id')
+        for medicine_id in medicine_ids:
+            query = Stock.objects.get(id = medicine_id) 
+            query.delete() 
+        return redirect('medicine:stock')
+    if 'sell' in request.POST:
+        medicine_ids  = request.POST.getlist('medicine_id')
+        for medicine_id in medicine_ids:
+            query = Stock.objects.get(id = medicine_id) 
+            print(query)
+        print(query)
+        return redirect('sales:sell')
     return redirect('medicine:stock')
 
 

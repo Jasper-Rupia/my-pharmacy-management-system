@@ -1,12 +1,13 @@
-from turtle import title
+
 from django.shortcuts import render, redirect
 from .models import Pharmacy
 from django.contrib.auth.decorators import login_required
 from userAuth.models import pmsUser
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 
 
+@login_required(login_url='')
 def pharmacy(request):
     pharmacy_values = Pharmacy.objects.filter(owner = request.user.work_for)
     varToPass = {
@@ -31,7 +32,7 @@ def delPharmacy(request, id):
     query.delete()  
     return redirect('settings:pharmacy')
 
-
+@login_required(login_url='')
 def updPharmacy(request):
     id = request.GET['id']
     query = Pharmacy.objects.get(id=id)
@@ -48,7 +49,42 @@ def profile(request):
         'extend_user_value': extend_user_value
     }
     return render(request, 'advanced/page_profile.html', varToPass)
+
+@login_required(login_url='')
+def updProfile(request):
+    query = pmsUser.objects.get(id=request.user.id)
+    query.username = request.GET['username']
+    query.email = request.GET['email']
+    query.tel = request.GET['tel']
+    query.save()
+    return redirect('settings:profile')
     
+
+@login_required(login_url='')
+def updPassword(request):
+    if request.method == 'POST':
+        oldPassword = request.POST['oldPassword']
+        check = check_password(oldPassword, request.user.password)
+        if check:
+            newPassword = request.POST['newPassword']
+            confirmPassword = request.POST['confirmPassword']
+            print(newPassword)
+            print(confirmPassword)
+            if newPassword == confirmPassword:
+                print("done")
+                password = make_password(newPassword)
+                query = pmsUser.objects.get(id=request.user.id)
+                query.password = password
+                print("done")
+                query.save()
+                return redirect('settings:profile')
+            else:
+                messages.warning(request, ('New Password & Confirm didn\'t match')) 
+                return redirect('settings:profile')
+        else:
+            messages.warning(request, ('Old Password incorrect!')) 
+            return redirect('settings:profile')
+
 
 @login_required(login_url='')
 def users(request):

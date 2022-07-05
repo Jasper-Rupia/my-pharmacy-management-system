@@ -66,7 +66,7 @@
                 <div class="row">
                     
                     {% if pharmacy_value < 1 %}
-                    <div class="alert alert-danger text-center" role="alert">
+                    <div class="alert alert-warning text-center" role="alert">
                         <p> THE OWNER SHOULD INITIATE PHARMACY FIRST </p>
                     </div>
                     {% else %}
@@ -75,14 +75,16 @@
                         <div class="card-body">
                             <h5 class="card-title"> All Medicines 
                                 <span class="float-end">
+                                    <button type="submit" name="sell" form="del-sell-form" class="btn-sm btn-success"> <i class=""></i> Sell </button>
                                     <a href="javascript:void(0)" class="btn-sm btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#add-stock"> <i class="mdi mdi-plus"></i> Add </a>
-                                    <button type="submit" form="del-form" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </button>
+                                    <button type="submit" name="del" form="del-sell-form" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </button>
                                 </span>
                             </h5>
                             <div class="table-responsive">
                                 <table id="zero_config" class="table table-striped table-bordered text-center">
                                     <thead>
-                                        <tr><th> <label class="customcheckbox mb-3"> <input type="checkbox" id="mainCheckbox" /> <span class="checkmark"></span></label> </th>
+                                        <tr>
+                                            <th> <label class="customcheckbox mb-3"> <input type="checkbox" id="mainCheckbox" /> <span class="checkmark"></span></label> </th>
                                             <th> Name</th>
                                             <th> Generic name </th>
                                             <th> Category </th>
@@ -92,33 +94,26 @@
                                             <th> BB </th>
                                             <th> Status </th>
                                             <th> Edit </th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <form action="delStock" method="GET" id="del-form"> 
-                                        {% for instance in stock_values %}
-                                        <tr>
-                                            <td>
-                                                <label class="customcheckbox"> 
-                                                    <input type="checkbox" value="{{ instance.id }}" name="medicine_name" class="listCheckbox" />
-                                                    <span class="checkmark"></span>
-                                                </label> 
-                                            </td>
-                                            <td> {{ instance.name }} </td>
-                                            <td> {{ instance.generic_name }} </td>
-                                            <td> {{ instance.category_name.name }} </td>
-                                            <td> {{ instance.quantity }} {{ instance.packaging }}  </td>
-                                            <td> {{ instance.cost }} </td>
-                                            <td> {{ instance.price }} </td>
-                                            {% if instance.best_before < now 'DATE_FORMAT' %}
-                                                <td style="color: red;"> {{ instance.best_before }} </td>
-                                            {% else %}
-                                                <td> {{ instance.best_before }} </td>
-                                            {% endif %}
-                                            <td> <span class="badge rounded-pill bg-success"> {{ instance.status }} </span> </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
-                                        </tr>
-                                        {% endfor %}
+                                        <form action="delSellStock" method="POST" id="del-sell-form"> 
+                                            {% csrf_token %}
+                                            {% for instance in stock_values %}
+                                            <tr>
+                                                <td> <label class="customcheckbox"> <input type="checkbox" value="{{ instance.id }}" name="medicine_id" class="listCheckbox" /> <span class="checkmark"></span> </label> </td>
+                                                <td> {{ instance.name }} </td>
+                                                <td> {{ instance.generic_name }} </td>
+                                                <td> {{ instance.category_name.name }} </td>
+                                                <td> {{ instance.quantity }} {{ instance.packaging }}  </td>
+                                                <td> {{ instance.cost }} </td>
+                                                <td> {{ instance.price }} </td>
+                                                {% if instance.is_exipired_medicine %} <td style="color: red;"> {{ instance.best_before }} </td> {% else %} <td> {{ instance.best_before }} </td> {% endif %}
+                                                {% if instance.is_medicine_available %} <td> <span class="badge rounded-pill bg-success"> Available </span> </td> {% else %} <td> <span class="badge rounded-pill bg-warning"> N/A </span> </td> {% endif %}
+                                                <td> <i class="mdi mdi-file-edit-outline"></i> </td>
+                                            </tr>
+                                            {% endfor %}
                                         </form>
                                     </tbody>
                                     <tfoot>
@@ -133,6 +128,7 @@
                                             <th> BB </th>
                                             <th> Status </th>
                                             <th> Edit </th>
+                                            <th></th>
                                         </tr>
                                     </tfoot>
                                 </table>

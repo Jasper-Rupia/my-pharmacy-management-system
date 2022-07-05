@@ -6,5 +6,5 @@ app_name = 'sales'
 urlpatterns = [
     path('receipt', views.receipt),
     path('records', views.records),
-    path('sell', views.sell),
+    path('sell', views.sell, name='sell'),
 ]

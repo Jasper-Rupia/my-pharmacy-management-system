@@ -5,28 +5,14 @@ from django.contrib import messages
 from django.contrib.auth.hashers import make_password
 from userAuth.models import pmsUser
 
-
-# def login(request):
 #     # if request.session.has_key('user_email'):
 #     #     email = request.session['user_email']
 #     #     return redirect('dashboard:index')
-#     if request.method == 'POST':
-#         email = request.POST['email']  
-#         password = request.POST['password']
-#         try:
-    #         user = User.objects.get(email=email)
-    #         print(user.name) 
-    #         print(user.password) 
+
     #         print(check_password(password, user.password))
     #         print(password)
     #         if user is not None:
-    #             #request.session['user_email'] = user.email
-    #             return redirect('dashboard:index')
-    #     except:
-    #         messages.success(request, ('Email or Password incorrect')) 
-    #         return redirect('signin')
-#     else:
-#         return render(request, 'userAuth/page_login.html')
+
 
 
 # def logout(request):
@@ -58,10 +44,6 @@ def user_logout(request):
     if request.method == "POST":
         logout(request)
         return redirect('signin')
-
-
-def newPassword(request):
-    return render(request, 'userAuth/page_new_password.html')
 
 
 def recover(request):

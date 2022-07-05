@@ -10,6 +10,8 @@ urlpatterns = [
     path('updPharmacy', views.updPharmacy),
     
     path('profile', views.profile, name='profile'),
+    path('updProfile', views.updProfile),
+    path('updPassword', views.updPassword),
 
     path('users', views.users, name='users'),
     path('addUsers', views.addUsers),
