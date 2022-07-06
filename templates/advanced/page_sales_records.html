@@ -67,42 +67,39 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title"> All Sales here
-                                <span class="float-end">
+                                <!-- <span class="float-end">
                                     <a href="./page_sell.html" class="btn-sm btn-primary mx-2"> <i class="mdi mdi-plus"></i> Add sales </a>
                                     <a href="javascript:void(0)" class="btn-sm btn-danger"> <i class="mdi mdi-delete"></i> Delete </a>
-                                </span>
+                                </span> -->
                             </h5>
                             <div class="table-responsive">
                                 <table id="zero_config" class="table table-striped table-bordered text-center">
                                     <thead>
                                         <tr>
-                                            <th> <label class="customcheckbox mb-3"> <input type="checkbox" id="mainCheckbox" /> <span class="checkmark"></span></label> </th>
                                             <th> Invoice#</th>
                                             <th> Customer </th>
                                             <th> Contact </th>
-                                            <th> Items </th>
+                                            <th> #Items </th>
                                             <th> Amount </th>
                                             <th> By </th>
                                             <th> Date </th>
-                                            <th> Edit </th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for instance in sales_records %}
                                         <tr>
-                                            <td> <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" /> <span class="checkmark"></span></label> </td>
-                                            <td> Inv222 </td>
-                                            <td> Rukia </td>
-                                            <td> 0656631106 </td>
-                                            <td> 10 </td>
-                                            <td> 12000 </td>
-                                            <td> Ericko </td>
-                                            <td> 2022/07/25 </td>
-                                            <td> <i class="mdi mdi-file-edit-outline"></i> </td>
+                                            <td> {{ instance.invoice }} </td>
+                                            <td> {{ instance.customer }} </td>
+                                            <td> {{ instance.contact }} </td>
+                                            <td> {{ instance.items }} </td>
+                                            <td> {{ instance.total_amount }} </td>
+                                            <td> {{ instance.trans_by }} </td>
+                                            <td> {{ instance.trans_date }} </td>
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th> </th>
                                             <th> Invoice#</th>
                                             <th> Customer </th>
                                             <th> Contact </th>
@@ -110,7 +107,6 @@
                                             <th> Amount </th>
                                             <th> By </th>
                                             <th> Date </th>
-                                            <th> Edit </th>
                                         </tr>
                                     </tfoot>
                                 </table>

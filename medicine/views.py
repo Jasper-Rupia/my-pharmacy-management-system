@@ -96,11 +96,6 @@ def delSellStock(request):
         return redirect('medicine:stock')
     if 'sell' in request.POST:
         medicine_ids  = request.POST.getlist('medicine_id')
-        for medicine_id in medicine_ids:
-            query = Stock.objects.get(id = medicine_id) 
-            print(query)
-        print(query)
-        return redirect('sales:sell')
+        medicines_to_sell = Stock.objects.filter(id__in = medicine_ids)
+        return render(request, 'advanced/page_sell.html', {'medicines_to_sell': medicines_to_sell})
     return redirect('medicine:stock')
-
-

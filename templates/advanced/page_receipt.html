@@ -6,7 +6,7 @@
     {% include 'parts/head.html' %}
 </head>
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar card-no-border m-5 p-5">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -19,37 +19,13 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper">
 
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        {% include 'parts/topbar.html' %}
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-
-
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        {% include 'parts/sidebar.html' %}
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-
-
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <div class="row page-titles d-print-none">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> <i class="mdi mdi-sale"></i> Sales / <span style="color: #687384;"> Billing </span></h3>
+                        <h3 class="text-themecolor"> <i class="mdi mdi-sale"></i> Receipt </h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -69,8 +45,8 @@
                                     <p class="ms-1">
                                         Bld 104ph, <br/>
                                         Near' Uswazi Chini, Mzumbe<br/>
-                                        <b> Pharmacist: </b> Mwarongo <br>
-                                        <b> Date issued: </b> <i class="mdi mdi-calendar"></i> 25th Jan 2018
+                                        <b> Pharmacist: </b> <big> {{ user.username }} </big> <br>
+                                        <b> Date issued: </b> <i class="mdi mdi-calendar"></i> {% now 'F Y' %}
                                     </p>
                                 </address>
                                 <address class="float-end text-end">
@@ -85,7 +61,7 @@
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th colspan="5" class="text-center"><h3>Purchase Item Details</h3></th>
+                                                    <th colspan="5" class="text-center"><h3> Purchase Medicine Details</h3></th>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"> # </th>
@@ -128,8 +104,9 @@
                                 </div>
                                 
                             </div>
-                            <div class="p-3 float-end d-print-none">
-                                <a class="btn btn-secondary waves-effect waves-light" onclick="window.history.back()"> <i class="mdi mdi-arrow-left-bold"></i> Go Back </a>
+                            <div class="p-3 mt-5 float-end d-print-none">
+                                <a href="records" class="btn btn-secondary waves-effect waves-light"> <i class="mdi mdi-arrow-left-bold"></i> Go Back </a>
+                                <!-- <a class="btn btn-secondary waves-effect waves-light" onclick="window.history.back()"> <i class="mdi mdi-arrow-left-bold"></i> Go Back </a> -->
                                 <button class="btn btn-primary waves-effect waves-light" onclick="window.print()"> <i class="mdi mdi-printer"></i> Print </button>
                             </div>
                         </div>
@@ -138,24 +115,6 @@
                 <!-- ============================================================== -->
                 <!-- End Contents -->
                 <!-- ============================================================== -->
-                
-            </div>
-
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            {% include 'parts/footer.html' %}
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
     
     <!-- ============================================================== -->
     <!-- All Jquery -->

@@ -63,37 +63,37 @@
                 <!-- Contents -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <form action="" method="GET">
-                        <div class="card col-lg-8 shadow-sm">
+                    {% if medicines_to_sell %}
+                    <form action="receipt" method="POST" name="cart">
+                        {% csrf_token %}
+                        <div class="card col-lg-10 shadow-sm">
                             <div class="card-body text-center">
-                                <table class="table table-hover table-bordered table-responsive">
+                                <table class="table table-hover table-bordered table-responsive" name="cart">
                                     <tr>
-                                        <th> #</th>
+                                        <th></th>
                                         <th> Medicine </th>
-                                        <th> PerUnitPrice </th>
-                                        <th colspan="2"> Quantity_selection </th>
-                                        <th> Remove </th>
+                                        <th> Qty </th>
+                                        <th> Price </th>
+                                        <th>&nbsp;</th>
+                                        <th> SubTotal</th>
                                     </tr>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> Panaldo </td>
-                                        <td> Tzs. 1200 </td>
-                                        <td> <input type='number' min='1' value="2" class='form-control input-sm' style="width: 100px;"> </td>
-                                        <td> <button type='submit' class='btn btn-sm btn-success waves-effect waves-light'> Update </button> </td>
-                                        <td> <a href="" class='btn btn-sm btn-danger waves-effect waves-light'> <i class="mdi mdi-close-thick"></i> </a> </td>
+                                
+                                    {% for instance in medicines_to_sell %}
+                                    <tr name="line_items">
+                                        <td><button name="remove" class="btn btn-sm btn-danger"> <i class="mdi mdi-close-thick"></i> </button></td>
+                                        <td><input type="hidden" name="sell_item_id" value="{{ instance.id }}"> {{ instance.name }} </td>
+                                        <td><input type="number" name="qty" value="1" min="1" max="{{ instance.quantity }}"></td>
+                                        <td><input type="number" name="price" value="{{ instance.price }}" disabled></td>
+                                        <td>&nbsp;</td>
+                                        <td><input type="text" name="item_total" value="" jautocalc="{qty} * {price}" readonly="readonly" _jautocalc="_jautocalc" disabled></td>
                                     </tr>
+                                    {% endfor %}
+
                                     <tr>
-                                        <td> 2 </td>
-                                        <td> Hedex </td>
-                                        <td> Tzs. 1300 </td>
-                                        <td> <input type='number' min='1' value="2" class='form-control input-sm' style="width: 100px;"> </td>
-                                        <td> <button type='submit' class='btn btn-sm btn-success waves-effect waves-light'> Update </button> </td>
-                                        <td> <a href="" class='btn btn-sm btn-danger waves-effect waves-light'> <i class="mdi mdi-close-thick"></i> </a> </td>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="2"> Total Bill </th>
-                                        <th> <strong> Tzs. 5000 </strong> </th>
-                                        <th colspan="3"> </th>
+                                        <td colspan="3">&nbsp;</td>
+                                        <td> Total </td>
+                                        <td>&nbsp;</td>
+                                        <td><input type="text" name="total" value="" jautocalc="SUM({item_total})" readonly="readonly" _jautocalc="_jautocalc"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -102,20 +102,27 @@
                             <div class="card-body">
                                 <div class="form-group ">
                                     <label for="name"> Customer name </label>
-                                    <input type="text" class="form-control w-50" placeholder="(Optional)" id="name">
+                                    <input type="text" name="customer_name" class="form-control w-50" placeholder="(Optional)" id="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone"> Phone No: </label>
-                                    <input type="text" class="form-control phone-inputmask w-50" placeholder="(Optional)" id="phone"/>
+                                    <input type="text" name="customer_tel" class="form-control phone-inputmask w-50" placeholder="(Optional)" id="phone"/>
                                 </div>
                             </div>
                         </div>
                         <div class="card col-lg-8 shadow-sm">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light float-end" onclick="return confirm('DATA WILL BE DAVED TO SALES RECORDS.')"> <a href="./page_receipt.html" class="text-white"> <i class="mdi mdi-bookmark-check mdi-18px"></i> Generate Bill </a> </button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light float-end" onclick="return confirm('DATA WILL BE DAVED TO SALES RECORDS.')"> <i class="mdi mdi-bookmark-check mdi-18px"></i> Generate Bill </button>
                             </div>
                         </div>
                     </form>
+                    {% else %}
+                    <div class="card col-lg-10 shadow-sm">
+                        <div class="card-body text-center">
+                            Select some medicine to sell from <a href="stock"> >> here << </a>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Contents -->
@@ -152,6 +159,28 @@
     <!-- input mask control -->
     <script src="{% static 'plugins/inputmask/jquery.inputmask.bundle.js' %}"></script>
     <script src="{% static 'js/inputmask.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{% static 'plugins/jautocalc.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            function autoCalcSetup() {
+                $('form[name=cart]').jAutoCalc('destroy');
+                $('form[name=cart] tr[name=line_items]').jAutoCalc({keyEventsFire: true, decimalPlaces: 2, emptyAsZero: true});
+                $('form[name=cart]').jAutoCalc({decimalPlaces: 2});
+            }
+            autoCalcSetup();
+
+            $('button[name=remove]').click(function(e) {
+                e.preventDefault();
+
+                var form = $(this).parents('form')
+                $(this).parents('tr').remove();
+                autoCalcSetup();
+            });
+        });
+    </script>
 
 </body>
 
