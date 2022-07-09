@@ -62,28 +62,25 @@ def updProfile(request):
 
 @login_required(login_url='')
 def updPassword(request):
-    if request.method == 'POST':
-        oldPassword = request.POST['oldPassword']
-        check = check_password(oldPassword, request.user.password)
-        if check:
-            newPassword = request.POST['newPassword']
-            confirmPassword = request.POST['confirmPassword']
-            print(newPassword)
-            print(confirmPassword)
-            if newPassword == confirmPassword:
-                print("done")
-                password = make_password(newPassword)
-                query = pmsUser.objects.get(id=request.user.id)
-                query.password = password
-                print("done")
-                query.save()
-                return redirect('settings:profile')
-            else:
+    if request.method == 'POST': 
+        oldPassword = request.POST['oldPassword'] 
+        check = check_password(oldPassword, request.user.password) 
+        if check: 
+            newPassword = request.POST['newPassword'] 
+            confirmPassword = request.POST['confirmPassword'] 
+            if newPassword == confirmPassword: 
+                password = make_password(newPassword) 
+                query = pmsUser.objects.get(id=request.user.id) 
+                query.password = password 
+                query.save() 
+                #messages.success(request, ('Password updated')) 
+                return redirect('settings:profile') 
+            else: 
                 messages.warning(request, ('New Password & Confirm didn\'t match')) 
-                return redirect('settings:profile')
-        else:
+                return redirect('settings:profile') 
+        else: 
             messages.warning(request, ('Old Password incorrect!')) 
-            return redirect('settings:profile')
+            return redirect('settings:profile') 
 
 
 @login_required(login_url='')

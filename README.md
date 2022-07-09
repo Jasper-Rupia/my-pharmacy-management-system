@@ -1,9 +1,8 @@
 
 ### Requirements: 
 ```
-python
-pip
-virtualenvwrapper-win
+Python 3.10.4
+virtualenvwrapper-win==1.2.7
 ```
 
 ### Commands in windows cmd: 

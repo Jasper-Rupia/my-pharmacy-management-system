@@ -6,7 +6,7 @@
     {% include 'parts/head.html' %}
 </head>
 
-<body class="fix-header fix-sidebar card-no-border m-5 p-5">
+<body class="fix-header fix-sidebar card-no-border p-5">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -43,19 +43,21 @@
                                     <h2><b class="text-danger"> E&J Pharmacy </b></h2>
                                     <h3><b> BILL# </b> <span class="float-end"> B5669626 </span></h3>
                                     <p class="ms-1">
-                                        Bld 104ph, <br/>
-                                        Near' Uswazi Chini, Mzumbe<br/>
-                                        <b> Pharmacist: </b> <big> {{ user.username }} </big> <br>
+                                        {{ pharmacy_value.name }} -
+                                        {{ pharmacy_value.location }}, <br/>
+                                        <b> Pharmacist: </b> <strong> {{ user.username }} </strong> <br>
                                         <b> Date issued: </b> <i class="mdi mdi-calendar"></i> {% now 'F Y' %}
                                     </p>
                                 </address>
+                                {% if customer_name %}
                                 <address class="float-end text-end">
                                     <h4 class="font-bold"> Customer </h4>
                                     <p class="ms-4">
-                                        Josephat <br/>
-                                        0656-637-777 <br/>
+                                        {{ customer_name }} <br/>
+                                        {{ customer_tel }} <br/>
                                     </p>
                                 </address>
+                                {% endif %}
                                 <div class="col-md-12">
                                     <div class="table-responsive mt-5">
                                         <table class="table table-hover">
@@ -68,35 +70,24 @@
                                                     <th> Medicine </th>
                                                     <th class="text-end"> Price</th>
                                                     <th class="text-end"> Quantity</th>
-                                                    <th class="text-end"> Total</th>
+                                                    <th class="text-end"> subTotal</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+
+                                                {% for object in objects %}
                                                 <tr>
-                                                    <td class="text-center"> 1</td>
-                                                    <td> Panadol</td>
-                                                    <td class="text-end"> Tzs. 1,000</td>
-                                                    <td class="text-end"> 2 </td>
-                                                    <td class="text-end"> 2,000 </td>
+                                                    <td class="text-center"> {{ object.rec_i }} </td>
+                                                    <td> {{ object.rec_med }} </td>
+                                                    <td class="text-end"> Tzs. {{ object.rec_price }}</td>
+                                                    <td class="text-end"> {{ object.rec_qty }} </td>
+                                                    <td class="text-end"> {{ object.rec_subTotal }} </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center"> 2</td>
-                                                    <td> Hedex </td>
-                                                    <td class="text-end"> Tzs. 1000</td>
-                                                    <td class="text-end"> 2 </td>
-                                                    <td class="text-end"> 2,000 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="4" class="text-end"> Gross Total </td>
-                                                    <th class="text-end"> 4,000 </th>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="4" class="text-end"> Discournt </td>
-                                                    <th class="text-end"> 0 </th>
-                                                </tr>
+                                                {% endfor %}
+
                                                 <tr>
                                                     <th colspan="4" class="text-end"> Net Total </th>
-                                                    <td class="border-top border-primary font-bold text-end"> 4,000 </td>
+                                                    <td class="border-top border-primary font-bold text-end"> {{ total }} </td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -68,7 +68,7 @@
                         {% csrf_token %}
                         <div class="card col-lg-10 shadow-sm">
                             <div class="card-body text-center">
-                                <table class="table table-hover table-bordered table-responsive" name="cart">
+                                <table id="table" class="table table-hover table-bordered table-responsive" name="cart">
                                     <tr>
                                         <th></th>
                                         <th> Medicine </th>
@@ -79,11 +79,11 @@
                                     </tr>
                                 
                                     {% for instance in medicines_to_sell %}
-                                    <tr name="line_items">
+                                    <tr name="line_items" id="tr">
                                         <td><button name="remove" class="btn btn-sm btn-danger"> <i class="mdi mdi-close-thick"></i> </button></td>
                                         <td><input type="hidden" name="sell_item_id" value="{{ instance.id }}"> {{ instance.name }} </td>
                                         <td><input type="number" name="qty" value="1" min="1" max="{{ instance.quantity }}"></td>
-                                        <td><input type="number" name="price" value="{{ instance.price }}" disabled></td>
+                                        <td><input type="number" name="price" value="{{ instance.price }}" ></td>
                                         <td>&nbsp;</td>
                                         <td><input type="text" name="item_total" value="" jautocalc="{qty} * {price}" readonly="readonly" _jautocalc="_jautocalc" disabled></td>
                                     </tr>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="card col-lg-8 shadow-sm">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light float-end" onclick="return confirm('DATA WILL BE DAVED TO SALES RECORDS.')"> <i class="mdi mdi-bookmark-check mdi-18px"></i> Generate Bill </button>
+                                <button type="submit" id="generate-bill" class="btn btn-primary waves-effect waves-light float-end" onclick="return confirm('DATA WILL BE DAVED TO SALES RECORDS.')"> <i class="mdi mdi-bookmark-check mdi-18px"></i> Generate Bill </button>
                             </div>
                         </div>
                     </form>
@@ -160,7 +160,7 @@
     <script src="{% static 'plugins/inputmask/jquery.inputmask.bundle.js' %}"></script>
     <script src="{% static 'js/inputmask.js' %}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script src="{% static 'plugins/jautocalc.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -179,6 +179,19 @@
                 $(this).parents('tr').remove();
                 autoCalcSetup();
             });
+        });
+
+        $(function(){
+            setInterval(function(){
+                var rowCount = $('#table tbody #tr').length;
+                if(rowCount < 1){
+                    console.log(rowCount);
+                    $('#generate-bill').attr('disabled', true);
+                }else{
+                    $('#generate-bill').removeAttr('disabled', false);
+                }
+            }, 1000)
+            
         });
     </script>
 

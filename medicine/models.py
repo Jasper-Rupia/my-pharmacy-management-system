@@ -18,7 +18,7 @@ class Category(models.Model):
 
 
 class Stock(models.Model):
-    name = models.CharField(unique=True, max_length=30)
+    name = models.CharField(max_length=30)
     generic_name = models.CharField(max_length=30, blank=True)
     category_name = models.ForeignKey(Category, db_column='category', on_delete=models.CASCADE)
     quantity = models.IntegerField()

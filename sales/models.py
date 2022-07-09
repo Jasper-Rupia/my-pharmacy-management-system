@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from django.db import models
 from userAuth.models import pmsUser
 from settings.models import Pharmacy
@@ -5,7 +6,7 @@ from settings.models import Pharmacy
 
 class Records(models.Model):
     invoice = models.CharField(max_length=30)
-    customer = models.CharField(max_length=30)
+    customer = models.CharField(max_length=30, default='no_name') 
     contact = models.CharField(max_length=30)
     items = models.IntegerField()
     total_amount = models.IntegerField()

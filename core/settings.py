@@ -82,13 +82,17 @@ AUTH_USER_MODEL = 'userAuth.pmsUser'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pmsdb3',
+        'NAME': 'pmsdb4',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
-        #'STORAGE_ENGINE': 'MyISAM / INNODB / ETC'
+        
+        # 'STORAGE_ENGINE': 'MyISAM / INNODB / ETC',
         # 'OPTIONS': {
         #     'init_command': 'SET foreign_key_checks = 0;'
         # }

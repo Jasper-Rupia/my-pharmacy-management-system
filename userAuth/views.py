@@ -4,16 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
 from userAuth.models import pmsUser
+from django.views.decorators.csrf import csrf_exempt
 
 #     # if request.session.has_key('user_email'):
 #     #     email = request.session['user_email']
 #     #     return redirect('dashboard:index')
-
-    #         print(check_password(password, user.password))
-    #         print(password)
-    #         if user is not None:
-
-
 
 # def logout(request):
 #     # try:
@@ -22,13 +17,13 @@ from userAuth.models import pmsUser
 #     #     pass
 #     return redirect('signin')
 
-
+@csrf_exempt
 def user_login(request):
     if request.user.is_authenticated:
         return redirect('dashboard:index')
     elif request.method == "POST":
-        username = request.POST['username']   
-        password = request.POST['password']  
+        username = request.POST['username'] 
+        password = request.POST['password'] 
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
