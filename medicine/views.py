@@ -21,7 +21,8 @@ def category(request):
         return render(request, 'advanced/page_category.html', varToPass)
     categories_in_pharmacy = Category.objects.filter(in_pharmacy=pharmacy_value)
     medicines_in_each_category = categories_in_pharmacy.annotate(medicines_in_category=Count('stock'))
-    
+    # for i in medicines_in_each_category:
+    #     print(i.medicines_in_category)
     varToPass = {
         'medicines_in_each_category': medicines_in_each_category,
     }

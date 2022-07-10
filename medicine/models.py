@@ -30,6 +30,7 @@ class Stock(models.Model):
     date_modified = models.DateTimeField(auto_now=True)
     in_pharmacy = models.ForeignKey(Pharmacy, db_column='in_pharmacy', on_delete=models.CASCADE)
     owner = models.ForeignKey(pmsUser, db_column='owner', on_delete=models.CASCADE)
+    sold = models.IntegerField(default=0)
 
     def is_exipired_medicine(self):
         return (date.today() - self.best_before).days > 1

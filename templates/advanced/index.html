@@ -229,42 +229,22 @@
                                         <thead>
                                         <tr>
                                             <th>Item Name</th>
-                                            <th>Quantity</th>
-                                            <th>Price (TZS)</th>
+                                            <th>Qty sold</th>
+                                            <th>unit price (TZS)</th>
                                             <th>Total (TZS)</th>
                                         </tr>
                                         </thead>
                                         <tbody>
+
+                                            {% for instance in stock_values|slice:':5' %}
                                             <tr>
-                                                <td>Biogesic</td>
-                                                <td>30</td>
-                                                <td>7.00</td>
-                                                <td>210.00</td>
+                                                <td> {{ instance.name }} </td>
+                                                <td> {{ instance.sold }} </td>
+                                                <td> {{ instance.price }} </td>
+                                                <td> {% widthratio instance.sold 1 instance.price %}</td>
                                             </tr>
-                                            <tr>
-                                                <td>Alaxan</td>
-                                                <td>20</td>
-                                                <td>10.00</td>
-                                                <td>200.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tuseran</td>
-                                                <td>50</td>
-                                                <td>8.00</td>
-                                                <td>400.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>BioFlu</td>
-                                                <td>45</td>
-                                                <td>12.00</td>
-                                                <td>540.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Enervon</td>
-                                                <td>100</td>
-                                                <td>6.00</td>
-                                                <td>600.00</td>
-                                            </tr>
+                                            {% endfor %}
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -296,7 +276,7 @@
     {% include 'parts/scripts.html' %}
     <!--Custom JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'js/graph.js' %}"></script>
+    <!-- <script src="{% static 'js/graph.js' %}"></script> -->
     <script>
         $("#to-recover").on("click", function () {
           $("#loginform").slideUp();
@@ -306,6 +286,56 @@
           $("#recoverform").hide();
           $("#loginform").fadeIn();
         });
+        
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+        // var gradient = ctx.crateLinearGradient(0, 0, 0, 400);
+        // gradient.addColorStop(0, "rgba(58, 123, 213, 1)");
+        // gradient.addColorStop(1, "rgba(0, 213, 255, 0.3)");
+        var labels = {{ to_graph_trans_date|safe }};
+
+        var data = {
+        labels,
+        datasets: [{
+            label: 'Sales data',
+            data: {{ to_graph_day_sales|safe }},
+            fill: true,
+            borderColor: 'rgb(75, 192, 192, 1)',
+            backgroundColor: 'rgb(75, 192, 192, 0.1)',
+            pointBackgroundColor: 'rgb(0, 0, 0, 0.5)',
+            tension: 0.3
+        },{
+            label: 'Purchases data',
+            data: {{ to_graph_day_sales|safe }},
+            fill: true,
+            borderColor: 'rgb(13, 110, 253)',
+            backgroundColor: 'rgb(13, 110, 253, 0.1)',
+            pointBackgroundColor: 'rgb(0, 0, 0, 0.5)',
+            tension: 0.3
+        }]
+        };
+
+        var config = {
+            type: 'line',
+            data,
+            options: {
+            responsive: true,
+            radius: 3,
+            hitRadius: 5,
+            hoverRadius: 7,
+            scales: {
+                y: {
+                ticks: {
+                    callback: function(value){
+                    return "Tsh " + value;
+                    }
+                }
+                }
+            }
+            }
+        };
+
+        var theChart = new Chart(ctx, config);
     </script>
 
 </body>

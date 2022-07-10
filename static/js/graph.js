@@ -5,7 +5,7 @@ var ctx = document.getElementById("myChart").getContext("2d");
 // gradient.addColorStop(0, "rgba(58, 123, 213, 1)");
 // gradient.addColorStop(1, "rgba(0, 213, 255, 0.3)");
 
-var labels = [1, 2, 3, 4, 5, 6, 7];
+var labels = ['SUN', 'SAT', 'FRI', 'THU', 'WED', 'TUE', 'MON'];
 
 var data = {
   labels,

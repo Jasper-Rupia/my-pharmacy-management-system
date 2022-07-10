@@ -43,6 +43,7 @@ def receipt(request):
         #         'rec_subTotal': int(sell_item_qtys[i]) * int(sell_item_prices[i])
         #     })
         #     medicine.quantity = medicine.quantity - int(sell_item_qtys[i])
+        #     medicine.sold = int(sell_item_qtys[i])
         #     item.save()
 
         i = 1
@@ -56,6 +57,7 @@ def receipt(request):
             })
             i += 1
             medicine.quantity = medicine.quantity - int(qty)
+            medicine.sold = medicine.sold + int(qty)
             medicine.save()
 
         varToPass = {
