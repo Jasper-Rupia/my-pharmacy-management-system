@@ -98,7 +98,8 @@
                                 </div>
                                 
                                 <div class="modal-body text-center">
-                                    <form id="add-form" method="GET" action="addCategory">
+                                    <form id="add-form" method="POST" action="addCategory" enctype="multipart/form-data">
+                                        {% csrf_token %}
                                         <table>
                                             <tr>
                                                 <th> category Name: </th>
@@ -106,7 +107,7 @@
                                             </tr>
                                             <tr>
                                                 <th> Image </th>
-                                                <td><input type="file" class="form-control my-2" disabled></td>
+                                                <td><input type="file" name="category_image" class="form-control my-2" ></td>
                                             </tr>
                                         </table>     
                                     </form>
@@ -124,7 +125,6 @@
                         <div class="row">
                             
                             <!-- Column -->
-                            {% static "assets/categories/" as baseUrl %}
                             
                             {% for instance in medicines_in_each_category %}
                             <div class="col-sm-6 col-lg-4 col-xl-3">
@@ -132,7 +132,7 @@
                                     <span class="myCheckbox">
                                         <label class="customcheckbox"> <input type="checkbox" class="listCheckbox" value="{{ instance.id }}" name="category_id"/> <span class="checkmark"></span></label>
                                     </span>
-                                    <div class="text-center"> <img src="{{ baseUrl }}{{ instance.image }}.jpg" style="width:155px; height: 122px;" class='img-thumbnail'></div>
+                                    <div class="text-center"> <img src="media/{{ instance.image }}" style="width:155px; height: 122px;" class='img-thumbnail'></div>
                                     <div class="dropdown-divider"></div>
                                     <span>Name <span class="float-end text-info"> {{ instance.name }} </span></span>
                                     <div class="dropdown-divider"></div>

@@ -82,8 +82,8 @@ AUTH_USER_MODEL = 'userAuth.pmsUser'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
 
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pmsdb4',
@@ -137,10 +137,12 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ['static'] # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = [
-    os.path.join(BASE_DIR, 'media')
-]
+
+# Base url to serve media files  
+MEDIA_URL = '/media/'    
+# Path where media is stored  
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

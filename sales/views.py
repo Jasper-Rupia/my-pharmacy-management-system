@@ -6,6 +6,7 @@ from settings.models import Pharmacy
 from medicine.models import Stock
 from datetime import datetime
     
+
 @login_required(login_url='')
 def receipt(request):
     if request.method == 'POST':
@@ -73,7 +74,8 @@ def receipt(request):
 
 @login_required(login_url='')
 def records(request):
-    sales_records = Records.objects.filter(owner=request.user.work_for)
+    sales_records = list(Records.objects.filter(owner=request.user.work_for).order_by('-invoice')) 
+    print(sales_records)
     return render(request, 'advanced/page_sales_records.html', {'sales_records': sales_records})
 
 

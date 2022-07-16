@@ -7,7 +7,7 @@ from datetime import date
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
-    image = models.ImageField(upload_to='uploads/', default='default')
+    image = models.ImageField(upload_to='categories/')
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     in_pharmacy = models.ForeignKey(Pharmacy, db_column='in_pharmacy', on_delete=models.CASCADE)

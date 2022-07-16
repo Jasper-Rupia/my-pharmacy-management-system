@@ -25,7 +25,7 @@ def index(request):
         else:
             to_graph_trans_date.append(instance['trans_date'].strftime("%d/%m/%Y"))
         to_graph_day_sales.append(instance['day_sales']) 
-        
+    print(to_graph_trans_date) 
     varToPass = {
         'category_values': category_values,
         'stock_values': stock_values,

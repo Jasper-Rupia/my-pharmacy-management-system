@@ -1,3 +1,4 @@
+from email.mime import image
 from typing import Counter
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -5,6 +6,7 @@ from medicine.models import Category, Stock
 from settings.models import Pharmacy
 from django.db.models import Count
 #from django.db import connection
+from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.contrib import messages
@@ -19,10 +21,8 @@ def category(request):
             'pharmacy_value': 0
         }
         return render(request, 'advanced/page_category.html', varToPass)
-    categories_in_pharmacy = Category.objects.filter(in_pharmacy=pharmacy_value)
+    categories_in_pharmacy = Category.objects.filter(in_pharmacy=pharmacy_value).order_by('-date_modified')
     medicines_in_each_category = categories_in_pharmacy.annotate(medicines_in_category=Count('stock'))
-    # for i in medicines_in_each_category:
-    #     print(i.medicines_in_category)
     varToPass = {
         'medicines_in_each_category': medicines_in_each_category,
     }
@@ -31,13 +31,27 @@ def category(request):
 
 @login_required(login_url='')
 def addCategory(request):
-    category_name = request.GET['category_name']
-    pharmacy_value = Pharmacy.objects.get(owner = request.user.work_for)
-    query = Category(   name = category_name,
-                        in_pharmacy = pharmacy_value,
-                        owner = request.user.work_for
-                        )
-    query.save()
+    if request.method == 'POST': 
+        category_name = request.POST['category_name']
+        pharmacy_value = Pharmacy.objects.get(owner = request.user.work_for)
+        try:
+            category_image = request.FILES['category_image']
+        except:
+            query = Category(   name = category_name,
+                            image = 'categories/default_category.jpg',
+                            in_pharmacy = pharmacy_value,
+                            owner = request.user.work_for
+                            ) 
+            query.save()
+            return redirect('medicine:category')
+        # fss = FileSystemStorage()
+        # file = fss.save(category_image.name, category_image)
+        query = Category(   name = category_name,
+                            image = category_image,
+                            in_pharmacy = pharmacy_value,
+                            owner = request.user.work_for
+                            ) 
+        query.save()
     #print(connection.queries)
     return redirect('medicine:category')
 
