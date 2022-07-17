@@ -69,7 +69,7 @@
                             <div class="card-body text-center">
                                 
                                 <div class="mt-4 rounded-circle" style="width:200px; margin:auto; position:relative; overflow:hidden;"> 
-                                    <img src="{% static 'assets/users/default_dp.jpg' %}" onerror='this.src="../../assets/users/no-profile.jpg"' width="200px">
+                                    <img src="../media/{{ user.avata }}" width="200px">
                                     <!-- Button trigger modal -->
                                     <a href="javascript:void(0)" class="waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="mdi mdi-camera mdi-24px"></i>
@@ -135,7 +135,7 @@
                                         <form class="form-material" action="updProfile" method="GET">
                                             <div class="form-group">
                                                 <label for="name"> Userame </label>
-                                                <input type="text" value="{{ user.username }}" name="username" class="form-control" id="name" required>
+                                                <input type="text" value="{{ user.username }}" name="username" class="form-control" id="user-name" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email" class="col-md-12"> Email </label>
@@ -208,7 +208,7 @@
                                     border: 2px solid rgb(65, 102, 224);
                                 }
                                 
-                                .drag-image img {
+                                .outer-drag-image img {
                                     height: 100%;
                                     width: 100%;
                                     object-fit: cover;
@@ -216,19 +216,22 @@
                                 }
                             </style>
             
-                            <form action="javascript:void(0)" class="text-center">
-                                <div class="drag-image">
-                                    <div class="icon"><i class="mdi mdi-cloud-upload mdi-48px"></i></div>
-                                    <h6> Drag & Drop File Here </h6> 
-                                    <span> OR </span> 
-                                    <button class="btn btn-primary waves-effect waves-light"> Browse File </button> 
-                                    <input type="file" hidden>
+                            <form action="updateDp" method="POST" id="update-dp" enctype="multipart/form-data" class="text-center">
+                                {% csrf_token %}
+                                <div class="outer-drag-image">
+                                    <div class="drag-image">
+                                        <div class="icon"><i class="mdi mdi-cloud-upload mdi-48px"></i></div>
+                                        <h6> Drag & Drop File Here </h6> 
+                                        <span> OR </span> 
+                                        <label id="load-image" class="btn btn-primary waves-effect waves-light"> Browse File </label> 
+                                    </div>
+                                    <input type="file" name="avata" id="input-file-image" hidden>
                                 </div>
                             </form>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-sm waves-effect waves-light btn-secondary"> <i class="mdi mdi-account-cancel mdi-24px"></i> Resert </button>
-                                <button type="submit" class="btn btn-sm waves-effect waves-light btn-success" data-bs-dismiss="modal"> <i class="mdi mdi-account-check mdi-24px"></i> Upload </button>
+                                <button type="submit" form="update-dp" name="reset_dp" class="btn btn-sm waves-effect waves-light btn-secondary" data-bs-dismiss="modal"> <i class="mdi mdi-account-cancel mdi-24px"></i> Resert </button>
+                                <button type="submit" form="update-dp" name="update_dp" class="btn btn-sm waves-effect waves-light btn-success"> <i class="mdi mdi-account-check mdi-24px"></i> Upload </button>
                             </div>
                         </div>
                     </div>
@@ -259,10 +262,64 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
     {% include 'parts/scripts.html' %}
-    <script src="{% static 'js/drag-drop.js' %}"></script>
+    
     <!-- input mask control -->
     <script src="{% static 'plugins/inputmask/jquery.inputmask.bundle.js' %}"></script>
     <script src="{% static 'js/inputmask.js' %}"></script>
+    <script>
+        const dropArea = document.querySelector(".outer-drag-image"),
+        dragText = dropArea.querySelector("h6"),
+        button = dropArea.querySelector("#load-image"),
+        input = dropArea.querySelector("#input-file-image");
+        let file;
+
+        //link button with input file 
+        button.onclick = ()=>{
+            input.click();
+        }
+
+        input.addEventListener("change", function(){
+            file = this.files[0];
+            dropArea.classList.add("active");
+            viewfile();
+        });
+
+        dropArea.addEventListener("dragover", (event)=>{
+            event.preventDefault();
+            dropArea.classList.add("active");
+            dragText.textContent = "Release to Upload File";
+        });
+
+        dropArea.addEventListener("dragleave", ()=>{
+            dropArea.classList.remove("active");
+            dragText.textContent = "Drag & Drop to Upload File";
+        });
+
+        dropArea.addEventListener("drop", (event)=>{
+            event.preventDefault();
+            file = event.dataTransfer.files[0];
+            viewfile();
+        });
+
+        function viewfile(){
+            let fileType = file.type;
+            let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+            if(validExtensions.includes(fileType)){
+                let fileReader = new FileReader();
+                fileReader.onload = ()=>{
+                    let fileURL = fileReader.result;
+                    let imgTag = `<img src="${fileURL}" alt="image">`;
+                    document.querySelector(".drag-image").innerHTML = imgTag;
+                }
+            fileReader.readAsDataURL(file);
+            }
+            else{
+                alert("This is not an Image File!");
+                dropArea.classList.remove("active");
+                dragText.textContent = "Drag & Drop to Upload File";
+            }
+        }
+    </script>
 
 </body>
 

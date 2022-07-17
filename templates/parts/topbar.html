@@ -54,12 +54,12 @@
                     
                     <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-arrow-down-right-bold"></i>
-                        <img src="{% static 'assets/users/default_dp.jpg' %}" alt="user" class="rounded-circle" width="31"/>
+                        <img src="media/{{ user.avata }}" alt="user" class="rounded-circle" width="31"/>
                         <span class="p-2"> {{ user.username }} </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end animated shadow-lg p-3" style="width:277px; position:absolute; right:2px; margin-top:2px;" aria-labelledby="navbarDropdown">
                         <div class="text-center">
-                            <img src="{% static 'assets/users/default_dp.jpg' %}" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
+                            <img src="media/{{ user.avata }}" style='width: 150px; margin:auto;' class='img-circle img-thumbnail'><br>
                             <span> {{ user.username }} </span><br>
                             <span> * {{ user.title }} * </span>
                         </div>

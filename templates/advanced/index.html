@@ -278,15 +278,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- <script src="{% static 'js/graph.js' %}"></script> -->
     <script>
-        $("#to-recover").on("click", function () {
-          $("#loginform").slideUp();
-          $("#recoverform").fadeIn();
-        });
-        $("#to-login").click(function () {
-          $("#recoverform").hide();
-          $("#loginform").fadeIn();
-        });
-        
         var ctx = document.getElementById("myChart").getContext("2d");
 
         // var gradient = ctx.crateLinearGradient(0, 0, 0, 400);

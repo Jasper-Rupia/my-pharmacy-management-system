@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class pmsUser(AbstractUser):
-    avata = models.ImageField(upload_to='uploads/', default='default_dp')
+    avata = models.ImageField(upload_to='users_dp/')
     tel = models.CharField(max_length=30, blank=True)
     title = models.CharField(max_length=30, blank=True)
     work_for = models.ForeignKey('self', db_column='work_for', on_delete=models.CASCADE, null=True, blank=True) 

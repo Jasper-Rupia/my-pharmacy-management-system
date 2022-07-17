@@ -7,7 +7,10 @@ function lowerCaseProfile() {
     var xEmail = document.getElementById("email");
     xEmail.value = xEmail.value.toLowerCase();
 }
-
+function lowerCaseProfile() {
+    var xEmail = document.getElementById("user-name");
+    xEmail.value = xEmail.value.toLowerCase();
+}
 
 
  // ---------------------------------- all pages

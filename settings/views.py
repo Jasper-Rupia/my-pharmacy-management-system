@@ -50,6 +50,19 @@ def profile(request):
     }
     return render(request, 'advanced/page_profile.html', varToPass)
 
+
+@login_required(login_url='')
+def updateDp(request):
+    query = pmsUser.objects.get(id=request.user.id)
+    if 'update_dp' in request.POST: 
+        query.avata = request.FILES['avata']
+        query.save()
+    elif 'reset_dp' in request.POST:
+        query.avata = 'users_dp/no-profile.jpg'
+        query.save()
+    return redirect('settings:profile')
+
+
 @login_required(login_url='')
 def updProfile(request):
     query = pmsUser.objects.get(id=request.user.id)
